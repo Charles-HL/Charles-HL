@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import { getValidationMessage, type Locale } from "@/lib/validation-messages";
+import { getValidationMessage, getProjectTypeInvalidMessage, getTimelineInvalidMessage, type Locale } from "@/lib/validation-messages";
 
 // Fonction pour extraire la locale depuis les headers ou body
 const getLocaleFromRequest = (
@@ -103,7 +103,7 @@ const validateQuoteData = (
     errors.push(getValidationMessage("projectTypeEmpty", locale));
   } else if (!validProjectTypes.includes(obj.projectType)) {
     errors.push(
-      getValidationMessage("projectTypeInvalid", locale, [validProjectTypes])
+      getProjectTypeInvalidMessage(validProjectTypes, locale)
     );
   }
 
@@ -153,7 +153,7 @@ const validateQuoteData = (
     errors.push(getValidationMessage("timelineEmpty", locale));
   } else if (!validTimelines.includes(obj.timeline)) {
     errors.push(
-      getValidationMessage("timelineInvalid", locale, [validTimelines])
+      getTimelineInvalidMessage(validTimelines, locale)
     );
   }
 

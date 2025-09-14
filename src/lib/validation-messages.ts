@@ -49,10 +49,6 @@ export const validationMessages = {
     // Validation type de projet
     projectTypeRequired: "Le type de projet est requis",
     projectTypeEmpty: "Le type de projet ne peut pas être vide",
-    projectTypeInvalid: (validTypes: string[]) =>
-      `Type de projet invalide. Les valeurs autorisées sont: ${validTypes.join(
-        ", "
-      )}`,
 
     // Validation budget
     budgetMinRequired: "Le budget minimum est requis",
@@ -73,10 +69,6 @@ export const validationMessages = {
     // Validation délai
     timelineRequired: "Le délai est requis",
     timelineEmpty: "Le délai ne peut pas être vide",
-    timelineInvalid: (validTimelines: string[]) =>
-      `Délai invalide. Les valeurs autorisées sont: ${validTimelines.join(
-        ", "
-      )}`,
 
     // Validation description
     descriptionRequired: "La description du projet est requise",
@@ -135,8 +127,6 @@ export const validationMessages = {
     // Project type validation
     projectTypeRequired: "Project type is required",
     projectTypeEmpty: "Project type cannot be empty",
-    projectTypeInvalid: (validTypes: string[]) =>
-      `Invalid project type. Allowed values are: ${validTypes.join(", ")}`,
 
     // Budget validation
     budgetMinRequired: "Minimum budget is required",
@@ -156,8 +146,6 @@ export const validationMessages = {
     // Timeline validation
     timelineRequired: "Timeline is required",
     timelineEmpty: "Timeline cannot be empty",
-    timelineInvalid: (validTimelines: string[]) =>
-      `Invalid timeline. Allowed values are: ${validTimelines.join(", ")}`,
 
     // Description validation
     descriptionRequired: "Project description is required",
@@ -177,14 +165,22 @@ export type ValidationMessageKey = keyof typeof validationMessages.fr;
 // Fonction utilitaire pour récupérer un message localisé
 export function getValidationMessage(
   key: ValidationMessageKey,
-  locale: Locale = "fr",
-  params?: string[]
+  locale: Locale = "fr"
 ): string {
-  const message = validationMessages[locale][key];
+  return validationMessages[locale][key];
+}
 
-  if (typeof message === "function" && params) {
-    return message(...params);
+// Fonctions utilitaires pour les messages avec paramètres
+export function getProjectTypeInvalidMessage(validTypes: string[], locale: Locale = 'fr'): string {
+  if (locale === 'en') {
+    return `Invalid project type. Allowed values are: ${validTypes.join(", ")}`;
   }
+  return `Type de projet invalide. Les valeurs autorisées sont: ${validTypes.join(", ")}`;
+}
 
-  return message as string;
+export function getTimelineInvalidMessage(validTimelines: string[], locale: Locale = 'fr'): string {
+  if (locale === 'en') {
+    return `Invalid timeline. Allowed values are: ${validTimelines.join(", ")}`;
+  }
+  return `Délai invalide. Les valeurs autorisées sont: ${validTimelines.join(", ")}`;
 }
