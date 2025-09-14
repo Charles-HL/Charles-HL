@@ -19,7 +19,7 @@ export const siteConfig = {
 
   // Réseaux sociaux
   social: {
-    linkedin: "https://linkedin.com/in/charles-hild-le",
+    linkedin: "https://linkedin.com/in/charles-hl",
     github: "https://github.com/charles-hl",
   },
 
