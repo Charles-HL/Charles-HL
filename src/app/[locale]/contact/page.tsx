@@ -1,17 +1,101 @@
-import { getTranslations } from "next-intl/server";
-import { setRequestLocale } from "next-intl/server";
+"use client";
+
+import { useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
 import PageLayout from "@/components/PageLayout";
-import { Mail, MapPin, Clock, Linkedin, Github } from "lucide-react";
+import ErrorDisplay from "@/components/ErrorDisplay";
+import {
+  Mail,
+  MapPin,
+  Clock,
+  Linkedin,
+  Github,
+  CheckCircle,
+} from "lucide-react";
 import { Link } from "@/i18n/navigation";
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface ApiResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  details?: string[];
+}
 
 type Props = {
   params: Promise<{ locale: "en" | "fr" }>;
 };
 
-export default async function ContactPage({ params }: Props) {
-  const { locale } = await params;
-  setRequestLocale(locale);
-  const t = await getTranslations();
+export default function ContactPage({}: Props) {
+  const t = useTranslations();
+  const locale = useLocale();
+  const [formData, setFormData] = useState<ContactFormData>({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [errorDetails, setErrorDetails] = useState<string[]>([]);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          locale: locale, // Envoyer la locale à l'API
+        }),
+      });
+
+      const result: ApiResponse = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setStatusMessage(result.message || t("pages.contact.form.success"));
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setErrorDetails([]);
+      } else {
+        setSubmitStatus("error");
+        setStatusMessage(result.error || t("pages.contact.form.error"));
+        setErrorDetails(result.details || []);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      setSubmitStatus("error");
+      setStatusMessage(t("pages.contact.form.error"));
+      setErrorDetails([]);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <PageLayout>
@@ -124,7 +208,26 @@ export default async function ContactPage({ params }: Props) {
                     {t("pages.contact.sendMessage")}
                   </h2>
 
-                  <form className="space-y-6">
+                  {/* Status Messages */}
+                  {submitStatus === "success" && (
+                    <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
+                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
+                      <p className="text-green-800 dark:text-green-200">
+                        {statusMessage}
+                      </p>
+                    </div>
+                  )}
+
+                  {submitStatus === "error" && (
+                    <ErrorDisplay
+                      errors={
+                        errorDetails.length > 0 ? errorDetails : [statusMessage]
+                      }
+                      className="mb-6"
+                    />
+                  )}
+
+                  <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
                       <label
                         htmlFor="name"
@@ -137,6 +240,8 @@ export default async function ContactPage({ params }: Props) {
                         id="name"
                         name="name"
                         required
+                        value={formData.name}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                         placeholder={t("pages.contact.form.placeholders.name")}
                       />
@@ -154,6 +259,8 @@ export default async function ContactPage({ params }: Props) {
                         id="email"
                         name="email"
                         required
+                        value={formData.email}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                         placeholder={t("pages.contact.form.placeholders.email")}
                       />
@@ -171,6 +278,8 @@ export default async function ContactPage({ params }: Props) {
                         id="subject"
                         name="subject"
                         required
+                        value={formData.subject}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
                         placeholder={t(
                           "pages.contact.form.placeholders.subject"
@@ -190,6 +299,8 @@ export default async function ContactPage({ params }: Props) {
                         name="message"
                         rows={6}
                         required
+                        value={formData.message}
+                        onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white resize-none"
                         placeholder={t(
                           "pages.contact.form.placeholders.message"
@@ -199,9 +310,12 @@ export default async function ContactPage({ params }: Props) {
 
                     <button
                       type="submit"
-                      className="cursor-pointer w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
+                      disabled={isSubmitting}
+                      className="cursor-pointer w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
-                      {t("pages.contact.form.send")}
+                      {isSubmitting
+                        ? t("pages.contact.form.sending")
+                        : t("pages.contact.form.send")}
                     </button>
                   </form>
                 </div>

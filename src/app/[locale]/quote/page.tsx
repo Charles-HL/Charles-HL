@@ -1,17 +1,40 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import PageLayout from "@/components/PageLayout";
-import { Calculator, Clock, Euro, FileText } from "lucide-react";
+import ErrorDisplay from "@/components/ErrorDisplay";
+import { Calculator, Clock, Euro, FileText, CheckCircle } from "lucide-react";
+
+interface QuoteApiResponse {
+  success: boolean;
+  message?: string;
+  error?: string;
+  details?: string[];
+}
 
 export default function QuotePage() {
   const t = useTranslations();
+  const locale = useLocale();
   const [budgetError, setBudgetError] = useState("");
   const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    company: "",
+    projectType: "",
     budgetMin: "",
     budgetMax: "",
+    timeline: "",
+    description: "",
+    requirements: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [errorDetails, setErrorDetails] = useState<string[]>([]);
 
   const validateBudget = useCallback(() => {
     const min = parseFloat(formData.budgetMin);
@@ -32,6 +55,18 @@ export default function QuotePage() {
     return true;
   }, [formData.budgetMin, formData.budgetMax]);
 
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const handleBudgetChange = (
     field: "budgetMin" | "budgetMax",
     value: string
@@ -43,13 +78,58 @@ export default function QuotePage() {
     validateBudget();
   }, [validateBudget]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateBudget()) {
       return;
     }
-    // Traitement du formulaire ici
-    console.log("Formulaire soumis", formData);
+
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    try {
+      const response = await fetch("/api/quote", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          locale: locale, // Envoyer la locale à l'API
+        }),
+      });
+
+      const result: QuoteApiResponse = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        setStatusMessage(result.message || t("pages.quote.form.success"));
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          company: "",
+          projectType: "",
+          budgetMin: "",
+          budgetMax: "",
+          timeline: "",
+          description: "",
+          requirements: "",
+        });
+        setErrorDetails([]);
+      } else {
+        setSubmitStatus("error");
+        setStatusMessage(result.error || t("pages.quote.form.error"));
+        setErrorDetails(result.details || []);
+      }
+    } catch (error) {
+      console.error("Erreur lors de l'envoi:", error);
+      setSubmitStatus("error");
+      setStatusMessage(t("pages.quote.form.error"));
+      setErrorDetails([]);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -134,6 +214,25 @@ export default function QuotePage() {
                 {t("pages.quote.form.projectDetails")}
               </h2>
 
+              {/* Status Messages */}
+              {submitStatus === "success" && (
+                <div className="mb-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
+                  <p className="text-green-800 dark:text-green-200">
+                    {statusMessage}
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === "error" && (
+                <ErrorDisplay
+                  errors={
+                    errorDetails.length > 0 ? errorDetails : [statusMessage]
+                  }
+                  className="mb-8"
+                />
+              )}
+
               <form className="space-y-8" onSubmit={handleSubmit}>
                 {/* Personal Info */}
                 <div className="grid md:grid-cols-2 gap-6">
@@ -149,6 +248,8 @@ export default function QuotePage() {
                       id="firstName"
                       name="firstName"
                       required
+                      value={formData.firstName}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                     />
                   </div>
@@ -164,6 +265,8 @@ export default function QuotePage() {
                       id="lastName"
                       name="lastName"
                       required
+                      value={formData.lastName}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                     />
                   </div>
@@ -182,6 +285,8 @@ export default function QuotePage() {
                       id="email"
                       name="email"
                       required
+                      value={formData.email}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                     />
                   </div>
@@ -196,6 +301,8 @@ export default function QuotePage() {
                       type="text"
                       id="company"
                       name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                     />
                   </div>
@@ -213,6 +320,8 @@ export default function QuotePage() {
                     id="projectType"
                     name="projectType"
                     required
+                    value={formData.projectType}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                   >
                     <option value="">
@@ -318,6 +427,8 @@ export default function QuotePage() {
                     id="timeline"
                     name="timeline"
                     required
+                    value={formData.timeline}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm"
                   >
                     <option value="">
@@ -351,6 +462,8 @@ export default function QuotePage() {
                     name="description"
                     rows={4}
                     required
+                    value={formData.description}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white resize-none transition-all duration-200 shadow-sm"
                     placeholder={t("pages.quote.form.placeholders.description")}
                   />
@@ -368,6 +481,8 @@ export default function QuotePage() {
                     id="requirements"
                     name="requirements"
                     rows={4}
+                    value={formData.requirements}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white resize-none transition-all duration-200 shadow-sm"
                     placeholder={t(
                       "pages.quote.form.placeholders.requirements"
@@ -379,9 +494,12 @@ export default function QuotePage() {
                 <div className="text-center">
                   <button
                     type="submit"
-                    className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-12 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                    disabled={isSubmitting}
+                    className="cursor-pointer bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 px-12 rounded-full font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    {t("pages.quote.form.submit")}
+                    {isSubmitting
+                      ? t("pages.quote.form.submitting")
+                      : t("pages.quote.form.submit")}
                   </button>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
                     {t("pages.quote.form.requiredNote")}
