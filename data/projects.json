@@ -1,0 +1,458 @@
+{
+  "projects": [
+    {
+      "id": "web-app-installation-robots",
+      "title": {
+        "fr": "Application Web d'Installation pour Robots",
+        "en": "Robot Installation Web Application"
+      },
+      "subtitle": {
+        "fr": "Solution Next.js de Gestion d'Installations sur Terrain",
+        "en": "Next.js Solution for Field Installation Management"
+      },
+      "period": {
+        "fr": "juin 2025 - juil. 2025",
+        "en": "June 2025 - July 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Développement d'une application web progressive dédiée à la gestion et au suivi des installations de robots tondeuses autonomes. Cette solution digitale améliore le processus d'installation en permettant aux techniciens de terrain de gérer les commandes, suivre l'état en temps réel, collecter les signatures numériques et générer automatiquement des bons d'installation PDF.",
+        "en": "Development of a progressive web application dedicated to managing and tracking autonomous lawn mower robot installations. This digital solution improves the installation process by allowing field technicians to manage orders, track status in real time, collect digital signatures, and automatically generate PDF installation vouchers."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Gestion des commandes d'installation avec système de filtrage et de recherche avancé",
+          "Suivi de l'état d'installation en temps réel avec checklist interactive détaillée",
+          "Collecte des signatures numériques directement sur tablette avec compression d'images optimisée",
+          "Génération automatique de bons d'installation PDF personnalisés",
+          "Synchronisation des données avec l'API backend Forestar en temps réel"
+        ],
+        "en": [
+          "Installation order management with advanced filtering and search system",
+          "Real-time installation status tracking with detailed interactive checklist",
+          "Digital signature collection directly on tablet with optimized image compression",
+          "Automatic generation of personalized PDF installation vouchers",
+          "Real-time data synchronization with Forestar backend API"
+        ]
+      },
+      "businessImpact": {
+        "fr": [
+          "Réduction de 70% du temps de traitement administratif",
+          "Élimination des erreurs de saisie manuelle",
+          "Traçabilité complète des interventions",
+          "Amélioration significative de l'expérience client"
+        ],
+        "en": [
+          "70% reduction in administrative processing time",
+          "Elimination of manual entry errors",
+          "Complete traceability of interventions",
+          "Significant improvement in customer experience"
+        ]
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "JWT",
+        "PWA",
+        "Canvas API"
+      ],
+      "skills": [
+        "Next.js",
+        "TypeScript",
+        "React",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "id": "backend-server-enterprise",
+      "title": {
+        "fr": "Serveur Backend Entreprise",
+        "en": "Enterprise Backend Server"
+      },
+      "subtitle": {
+        "fr": "Écosystème Complet de Gestion d'Équipements Robotiques",
+        "en": "Complete Robotic Equipment Management Ecosystem"
+      },
+      "period": {
+        "fr": "oct. 2024 - juil. 2025",
+        "en": "Oct. 2024 - July 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Backend Node.js/TypeScript haute performance gérant l'écosystème complet pour la réparation, location et vente d'équipements robotiques. Architecture microservices avec authentification JWT multi-rôles sophistiquée.",
+        "en": "High-performance Node.js/TypeScript backend managing the complete ecosystem for repair, rental and sale of robotic equipment. Microservices architecture with sophisticated multi-role JWT authentication."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Gestion Réparations : Workflow complet du SAV avec suivi temps réel",
+          "Système Location : Calendrier intelligent, gestion conflits, maintenance préventive",
+          "Ventes & Commandes : Devis/signatures électroniques, gestion stock robotique",
+          "Inventaire Intelligent : Prévisions besoins, analytics consommation pièces",
+          "Installations : Planning techniciens, géolocalisation, reporting terrain"
+        ],
+        "en": [
+          "Repair Management: Complete SAV workflow with real-time tracking",
+          "Rental System: Smart calendar, conflict management, preventive maintenance",
+          "Sales & Orders: Electronic quotes/signatures, robotic stock management",
+          "Smart Inventory: Needs forecasting, parts consumption analytics",
+          "Installations: Technician planning, geolocation, field reporting"
+        ]
+      },
+      "technologies": [
+        "Node.js",
+        "TypeScript",
+        "Express.js",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+        "Prometheus",
+        "Grafana",
+        "JWT",
+        "GitHub Actions"
+      ],
+      "skills": [
+        "Node.js",
+        "TypeScript",
+        "Express.js",
+        "PostgreSQL",
+        "Prisma",
+        "Docker",
+        "DevOps",
+        "CI/CD"
+      ]
+    },
+    {
+      "id": "modern-showcase-website",
+      "title": {
+        "fr": "Site Vitrine Moderne",
+        "en": "Modern Showcase Website"
+      },
+      "subtitle": {
+        "fr": "Formulaires Interactifs et Système de Devis Digital",
+        "en": "Interactive Forms and Digital Quote System"
+      },
+      "period": {
+        "fr": "oct. 2024 - juil. 2025",
+        "en": "Oct. 2024 - July 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Développement et maintenance d'un site web vitrine moderne pour une boutique spécialisée en robots tondeuses, intégrant un écosystème complet de services digitaux avec système de devis 100% digital.",
+        "en": "Development and maintenance of a modern showcase website for a lawn mower robot shop, integrating a complete digital services ecosystem with 100% digital quote system."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Hero section avec animations CSS et cartes de services interactives",
+          "Système de devis digital avec génération automatique de PDF",
+          "Gestion des réservations avec calcul de prix en temps réel",
+          "Interface moderne avec composants modulaires et micro-interactions",
+          "Performance optimisée avec lazy loading et SEO structuré"
+        ],
+        "en": [
+          "Hero section with CSS animations and interactive service cards",
+          "Digital quote system with automatic PDF generation",
+          "Reservation management with real-time price calculation",
+          "Modern interface with modular components and micro-interactions",
+          "Optimized performance with lazy loading and structured SEO"
+        ]
+      },
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Google Analytics"
+      ],
+      "skills": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "UX"
+      ]
+    },
+    {
+      "id": "workshop-management-solution",
+      "title": {
+        "fr": "Solution Complète de Supervision et Gestion d'Atelier",
+        "en": "Complete Workshop Supervision and Management Solution"
+      },
+      "subtitle": {
+        "fr": "Application React Avancée",
+        "en": "Advanced React Application"
+      },
+      "period": {
+        "fr": "oct. 2024 - juil. 2025",
+        "en": "Oct. 2024 - July 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Application React avancée dédiée à la gestion complète d'un atelier de réparation et maintenance de robots tondeuses avec écosystème complet de fonctionnalités.",
+        "en": "Advanced React application dedicated to complete management of a lawn mower robot repair and maintenance workshop with complete feature ecosystem."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Suivi détaillé des réparations avec timer intégré",
+          "Gestion des pièces remplacées avec calcul automatique des coûts",
+          "Création et gestion de devis avec signatures électroniques",
+          "Calendrier Google intégré pour planification des interventions",
+          "Génération automatique de PDF et envoi d'emails"
+        ],
+        "en": [
+          "Detailed repair tracking with integrated timer",
+          "Replaced parts management with automatic cost calculation",
+          "Quote creation and management with electronic signatures",
+          "Integrated Google Calendar for intervention planning",
+          "Automatic PDF generation and email sending"
+        ]
+      },
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Redux",
+        "Material-UI",
+        "Google APIs",
+        "AG-Grid",
+        "React-PDF"
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Redux",
+        "Material Design",
+        "Google API",
+        "JWT"
+      ]
+    },
+    {
+      "id": "industrial-equipment-rental-operator",
+      "title": {
+        "fr": "Application Web Opérateur de Location d'Équipements Industriels",
+        "en": "Industrial Equipment Rental Operator Web Application"
+      },
+      "subtitle": {
+        "fr": "Gestion Opérationnelle des Locations",
+        "en": "Operational Rental Management"
+      },
+      "period": {
+        "fr": "nov. 2024 - avr. 2025",
+        "en": "Nov. 2024 - Apr. 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Application web React/TypeScript dédiée à la gestion opérationnelle des locations d'équipements industriels, permettant aux opérateurs de terrain de gérer l'ensemble du processus de location.",
+        "en": "React/TypeScript web application dedicated to operational management of industrial equipment rentals, allowing field operators to manage the entire rental process."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Gestion complète des locations avec interface intuitive",
+          "Workflow de signature numérique étape par étape",
+          "Génération documentaire automatisée avec PDF dynamiques",
+          "Capture photo intégrée avec compression d'images optimisée",
+          "Interface responsive adaptée aux environnements terrain"
+        ],
+        "en": [
+          "Complete rental management with intuitive interface",
+          "Step-by-step digital signature workflow",
+          "Automated document generation with dynamic PDFs",
+          "Integrated photo capture with optimized image compression",
+          "Responsive interface adapted to field environments"
+        ]
+      },
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "Material-UI",
+        "React-PDF",
+        "Leaflet",
+        "Jest"
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Redux",
+        "JWT"
+      ]
+    },
+    {
+      "id": "industrial-machine-rental-management",
+      "title": {
+        "fr": "Application Web de Gestion de Location de Machines Industrielles",
+        "en": "Industrial Machine Rental Management Web Application"
+      },
+      "subtitle": {
+        "fr": "Système de Réservation Avancé",
+        "en": "Advanced Reservation System"
+      },
+      "period": {
+        "fr": "nov. 2024 - avr. 2025",
+        "en": "Nov. 2024 - Apr. 2025"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Application complète de gestion de location de machines industrielles avec système de réservation avancé, gestion clientèle et maintenance préventive.",
+        "en": "Complete industrial machine rental management application with advanced reservation system, customer management and preventive maintenance."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Gestion du catalogue de machines avec images et disponibilités",
+          "Système de réservation avec validation des conflits",
+          "Gestion clientèle complète avec formulaires de validation",
+          "Système de maintenance préventive basé sur l'utilisation",
+          "Authentification sécurisée avec Google OAuth"
+        ],
+        "en": [
+          "Machine catalog management with images and availability",
+          "Reservation system with conflict validation",
+          "Complete customer management with validation forms",
+          "Preventive maintenance system based on usage",
+          "Secure authentication with Google OAuth"
+        ]
+      },
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Redux Toolkit",
+        "Material-UI",
+        "AG-Grid",
+        "React Leaflet",
+        "Google OAuth"
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Material Design",
+        "Redux"
+      ]
+    },
+    {
+      "id": "field-intervention-management",
+      "title": {
+        "fr": "Application Web de Gestion des Interventions Terrain",
+        "en": "Field Intervention Management Web Application"
+      },
+      "subtitle": {
+        "fr": "Interface Optimisée pour Techniciens",
+        "en": "Optimized Interface for Technicians"
+      },
+      "period": {
+        "fr": "oct. 2024 - déc. 2024",
+        "en": "Oct. 2024 - Dec. 2024"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Application web destinée aux techniciens d'atelier pour la gestion des réparations et entretiens d'équipements, optimisée pour tablettes et appareils mobiles.",
+        "en": "Web application for workshop technicians for equipment repair and maintenance management, optimized for tablets and mobile devices."
+      },
+      "keyFeatures": {
+        "fr": [
+          "Formulaire dynamique configurable pour la saisie des données client",
+          "Capture photo haute qualité avec compression automatique",
+          "Module de signature électronique intégré",
+          "Interface responsive adaptée aux environnements d'atelier",
+          "Synchronisation en temps réel avec le serveur backend"
+        ],
+        "en": [
+          "Configurable dynamic form for customer data entry",
+          "High-quality photo capture with automatic compression",
+          "Integrated electronic signature module",
+          "Responsive interface adapted to workshop environments",
+          "Real-time synchronization with backend server"
+        ]
+      },
+      "technologies": [
+        "React",
+        "Material-UI",
+        "TypeScript",
+        "WebP",
+        "JWT"
+      ],
+      "skills": [
+        "React",
+        "Material Design",
+        "TypeScript",
+        "JWT"
+      ]
+    },
+    {
+      "id": "responsive-online-store",
+      "title": {
+        "fr": "Boutique en Ligne Responsive et SEO Optimisé",
+        "en": "Responsive and SEO Optimized Online Store"
+      },
+      "subtitle": {
+        "fr": "Vente à Emporter",
+        "en": "Takeaway Sales"
+      },
+      "period": {
+        "fr": "oct. 2024",
+        "en": "Oct. 2024"
+      },
+      "type": {
+        "fr": "Freelance",
+        "en": "Freelance"
+      },
+      "description": {
+        "fr": "Boutique de vente de produits à emporter responsive avec SEO optimisé, développée avec React et Next.js utilisant le SSR pour des performances accrues.",
+        "en": "Responsive takeaway product sales store with optimized SEO, developed with React and Next.js using SSR for enhanced performance."
+      },
+      "keyFeatures": {
+        "fr": [
+          "SEO avancé avec balises sémantiques et métadonnées dynamiques",
+          "Interface responsive avec design sur mesure",
+          "Intégration Stripe pour paiements sécurisés",
+          "Déploiement automatisé avec GitHub Actions",
+          "Gestion des produits avec MongoDB"
+        ],
+        "en": [
+          "Advanced SEO with semantic tags and dynamic metadata",
+          "Responsive interface with custom design",
+          "Stripe integration for secure payments",
+          "Automated deployment with GitHub Actions",
+          "Product management with MongoDB"
+        ]
+      },
+      "technologies": [
+        "React",
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Stripe",
+        "GitHub Actions"
+      ],
+      "skills": [
+        "React",
+        "SEO",
+        "Next.js",
+        "Express.js",
+        "Stripe",
+        "MongoDB"
+      ]
+    }
+  ]
+}

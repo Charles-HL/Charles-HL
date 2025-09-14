@@ -1,0 +1,328 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "quote": "Get Quote"
+  },
+  "hero": {
+    "title": "Charles HILD LÊ",
+    "subtitle": "Full Stack Software Engineer & Data Science/AI",
+    "description": "Passionate developer specializing in modern web development and artificial intelligence. Freelancer and employee at Thales, I create innovative solutions that combine technology and creativity.",
+    "cta": "Discover my work",
+    "contact": "Contact me",
+    "quote": "Get Quote"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Graduated from a major engineering school in a very comprehensive field around AI and robotics",
+    "description": "Based in Toulouse, I am a full stack software engineer with particular expertise in artificial intelligence and data science. My passion for technology leads me to create innovative solutions both as a freelancer and as an employee at Thales.",
+    "skills": {
+      "title": "Core Skills",
+      "frontend": "Frontend Development (React, Vue.js)",
+      "backend": "Backend Development (Node.js, NestJS, Express)",
+      "ai": "Artificial Intelligence & Data Science",
+      "data": "Complex Data Management & Processing",
+      "fullstack": "Full Stack Web Applications",
+      "databases": "Databases (PostgreSQL, Solr)",
+      "robotics": "Robotics"
+    },
+    "learnMore": "Learn More About Me",
+    "additional": {
+      "title": "Toulouse, France",
+      "description": "Based in Toulouse, I am available for freelance missions and team collaborations. Passionate about technological innovation and complex technical challenges."
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Current",
+    "freelance": {
+      "title": "Freelance Full Stack Developer",
+      "company": "Freelance",
+      "period": "October 2024 - Present",
+      "description": "Development of custom web solutions for various companies."
+    },
+    "thales": {
+      "title": "Full Stack Web Engineer",
+      "company": "Thales",
+      "period": "July 2023 - Present",
+      "location": "Toulouse, Occitanie, France",
+      "description": "Development of web applications for managing and exploiting complex geological data and documents at TotalEnergies."
+    },
+    "sopra": {
+      "title": "Full Stack Software Engineer",
+      "company": "Sopra Steria",
+      "period": "November 2020 - June 2023",
+      "location": "Toulouse, Occitanie, France",
+      "description": "Full Stack Engineer for Airbus Navblue and Thales Alenia Space"
+    },
+    "viewDetailed": "View Detailed Experience"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Discover my recent achievements in web development and business applications",
+    "all": "All",
+    "keyFeatures": "Key Features",
+    "businessImpact": "Business Impact",
+    "technologiesUsed": "Technologies Used",
+    "noProjects": "No projects found for this technology.",
+    "viewProject": "View Project",
+    "viewAll": "View All Projects",
+    "projectDetail": {
+      "backToProjects": "Back to Projects",
+      "projectOverview": "Project Overview",
+      "interestedInSimilar": "Interested in Similar Work?",
+      "discussProject": "Let's discuss how I can help with your project.",
+      "getQuote": "Get Quote",
+      "contactMe": "Contact Me"
+    }
+  },
+  "contact": {
+    "title": "Let's work together",
+    "subtitle": "Ready for your next project?",
+    "description": "Whether for a freelance project or business collaboration, feel free to contact me.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "location": "Toulouse, France",
+    "cta": {
+      "title": "Ready to start your project?",
+      "description": "Whether for web development, artificial intelligence, or custom solutions, I'm here to help you.",
+      "sendEmail": "Send an email",
+      "requestQuote": "Request a quote",
+      "linkedin": "LinkedIn"
+    },
+    "availability": {
+      "status": "Available for new projects",
+      "note": "Currently available for freelance projects"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "built": "Built with Next.js and Tailwind CSS",
+    "brand": {
+      "description": "Full Stack Software Engineer specializing in AI and Data Science. Creating innovative solutions that bridge technology and creativity.",
+      "email": "contact@charleshl.dev",
+      "location": "Toulouse, France"
+    },
+    "quickLinks": "Quick Links",
+    "services": {
+      "title": "Services",
+      "web": "Web Development",
+      "backend": "Backend APIs", 
+      "fullstack": "Full Stack Applications",
+      "ai": "AI/Data Science",
+      "consulting": "Technical Consulting"
+    },
+    "madeWith": "Made with",
+    "and": "and"
+  },
+  "NotFoundPage": {
+    "title": "Page Not Found",
+    "description": "The page you are looking for does not exist. Please check the URL or return to the homepage."
+  },
+  "LocaleLayout": {
+    "title": "Charles HILD LÊ - Full Stack Web Developer"
+  },
+  "Manifest": {
+    "name": "Charles HILD LÊ"
+  },
+  "pages": {
+    "about": {
+      "title": "About Me",
+      "subtitle": "Full Stack Software Engineer specializing in AI and Data Science",
+      "description": "Passionate about creating innovative solutions that bridge technology and creativity. Based in Toulouse, I combine my expertise in full-stack development with advanced knowledge in artificial intelligence and data science.",
+      "personalStory": {
+        "title": "My Journey",
+        "content": "After graduating from a major engineering school with a comprehensive focus on AI and robotics, I've been working both as a freelancer and as an employee at Thales. This dual experience has given me a unique perspective on both entrepreneurial and enterprise-level development."
+      },
+      "skills": {
+        "title": "Technical Expertise",
+        "subtitle": "Technologies I work with daily"
+      },
+      "downloadResume": "Download Resume",
+      "quickFacts": {
+        "location": "Toulouse, France",
+        "experience": "Years Experience",
+        "coffeeEnthusiast": "Coffee Enthusiast"
+      },
+      "cta": {
+        "getInTouch": "Get in Touch",
+        "requestQuote": "Request Quote"
+      },
+      "availability": {
+        "title": "Availability",
+        "status": "Currently available for freelance projects",
+        "note": "Open to both short-term projects and long-term collaborations"
+      }
+    },
+    "experience": {
+      "title": "Professional Experience",
+      "subtitle": "A timeline of my career journey",
+      "keyAchievements": "Key Achievements",
+      "cta": {
+        "title": "Ready to Work Together?",
+        "description": "Let's discuss how my experience can help bring your project to life.",
+        "contactMe": "Contact Me",
+        "viewMyWork": "View My Work"
+      },
+      "detailed": {
+        "thales": {
+          "description": "Development of web applications for managing and exploiting complex geological data and documents at TotalEnergies.",
+          "achievements": [
+            "Data centralization and exploration application: Aggregation of numerous geological databases and documents with interactive mapping",
+            "Development of a digital document ordering and distribution system",
+            "Geological data submission and processing application with improvement and editing tools",
+            "Advanced technical stack: React, Node.js, Express, NestJS, Prisma, PostgreSQL, Solr, Python for Well Log extraction",
+            "Asynchronous task management with contribsys/Faktory and TypeORM"
+          ]
+        },
+        "freelance": {
+          "description": "Providing custom web solutions for various companies, from startups to established businesses.",
+          "achievements": [
+            "Successfully delivered 8+ major projects",
+            "Specialized in robotic equipment management systems",
+            "Built end-to-end solutions from backend APIs to responsive frontends"
+          ]
+        },
+        "sopra": {
+          "description": "Multifaceted experience at Sopra Steria including Full Stack development, AI and Data Science for Airbus Navblue and Thales Alenia Space.",
+          "achievements": [
+            "Developed real-time web interfaces with WebSocket and API for Thales Alenia Space (Angular, Java, OpenAPI)",
+            "Development and maintenance of critical aerospace software (Java, AngularJS, Hibernate, SQL)",
+            "Implemented reinforcement learning methods for robotic arm trajectory optimization",
+            "Developed chatbot using automatic natural language processing techniques",
+            "Machine Learning and data visualization for Thales Alenia Space",
+            "Research in AI explainability (XAI) with ANITI and Adagos for Airbus",
+            "Full Stack Engineer for Airbus Navblue using C#, ArcGIS, Vue.js"
+          ]
+        }
+      }
+    },
+    "projects": {
+      "title": "Featured Projects",
+      "subtitle": "Showcasing my recent work and technical achievements",
+      "viewProject": "View Project",
+      "viewAll": "View All Projects",
+      "cta": {
+        "title": "Have a Project in Mind?",
+        "description": "Let's create something amazing together.",
+        "getQuote": "Get Quote",
+        "contactMe": "Contact Me"
+      },
+      "filters": {
+        "all": "All Projects",
+        "web": "Web Applications",
+        "backend": "Backend Systems",
+        "fullstack": "Full Stack"
+      }
+    },
+    "contact": {
+      "title": "Let's Work Together",
+      "subtitle": "Ready to start your next project?",
+      "getInTouch": "Get in Touch",
+      "description": "Ready to start your next project? I'd love to hear from you. Send me a message and I'll respond as soon as possible.",
+      "methods": {
+        "email": "Email",
+        "location": "Location",
+        "responseTime": "Response Time",
+        "responseTimeValue": "Usually within 24 hours"
+      },
+      "social": "Connect with me",
+      "sendMessage": "Send Message",
+      "quickQuote": {
+        "title": "Need a Quick Quote?",
+        "description": "Get a personalized estimate for your project in just a few minutes.",
+        "button": "Request Quote"
+      },
+      "form": {
+        "name": "Your Name",
+        "email": "Email Address",
+        "subject": "Subject",
+        "message": "Message",
+        "send": "Send Message",
+        "sending": "Sending...",
+        "success": "Message sent successfully!",
+        "error": "Error sending message. Please try again.",
+        "placeholders": {
+          "name": "Your full name",
+          "email": "your.email@example.com",
+          "subject": "Project inquiry, collaboration, etc.",
+          "message": "Tell me about your project, timeline, and any specific requirements..."
+        }
+      }
+    },
+    "quote": {
+      "title": "Request a Quote",
+      "subtitle": "Tell me about your project and get a personalized estimate",
+      "process": {
+        "step1": {
+          "title": "1. Tell us about your project",
+          "description": "Share your vision and requirements"
+        },
+        "step2": {
+          "title": "2. We analyze & estimate",
+          "description": "Detailed scope and cost breakdown"
+        },
+        "step3": {
+          "title": "3. Receive your quote",
+          "description": "Transparent pricing and timeline"
+        },
+        "step4": {
+          "title": "4. Start building",
+          "description": "Begin your project immediately"
+        }
+      },
+      "form": {
+        "projectDetails": "Project Details",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email Address",
+        "company": "Company (Optional)",
+        "selectProjectType": "Select project type",
+        "selectBudgetRange": "Select budget range",
+        "selectTimeline": "Select timeline",
+        "requiredNote": "* Required fields. I'll get back to you within 24 hours.",
+        "projectType": {
+          "label": "Project Type",
+          "options": {
+            "website": "Website/Web App",
+            "backend": "Backend API",
+            "fullstack": "Full Stack Application",
+            "mobile": "Mobile Application",
+            "other": "Other"
+          }
+        },
+        "budget": {
+          "label": "Budget Range",
+          "options": {
+            "small": "€1,000 - €5,000",
+            "medium": "€5,000 - €15,000",
+            "large": "€15,000 - €30,000",
+            "enterprise": "€30,000+"
+          }
+        },
+        "timeline": {
+          "label": "Desired Timeline",
+          "options": {
+            "urgent": "ASAP (Rush fee applies)",
+            "fast": "1-2 months",
+            "normal": "2-4 months",
+            "flexible": "Flexible"
+          }
+        },
+        "description": "Project Description",
+        "requirements": "Specific Requirements",
+        "submit": "Request Quote",
+        "submitting": "Submitting...",
+        "success": "Quote request sent! I'll get back to you within 24 hours.",
+        "error": "Error sending request. Please try again.",
+        "placeholders": {
+          "description": "Describe your project goals, target audience, key features, and any specific requirements...",
+          "requirements": "Any specific technologies, integrations, design preferences, or technical requirements..."
+        }
+      }
+    }
+  }
+}

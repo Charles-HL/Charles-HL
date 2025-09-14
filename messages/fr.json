@@ -1,0 +1,327 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "about": "À propos",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "contact": "Contact",
+    "quote": "Devis"
+  },
+  "hero": {
+    "title": "Charles HILD LÊ",
+    "subtitle": "Ingénieur Logiciel Web Full Stack & Data Science/IA",
+    "description": "Développeur passionné spécialisé en développement web moderne et intelligence artificielle. Freelance et salarié chez Thales, je crée des solutions innovantes qui allient technologie et créativité.",
+    "cta": "Découvrir mon travail",
+    "contact": "Me contacter",
+    "quote": "Devis"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "subtitle": "Diplômé d'une grande école d'ingénieurs dans un domaine très complet autour de l'IA et de la robotique",
+    "description": "Basé à Toulouse, je suis un ingénieur logiciel web full stack avec une expertise particulière en intelligence artificielle et science des données. Ma passion pour la technologie m'amène à créer des solutions innovantes autant en freelance qu'en tant que salarié chez Thales.",
+    "skills": {
+      "title": "Compétences principales",
+      "frontend": "Développement Frontend (React, Vue.js)",
+      "backend": "Développement Backend (Node.js, NestJS, Express)", 
+      "ai": "Intelligence Artificielle & Data Science",
+      "data": "Gestion et traitement de données complexes",
+      "fullstack": "Applications Web Full Stack",
+      "databases": "Bases de données (PostgreSQL, Solr)",
+      "robotics": "Robotique"
+    },
+    "learnMore": "En savoir plus sur moi",
+    "additional": {
+      "title": "Toulouse, France",
+      "description": "Basé à Toulouse, je suis disponible pour des missions freelance et des collaborations d'équipe. Passionné par l'innovation technologique et les défis techniques complexes."
+    }
+  },
+  "experience": {
+    "title": "Expérience professionnelle",
+    "current": "Actuellement",
+    "freelance": {
+      "title": "Développeur Full Stack Freelance",
+      "company": "Freelance",
+      "period": "Octobre 2024 - Présent",
+      "description": "Développement de solutions web sur mesure pour diverses entreprises."
+    },
+    "thales": {
+      "title": "Ingénieur Web Full Stack",
+      "company": "Thales - TotalEnergies",
+      "period": "Juillet 2023 - Présent",
+      "location": "Toulouse, Occitanie, France"
+    },
+    "sopra": {
+      "title": "Ingénieur Logiciel Full Stack",
+      "company": "Sopra Steria",
+      "period": "Novembre 2020 - Juin 2023",
+      "location": "Toulouse, Occitanie, France",
+      "description": "Ingénieur Full Stack pour Airbus Navblue et Thales Alenia Space"
+    },
+    "viewDetailed": "Voir l'expérience détaillée"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Découvrez mes réalisations récentes en développement web et applications métier",
+    "all": "Tous",
+    "keyFeatures": "Fonctionnalités Clés",
+    "businessImpact": "Impact Métier",
+    "technologiesUsed": "Technologies Utilisées",
+    "noProjects": "Aucun projet trouvé pour cette technologie.",
+    "viewProject": "Voir le Projet",
+    "viewAll": "Voir tous les projets",
+    "projectDetail": {
+      "backToProjects": "Retour aux Projets",
+      "projectOverview": "Aperçu du Projet",
+      "interestedInSimilar": "Intéressé par un Travail Similaire ?",
+      "discussProject": "Discutons de la façon dont je peux vous aider avec votre projet.",
+      "getQuote": "Obtenir un Devis",
+      "contactMe": "Me Contacter"
+    }
+  },
+  "contact": {
+    "title": "Travaillons ensemble",
+    "subtitle": "Prêt pour votre prochain projet ?",
+    "description": "Que ce soit pour un projet freelance ou une collaboration d'entreprise, n'hésitez pas à me contacter.",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "location": "Toulouse, France",
+    "cta": {
+      "title": "Prêt à démarrer votre projet ?",
+      "description": "Que ce soit pour du développement web, de l'intelligence artificielle, ou des solutions sur mesure, je suis là pour vous accompagner.",
+      "sendEmail": "Envoyer un email",
+      "requestQuote": "Demander un devis",
+      "linkedin": "LinkedIn"
+    },
+    "availability": {
+      "status": "Disponible pour nouveaux projets",
+      "note": "Actuellement disponible pour des projets freelance"
+    }
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "built": "Construit avec Next.js et Tailwind CSS",
+    "brand": {
+      "description": "Ingénieur Logiciel Full Stack spécialisé en IA et Data Science. Création de solutions innovantes qui allient technologie et créativité.",
+      "email": "contact@charleshl.dev",
+      "location": "Toulouse, France"
+    },
+    "quickLinks": "Liens Rapides",
+    "services": {
+      "title": "Services",
+      "web": "Développement Web",
+      "backend": "APIs Backend",
+      "fullstack": "Applications Full Stack", 
+      "ai": "IA/Data Science",
+      "consulting": "Conseil Technique"
+    },
+    "madeWith": "Fait avec",
+    "and": "et"
+  },
+  "NotFoundPage": {
+    "title": "Page non trouvée",
+    "description": "La page que vous recherchez n'existe pas. Veuillez vérifier l'URL ou revenir à la page d'accueil."
+  },
+  "LocaleLayout": {
+    "title": "Charles HILD LÊ - Développeur Web Full Stack"
+  },
+  "Manifest": {
+    "name": "Charles HILD LÊ"
+  },
+  "pages": {
+    "about": {
+      "title": "À Propos de Moi",
+      "subtitle": "Ingénieur Logiciel Full Stack spécialisé en IA et Data Science",
+      "description": "Passionné par la création de solutions innovantes qui allient technologie et créativité. Basé à Toulouse, je combine mon expertise en développement full-stack avec des connaissances avancées en intelligence artificielle et science des données.",
+      "personalStory": {
+        "title": "Mon Parcours",
+        "content": "Après avoir été diplômé d'une grande école d'ingénieurs avec un focus complet sur l'IA et la robotique, je travaille à la fois en tant que freelance et en tant que salarié chez Thales. Cette double expérience m'a donné une perspective unique sur le développement entrepreneurial et d'entreprise."
+      },
+      "skills": {
+        "title": "Expertise Technique",
+        "subtitle": "Technologies que j'utilise quotidiennement"
+      },
+      "downloadResume": "Télécharger CV",
+      "quickFacts": {
+        "location": "Toulouse, France",
+        "experience": "Années d'Expérience",
+        "coffeeEnthusiast": "Passionné de Café"
+      },
+      "cta": {
+        "getInTouch": "Prenons Contact",
+        "requestQuote": "Demander un Devis"
+      },
+      "availability": {
+        "title": "Disponibilité",
+        "status": "Actuellement disponible pour des projets freelance",
+        "note": "Ouvert aux projets courts et aux collaborations long terme"
+      }
+    },
+    "experience": {
+      "title": "Expérience Professionnelle",
+      "subtitle": "Un aperçu de mon parcours professionnel",
+      "keyAchievements": "Réalisations Clés",
+      "cta": {
+        "title": "Prêt à Travailler Ensemble ?",
+        "description": "Discutons de la façon dont mon expérience peut aider à donner vie à votre projet.",
+        "contactMe": "Me Contacter",
+        "viewMyWork": "Voir Mon Travail"
+      },
+      "detailed": {
+        "thales": {
+          "description": "Développement d'applications web pour la gestion et l'exploitation de données et documents géologiques complexes chez TotalEnergies.",
+          "achievements": [
+            "Application de centralisation et d'exploration des données : Agrégation de nombreuses bases de données et documents géologiques avec carte interactive",
+            "Développement d'un système de commande et de distribution de documents numériques",
+            "Application de soumission et traitement des données géologiques avec outils d'amélioration et d'édition",
+            "Stack technique avancé : React, Node.js, Express, NestJS, Prisma, PostgreSQL, Solr, Python pour extraction Well Log",
+            "Gestion des tâches asynchrones avec contribsys/Faktory et TypeORM"
+          ]
+        },
+        "freelance": {
+          "description": "Fourniture de solutions web sur mesure pour diverses entreprises, des startups aux entreprises établies.",
+          "achievements": [
+            "Livraison réussie de plus de 8 projets majeurs",
+            "Spécialisé dans les systèmes de gestion d'équipements robotiques",
+            "Construction de solutions complètes des API backend aux frontends responsives"
+          ]
+        },
+        "sopra": {
+          "description": "Expérience multifacette chez Sopra Steria incluant le développement Full Stack, l'IA et la Data Science pour Airbus Navblue et Thales Alenia Space.",
+          "achievements": [
+            "Développement d'interfaces web temps réel avec WebSocket et API pour Thales Alenia Space (Angular, Java, OpenAPI)",
+            "Développement et maintenance de logiciels critiques pour l'aérospatiale (Java, AngularJS, Hibernate, SQL)",
+            "Implémentation de méthodes d'apprentissage par renforcement pour l'optimisation de trajectoires de bras robotiques",
+            "Développement d'un chatbot utilisant le traitement automatique du langage naturel",
+            "Machine Learning et visualisation de données pour Thales Alenia Space",
+            "Recherche en explicabilité de l'IA (XAI) avec ANITI et Adagos pour Airbus",
+            "Ingénieur Full Stack pour Airbus Navblue avec C#, ArcGIS, Vue.js"
+          ]
+        }
+      }
+    },
+    "projects": {
+      "title": "Projets Phares",
+      "subtitle": "Découvrez mes travaux récents et réalisations techniques",
+      "viewProject": "Voir le Projet",
+      "viewAll": "Voir Tous les Projets",
+      "cta": {
+        "title": "Vous Avez un Projet en Tête ?",
+        "description": "Créons quelque chose d'incroyable ensemble.",
+        "getQuote": "Obtenir un Devis",
+        "contactMe": "Me Contacter"
+      },
+      "filters": {
+        "all": "Tous les Projets",
+        "web": "Applications Web",
+        "backend": "Systèmes Backend",
+        "fullstack": "Full Stack"
+      }
+    },
+    "contact": {
+      "title": "Travaillons Ensemble",
+      "subtitle": "Prêt à démarrer votre prochain projet ?",
+      "getInTouch": "Prenons Contact",
+      "description": "Prêt à démarrer votre prochain projet ? J'aimerais entendre parler de vous. Envoyez-moi un message et je vous répondrai dès que possible.",
+      "methods": {
+        "email": "Email",
+        "location": "Localisation",
+        "responseTime": "Temps de Réponse",
+        "responseTimeValue": "Généralement sous 24 heures"
+      },
+      "social": "Connectez-vous avec moi",
+      "sendMessage": "Envoyer un Message",
+      "quickQuote": {
+        "title": "Besoin d'un Devis Rapide ?",
+        "description": "Obtenez une estimation personnalisée pour votre projet en quelques minutes.",
+        "button": "Demander un Devis"
+      },
+      "form": {
+        "name": "Votre Nom",
+        "email": "Adresse Email",
+        "subject": "Sujet",
+        "message": "Message",
+        "send": "Envoyer le Message",
+        "sending": "Envoi en cours...",
+        "success": "Message envoyé avec succès !",
+        "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+        "placeholders": {
+          "name": "Votre nom complet",
+          "email": "votre.email@exemple.com",
+          "subject": "Demande de projet, collaboration, etc.",
+          "message": "Parlez-moi de votre projet, de vos délais et de vos exigences spécifiques..."
+        }
+      }
+    },
+    "quote": {
+      "title": "Demander un Devis",
+      "subtitle": "Parlez-moi de votre projet et obtenez une estimation personnalisée",
+      "process": {
+        "step1": {
+          "title": "1. Parlez-nous de votre projet",
+          "description": "Partagez votre vision et vos exigences"
+        },
+        "step2": {
+          "title": "2. Nous analysons et estimons",
+          "description": "Portée détaillée et répartition des coûts"
+        },
+        "step3": {
+          "title": "3. Recevez votre devis",
+          "description": "Prix transparent et calendrier"
+        },
+        "step4": {
+          "title": "4. Commencer à construire",
+          "description": "Commencez votre projet immédiatement"
+        }
+      },
+      "form": {
+        "projectDetails": "Détails du Projet",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Adresse Email",
+        "company": "Entreprise (Optionnel)",
+        "selectProjectType": "Sélectionner le type de projet",
+        "selectBudgetRange": "Sélectionner la fourchette de budget",
+        "selectTimeline": "Sélectionner le délai",
+        "requiredNote": "* Champs obligatoires. Je vous recontacterai sous 24h.",
+        "projectType": {
+          "label": "Type de Projet",
+          "options": {
+            "website": "Site Web/Application Web",
+            "backend": "API Backend",
+            "fullstack": "Application Full Stack",
+            "mobile": "Application Mobile",
+            "other": "Autre"
+          }
+        },
+        "budget": {
+          "label": "Fourchette de Budget",
+          "options": {
+            "small": "50€ - 500€",
+            "medium": "500€ - 1500€",
+            "large": "1500€ - 3000€",
+            "enterprise": "3000€+"
+          }
+        },
+        "timeline": {
+          "label": "Délai Souhaité",
+          "options": {
+            "urgent": "ASAP (Frais d'urgence applicables)",
+            "fast": "1-2 mois",
+            "normal": "2-4 mois",
+            "flexible": "Flexible"
+          }
+        },
+        "description": "Description du Projet",
+        "requirements": "Exigences Spécifiques",
+        "submit": "Demander un Devis",
+        "submitting": "Envoi en cours...",
+        "success": "Demande de devis envoyée ! Je vous recontacterai sous 24h.",
+        "error": "Erreur lors de l'envoi. Veuillez réessayer.",
+        "placeholders": {
+          "description": "Décrivez vos objectifs de projet, votre public cible, les fonctionnalités clés et toute exigence spécifique...",
+          "requirements": "Toute technologie spécifique, intégrations, préférences de design ou exigences techniques..."
+        }
+      }
+    }
+  }
+}
