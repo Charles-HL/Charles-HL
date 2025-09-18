@@ -235,7 +235,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: "Erreurs de validation détectées",
+          error: getValidationMessage("validationErrorsDetected", locale),
           details: validation.errors,
         },
         { status: 400 }

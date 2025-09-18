@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import PageLayout from "@/components/PageLayout";
 import ErrorDisplay from "@/components/ErrorDisplay";
@@ -35,6 +35,7 @@ type Props = {
 export default function ContactPage({}: Props) {
   const t = useTranslations();
   const locale = useLocale();
+  const statusMessageRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -47,6 +48,16 @@ export default function ContactPage({}: Props) {
   >("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const [errorDetails, setErrorDetails] = useState<string[]>([]);
+
+  // Scroll automatique vers le message de statut
+  useEffect(() => {
+    if (submitStatus !== "idle" && statusMessageRef.current) {
+      statusMessageRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  }, [submitStatus]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -210,7 +221,7 @@ export default function ContactPage({}: Props) {
 
                   {/* Status Messages */}
                   {submitStatus === "success" && (
-                    <div className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
+                    <div ref={statusMessageRef} className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
                       <p className="text-green-800 dark:text-green-200">
                         {statusMessage}
@@ -219,15 +230,20 @@ export default function ContactPage({}: Props) {
                   )}
 
                   {submitStatus === "error" && (
-                    <ErrorDisplay
-                      errors={
-                        errorDetails.length > 0 ? errorDetails : [statusMessage]
-                      }
-                      className="mb-6"
-                    />
+                    <div ref={statusMessageRef}>
+                      <ErrorDisplay
+                        title={
+                          errorDetails.length > 0 ? statusMessage : undefined
+                        }
+                        errors={
+                          errorDetails.length > 0 ? errorDetails : [statusMessage]
+                        }
+                        className="mb-6"
+                      />
+                    </div>
                   )}
 
-                  <form className="space-y-6" onSubmit={handleSubmit}>
+                  <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                     <div>
                       <label
                         htmlFor="name"

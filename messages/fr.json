@@ -295,6 +295,10 @@
         },
         "budget": {
           "label": "Fourchette de Budget",
+          "minimum": "Minimum (€)",
+          "maximum": "Maximum (€)",
+          "help": "Indiquez votre fourchette budgétaire en euros",
+          "errorMinMax": "Le montant minimum ne peut pas être supérieur au maximum",
           "options": {
             "small": "50€ - 500€",
             "medium": "500€ - 1500€",

@@ -8,11 +8,7 @@ interface ErrorDisplayProps {
   className?: string;
 }
 
-export default function ErrorDisplay({
-  title = "Erreurs de validation détectées",
-  errors,
-  className = "",
-}: ErrorDisplayProps) {
+export default function ErrorDisplay({ title, errors, className = "" }: ErrorDisplayProps) {
   if (!errors || errors.length === 0) {
     return null;
   }
@@ -38,9 +34,11 @@ export default function ErrorDisplay({
             </p>
           ) : (
             <>
-              <h3 className="text-red-800 dark:text-red-200 text-sm font-medium mb-2">
-                {title}
-              </h3>
+              {title && (
+                <h3 className="text-red-800 dark:text-red-200 text-sm font-medium mb-2">
+                  {title}
+                </h3>
+              )}
               <ul className="space-y-1">
                 {errors.map((error, index) => (
                   <li

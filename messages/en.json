@@ -296,6 +296,10 @@
         },
         "budget": {
           "label": "Budget Range",
+          "minimum": "Minimum (€)",
+          "maximum": "Maximum (€)",
+          "help": "Indicate your budget range in euros",
+          "errorMinMax": "The minimum amount cannot be greater than the maximum",
           "options": {
             "small": "€1,000 - €5,000",
             "medium": "€5,000 - €15,000",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import PageLayout from "@/components/PageLayout";
 import ErrorDisplay from "@/components/ErrorDisplay";
@@ -16,6 +16,7 @@ interface QuoteApiResponse {
 export default function QuotePage() {
   const t = useTranslations();
   const locale = useLocale();
+  const statusMessageRef = useRef<HTMLDivElement>(null);
   const [budgetError, setBudgetError] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
@@ -42,9 +43,7 @@ export default function QuotePage() {
 
     if (formData.budgetMin && formData.budgetMax) {
       if (min > max) {
-        setBudgetError(
-          "Le montant minimum ne peut pas être supérieur au maximum"
-        );
+        setBudgetError(t("pages.quote.form.budget.errorMinMax"));
         return false;
       } else {
         setBudgetError("");
@@ -53,7 +52,7 @@ export default function QuotePage() {
     }
     setBudgetError("");
     return true;
-  }, [formData.budgetMin, formData.budgetMax]);
+  }, [formData.budgetMin, formData.budgetMax, t]);
 
   const handleInputChange = (
     e: React.ChangeEvent<
@@ -77,6 +76,16 @@ export default function QuotePage() {
   useEffect(() => {
     validateBudget();
   }, [validateBudget]);
+
+  // Scroll automatique vers le message de statut
+  useEffect(() => {
+    if (submitStatus !== "idle" && statusMessageRef.current) {
+      statusMessageRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  }, [submitStatus]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -216,7 +225,10 @@ export default function QuotePage() {
 
               {/* Status Messages */}
               {submitStatus === "success" && (
-                <div className="mb-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
+                <div
+                  ref={statusMessageRef}
+                  className="mb-8 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center"
+                >
                   <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
                   <p className="text-green-800 dark:text-green-200">
                     {statusMessage}
@@ -225,15 +237,18 @@ export default function QuotePage() {
               )}
 
               {submitStatus === "error" && (
-                <ErrorDisplay
-                  errors={
-                    errorDetails.length > 0 ? errorDetails : [statusMessage]
-                  }
-                  className="mb-8"
-                />
+                <div ref={statusMessageRef}>
+                  <ErrorDisplay
+                    title={errorDetails.length > 0 ? statusMessage : undefined}
+                    errors={
+                      errorDetails.length > 0 ? errorDetails : [statusMessage]
+                    }
+                    className="mb-8"
+                  />
+                </div>
               )}
 
-              <form className="space-y-8" onSubmit={handleSubmit}>
+              <form className="space-y-8" onSubmit={handleSubmit} noValidate>
                 {/* Personal Info */}
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
@@ -356,7 +371,7 @@ export default function QuotePage() {
                         htmlFor="budgetMin"
                         className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1"
                       >
-                        Minimum (€)
+                        {t("pages.quote.form.budget.minimum")}
                       </label>
                       <input
                         type="number"
@@ -374,7 +389,7 @@ export default function QuotePage() {
                             ? "border-red-500"
                             : "border-gray-300 dark:border-gray-500"
                         } bg-white dark:bg-gray-700 backdrop-blur-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:text-white transition-all duration-200 shadow-sm`}
-                        placeholder="500"
+                        placeholder="50"
                       />
                     </div>
                     <div>
@@ -382,7 +397,7 @@ export default function QuotePage() {
                         htmlFor="budgetMax"
                         className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1"
                       >
-                        Maximum (€)
+                        {t("pages.quote.form.budget.maximum")}
                       </label>
                       <input
                         type="number"
@@ -405,7 +420,7 @@ export default function QuotePage() {
                     </div>
                   </div>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                    Indiquez votre fourchette budgétaire en euros
+                    {t("pages.quote.form.budget.help")}
                   </p>
                   {budgetError && (
                     <p className="text-xs text-red-500 mt-1 flex items-center gap-1">

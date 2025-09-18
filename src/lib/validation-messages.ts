@@ -3,6 +3,7 @@ export const validationMessages = {
   fr: {
     // Messages généraux
     invalidDataFormat: "Format de données invalide",
+    validationErrorsDetected: "Erreurs de validation détectées",
 
     // Validation des noms
     firstNameRequired:
@@ -86,6 +87,7 @@ export const validationMessages = {
   en: {
     // General messages
     invalidDataFormat: "Invalid data format",
+    validationErrorsDetected: "Validation errors detected",
 
     // Name validation
     firstNameRequired: "First name is required and must be a string",
