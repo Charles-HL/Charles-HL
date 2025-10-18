@@ -13,32 +13,32 @@ const About = () => {
       icon: <Code className="w-8 h-8" />,
       title: t("skills.frontend"),
       description: "React, Next.js, Vue.js, Angular, TypeScript",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-blue-700",
     },
     {
       icon: <Layers className="w-8 h-8" />,
       title: t("skills.backend"),
       description: "Node.js, Java, Python, Spring Boot, APIs REST, C#",
-      color: "from-green-500 to-emerald-500",
+      color: "from-emerald-600 to-emerald-700",
     },
     {
       icon: <Brain className="w-8 h-8" />,
       title: t("skills.ai"),
       description: "Machine Learning, Deep Learning, TensorFlow, PyTorch, XAI",
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-500 to-blue-600",
     },
     {
       icon: <Database className="w-8 h-8" />,
       title: t("skills.data"),
       description:
         "Reinforcement Learning, NLP, Dataiku DSS, Data Visualization",
-      color: "from-orange-500 to-red-500",
+      color: "from-orange-600 to-orange-700",
     },
     {
       icon: <Cpu className="w-8 h-8" />,
       title: t("skills.robotics"),
       description: "Robotic Arms, Trajectory Optimization, DDPG, MADDPG",
-      color: "from-indigo-500 to-blue-500",
+      color: "from-blue-700 to-blue-800",
     },
   ];
 
@@ -80,10 +80,10 @@ const About = () => {
           variants={containerVariants}
           className="text-center mb-16 relative will-change-transform"
         >
-          {/* Photo placeholder - positioned absolutely to not affect layout */}
+          {/* Photo placeholder - positioned absolutely to not affect layout - Hidden on mobile */}
           <motion.div
             variants={itemVariants}
-            className="absolute top-0 right-4 md:right-8 lg:right-16 will-change-transform"
+            className="hidden md:block absolute top-0 right-4 md:right-8 lg:right-16 will-change-transform"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -135,30 +135,33 @@ const About = () => {
             {t("skills.title")}
           </motion.h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-8">
             {skills.map((skill, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{
-                  scale: 1.02,
-                  y: -2,
+                  y: -4,
                 }}
                 transition={{
                   type: "tween",
                   duration: 0.2,
                 }}
-                className="glass-card rounded-2xl p-6 transition-all duration-300 group glass-hover will-change-transform"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-4 md:p-6 border-2 border-blue-100 dark:border-blue-900/30 shadow-md hover:shadow-xl group "
               >
                 <div
-                  className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${skill.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}
+                  className={`inline-flex p-2 md:p-3 rounded-2xl bg-gradient-to-r ${skill.color} text-white mb-3 md:mb-4 group-hover:scale-105 transition-transform duration-200 shadow-md`}
                 >
-                  {skill.icon}
+                  <div className="w-6 h-6 md:w-8 md:h-8 flex items-center justify-center">
+                    <div className="w-full h-full [&>svg]:w-full [&>svg]:h-full">
+                      {skill.icon}
+                    </div>
+                  </div>
                 </div>
-                <h4 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                <h4 className="text-base md:text-xl font-semibold mb-2 md:mb-3 text-gray-900 dark:text-white">
                   {skill.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                <p className="text-xs md:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
                   {skill.description}
                 </p>
               </motion.div>
@@ -174,7 +177,7 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mt-16 text-center will-change-transform"
         >
-          <div className="glass-nav rounded-2xl p-8 text-gray-900 dark:text-white border border-white/20">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 text-gray-900 dark:text-white border-2 border-blue-100 dark:border-blue-900/30 shadow-lg">
             <h3 className="text-2xl font-bold mb-4 gradient-text flex items-center justify-center gap-2">
               {t("additional.title")}
               <span

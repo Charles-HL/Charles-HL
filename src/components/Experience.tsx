@@ -16,7 +16,7 @@ const Experience = () => {
       description: t("freelance.description"),
       location: "",
       icon: <User className="w-6 h-6" />,
-      color: "from-green-500 to-emerald-500",
+      color: "from-emerald-600 to-emerald-700",
       current: true,
     },
     {
@@ -26,7 +26,7 @@ const Experience = () => {
       description: "",
       location: t("thales.location"),
       icon: <Building className="w-6 h-6" />,
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-blue-700",
       current: true,
     },
     {
@@ -36,7 +36,7 @@ const Experience = () => {
       description: t("sopra.description"),
       location: t("sopra.location"),
       icon: <Building className="w-6 h-6" />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-blue-500 to-blue-600",
       current: false,
     },
   ];
@@ -87,21 +87,21 @@ const Experience = () => {
           variants={containerVariants}
           className="relative"
         >
-          {/* Timeline line */}
-          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-blue-500 to-purple-500"></div>
+          {/* Timeline line - Professional blue */}
+          <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-blue-400"></div>
 
-          <div className="space-y-0">
+          <div className="space-y-6 md:space-y-0">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 className={`relative flex items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                } mb-8 md:mb-12`}
               >
                 {/* Timeline dot */}
                 <div
-                  className={`absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full bg-gradient-to-r ${exp.color} flex items-center justify-center text-white shadow-lg z-10`}
+                  className={`absolute left-4 top-1/2 md:top-auto md:left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:translate-y-0 w-8 h-8 flex-shrink-0 rounded-full bg-gradient-to-r ${exp.color} flex items-center justify-center text-white shadow-lg z-10`}
                 >
                   {exp.icon}
                 </div>
@@ -109,42 +109,42 @@ const Experience = () => {
                 {/* Content */}
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className={`ml-16 md:ml-0 md:w-5/12 ${
+                  className={`ml-16 md:ml-0 md:w-5/12 w-full ${
                     index % 2 === 0
                       ? "md:mr-auto md:pr-8"
                       : "md:ml-auto md:pl-8"
                   }`}
                 >
-                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-200 border-2 border-blue-100 dark:border-blue-900/30">
                     {exp.current && (
-                      <span className="inline-block bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs font-semibold px-2 py-1 rounded-full mb-3">
+                      <span className="inline-block bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 text-xs font-bold px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg mb-3 border border-emerald-200 dark:border-emerald-700">
                         {t("current")}
                       </span>
                     )}
 
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {exp.title}
                     </h3>
 
-                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold mb-2">
-                      <Building className="w-4 h-4 mr-2" />
-                      {exp.company}
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 font-semibold mb-2 text-sm sm:text-base">
+                      <Building className="w-4 h-4 mr-2 flex-shrink-0" />
+                      <span className="truncate">{exp.company}</span>
                     </div>
 
-                    <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {exp.period}
+                    <div className="flex items-center text-gray-600 dark:text-gray-400 mb-2 text-sm sm:text-base">
+                      <Calendar className="w-4 h-4 mr-2 flex-shrink-0" />
+                      <span>{exp.period}</span>
                     </div>
 
                     {exp.location && (
-                      <div className="flex items-center text-gray-600 dark:text-gray-400 mb-3">
-                        <MapPin className="w-4 h-4 mr-2" />
-                        {exp.location}
+                      <div className="flex items-center text-gray-600 dark:text-gray-400 mb-3 text-sm sm:text-base">
+                        <MapPin className="w-4 h-4 mr-2 flex-shrink-0" />
+                        <span>{exp.location}</span>
                       </div>
                     )}
 
                     {exp.description && (
-                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                      <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm sm:text-base">
                         {exp.description}
                       </p>
                     )}

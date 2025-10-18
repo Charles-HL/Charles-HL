@@ -156,7 +156,7 @@ const Navigation = () => {
         className="hidden lg:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40"
       >
         <div
-          className={`glass-nav rounded-2xl px-8 py-4 transition-all duration-300 ${
+          className={`glass-nav rounded-2xl px-8 py-3 transition-all duration-300 ${
             scrolled ? "shadow-lg shadow-black/10" : ""
           }`}
         >
@@ -172,10 +172,10 @@ const Navigation = () => {
                     onClick={() =>
                       scrollToSection(item.anchor!.replace("#", ""))
                     }
-                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/5 ${
+                    className={`px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 box-border min-h-[36px] flex items-center cursor-pointer ${
                       isActiveItem(item)
-                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 shadow-sm"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                        ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 shadow-sm border border-blue-200 dark:border-blue-800"
+                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
                     }`}
                   >
                     {t(item.key)}
@@ -183,10 +183,10 @@ const Navigation = () => {
                 ) : (
                   <Link
                     href={item.href}
-                    className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/5 ${
+                    className={`px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 box-border min-h-[36px] flex items-center cursor-pointer ${
                       isActiveItem(item)
-                        ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 shadow-sm"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                        ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 shadow-sm border border-blue-200 dark:border-blue-800"
+                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
                     }`}
                   >
                     {t(item.key)}
@@ -195,11 +195,11 @@ const Navigation = () => {
               </motion.div>
             ))}
 
-            {/* Quote Button */}
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            {/* Quote Button - Conversion-focused orange */}
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="/quote"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-xl text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-xl text-sm font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap cursor-pointer"
               >
                 {t("quote")}
               </Link>
@@ -268,10 +268,10 @@ const Navigation = () => {
                           scrollToSection(item.anchor!.replace("#", ""));
                           setIsOpen(false);
                         }}
-                        className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/5 w-full text-left ${
+                        className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 w-full text-left box-border cursor-pointer ${
                           isActiveItem(item)
-                            ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                            : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                            ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800"
+                            : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
                         }`}
                       >
                         {t(item.key)}
@@ -281,10 +281,10 @@ const Navigation = () => {
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 hover:bg-white/10 dark:hover:bg-white/5 ${
+                          className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 box-border cursor-pointer ${
                             isActiveItem(item)
-                              ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                              : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                              ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800"
+                              : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
                           }`}
                         >
                           {t(item.key)}
@@ -293,12 +293,12 @@ const Navigation = () => {
                     )
                   )}
 
-                  {/* Mobile Quote Button */}
+                  {/* Mobile Quote Button - Conversion-focused */}
                   <motion.div whileHover={{ x: 5 }} className="pt-2">
                     <Link
                       href="/quote"
                       onClick={() => setIsOpen(false)}
-                      className="bg-gradient-to-r from-blue-600 to-purple-600 text-white block px-3 py-2 rounded-lg text-base font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 text-center shadow-lg"
+                      className="bg-gradient-to-r from-orange-500 to-orange-600 text-white block px-3 py-3 rounded-lg text-base font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-center shadow-lg cursor-pointer"
                     >
                       {t("quote")}
                     </Link>
@@ -311,7 +311,7 @@ const Navigation = () => {
                         toggleLanguage();
                         setIsOpen(false);
                       }}
-                      className="glass-card flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 w-full"
+                      className="glass-card flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 w-full cursor-pointer"
                     >
                       <Globe className="w-4 h-4" />
                       <span className="text-base font-medium">

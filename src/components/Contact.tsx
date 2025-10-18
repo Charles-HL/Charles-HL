@@ -14,21 +14,21 @@ const Contact = () => {
       label: t("email"),
       value: "contact@charleshl.dev",
       href: "mailto:contact@charleshl.dev",
-      color: "from-blue-500 to-cyan-500",
+      color: "from-blue-600 to-blue-700",
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
       label: t("linkedin"),
       value: "LinkedIn Profile",
       href: "https://www.linkedin.com/in/charles-hl/",
-      color: "from-blue-600 to-blue-700",
+      color: "from-blue-500 to-blue-600",
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       label: t("location"),
       value: "Toulouse, France",
       href: "",
-      color: "from-green-500 to-emerald-500",
+      color: "from-emerald-600 to-emerald-700",
     },
   ];
 
@@ -108,7 +108,7 @@ const Contact = () => {
                 type: "tween",
                 duration: 0.2,
               }}
-              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 text-center will-change-transform"
+              className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl text-center"
             >
               <div
                 className={`inline-flex p-4 rounded-full bg-gradient-to-r ${method.color} text-white mb-4`}
@@ -140,7 +140,7 @@ const Contact = () => {
           ))}
         </motion.div>
 
-        {/* CTA Section */}
+        {/* CTA Section - Professional and conversion-focused */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ const Contact = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-center will-change-transform"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-10 text-white shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">
               {t("cta.title")}
             </h3>
@@ -162,7 +162,7 @@ const Contact = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "tween", duration: 0.2 }}
-                className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center will-change-transform"
+                className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-50 transition-all duration-200 inline-flex items-center justify-center shadow-lg hover:shadow-xl will-change-transform"
               >
                 <Mail className="w-5 h-5 mr-2" />
                 {t("cta.sendEmail")}
@@ -170,7 +170,7 @@ const Contact = () => {
 
               <Link
                 href="/quote"
-                className="bg-green-600 text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-green-700 transition-all duration-300 inline-flex items-center justify-center"
+                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-200 inline-flex items-center justify-center shadow-lg hover:shadow-xl"
               >
                 {t("cta.requestQuote")}
               </Link>
@@ -182,7 +182,7 @@ const Contact = () => {
                 transition={{ type: "tween", duration: 0.2 }}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all duration-300 inline-flex items-center justify-center will-change-transform"
+                className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-blue-700 transition-all duration-200 inline-flex items-center justify-center will-change-transform"
               >
                 <Linkedin className="w-5 h-5 mr-2" />
                 {t("cta.linkedin")}
@@ -191,7 +191,7 @@ const Contact = () => {
           </div>
         </motion.div>
 
-        {/* Availability Status */}
+        {/* Availability Status - Professional badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -199,9 +199,11 @@ const Contact = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-center mt-12 will-change-transform"
         >
-          <div className="inline-flex items-center bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-4 py-2 rounded-full">
-            <div className="w-3 h-3 bg-green-500 rounded-full mr-2 animate-pulse"></div>
-            <span className="font-semibold">{t("availability.status")}</span>
+          <div className="inline-flex items-center bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-6 py-3 rounded-xl border-2 border-emerald-200 dark:border-emerald-700 shadow-sm">
+            <div className="w-3 h-3 bg-emerald-500 rounded-full mr-3 animate-pulse shadow-lg shadow-emerald-500/50"></div>
+            <span className="font-bold text-base">
+              {t("availability.status")}
+            </span>
           </div>
         </motion.div>
       </div>

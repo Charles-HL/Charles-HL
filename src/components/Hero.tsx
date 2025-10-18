@@ -13,20 +13,13 @@ const Hero = () => {
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden pt-14 lg:pt-0"
     >
-      {/* Background gradient - semi-transparent pour laisser passer AnimatedBackground */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white/30 to-purple-50/50 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-purple-900/80"></div>
+      {/* Background gradient - Professional and subtle */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white/50 to-emerald-50/30 dark:from-gray-900/95 dark:via-gray-800/90 dark:to-gray-900/95"></div>
 
-      {/* Animated background elements - réduits pour ne pas interférer avec AnimatedBackground */}
+      {/* Subtle background accents - Static for professionalism */}
       <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float"></div>
-        <div
-          className="absolute top-40 right-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float"
-          style={{ animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute bottom-40 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-float"
-          style={{ animationDelay: "4s" }}
-        ></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-emerald-500/5 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -63,33 +56,33 @@ const Hero = () => {
 
           <HeroButtons />
 
-          {/* Social Links */}
+          {/* Social Links - Professional style */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
             className="flex justify-center space-x-6 mb-12"
           >
             <motion.a
               href="mailto:contact@charleshl.dev"
-              whileHover={{ scale: 1.2, color: "#3b82f6" }}
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              whileHover={{ scale: 1.1 }}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-7 h-7" />
             </motion.a>
             {/* <motion.a
               href="https://github.com/charles-hl"
-              whileHover={{ scale: 1.2, color: "#3b82f6" }}
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              whileHover={{ scale: 1.1 }}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-7 h-7" />
             </motion.a> */}
             <motion.a
               href="https://www.linkedin.com/in/charles-hl/"
-              whileHover={{ scale: 1.2, color: "#3b82f6" }}
-              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              whileHover={{ scale: 1.1 }}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-7 h-7" />
             </motion.a>
           </motion.div>
         </div>

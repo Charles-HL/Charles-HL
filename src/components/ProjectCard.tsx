@@ -29,17 +29,16 @@ const ProjectCard = ({
 }: ProjectCardProps) => {
   const CardWrapper = motion.div;
   const motionProps = {
-    initial: { opacity: 0, y: 50 },
+    initial: { opacity: 0, y: 30 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { once: true, margin: "-10%" },
     transition: {
-      duration: 0.6,
+      duration: 0.5,
       delay: index * 0.1,
       ease: "easeOut" as const,
     },
     whileHover: {
-      scale: 1.02,
-      y: -8,
+      y: -4,
       transition: { duration: 0.2, ease: "easeOut" as const },
     },
     // Ensure stable final state
@@ -47,22 +46,22 @@ const ProjectCard = ({
   };
 
   const cardStyles =
-    "glass-card rounded-2xl p-6 group border border-white/20 backdrop-blur-sm will-change-transform";
+    "bg-white dark:bg-gray-800 rounded-2xl p-6 group border-2 border-blue-100 dark:border-blue-900/30 shadow-md hover:shadow-xl transition-all duration-200 will-change-transform";
 
   const typeStyles =
-    "px-3 py-1 text-xs font-medium bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-600 dark:text-blue-400 rounded-full border border-blue-200/30 dark:border-blue-400/30";
+    "px-3 py-1.5 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg border border-blue-200 dark:border-blue-700";
 
   const titleStyles =
-    "text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:gradient-text transition-all duration-300";
+    "text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200";
 
   const techStyles =
-    "inline-flex items-center px-2 py-1 text-xs font-medium glass-light rounded-lg text-gray-700 dark:text-gray-300 border border-white/10";
+    "inline-flex items-center px-2.5 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 rounded-md text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600";
 
   const techMoreStyles =
-    "inline-flex items-center px-2 py-1 text-xs font-medium glass-light rounded-lg text-gray-700 dark:text-gray-300 border border-white/10";
+    "inline-flex items-center px-2.5 py-1 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 rounded-md text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-700";
 
   const buttonStyles =
-    "inline-flex items-center justify-center w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg hover:shadow-xl transform hover:scale-[1.02]";
+    "inline-flex items-center justify-center w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 font-semibold shadow-md hover:shadow-lg";
 
   return (
     <CardWrapper

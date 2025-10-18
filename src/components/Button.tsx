@@ -31,21 +31,21 @@ const Button = ({
 
   // Size variants
   const sizeStyles = {
-    sm: "px-6 py-2 text-sm",
-    md: "px-8 py-3 text-lg",
-    lg: "px-10 py-4 text-xl",
+    sm: "px-5 py-2.5 text-sm",
+    md: "px-8 py-3.5 text-base",
+    lg: "px-10 py-4 text-lg",
   };
 
-  // Variant styles
+  // Variant styles - Professional and conversion-focused
   const variantStyles = {
     primary:
-      "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg hover:shadow-xl backdrop-blur-sm",
+      "bg-gradient-to-r from-orange-500 to-orange-600 text-white shadow-lg hover:shadow-xl hover:from-orange-600 hover:to-orange-700 font-semibold",
     secondary:
-      "glass-card text-blue-600 dark:text-blue-400 hover:bg-white/20 dark:hover:bg-white/10",
+      "bg-blue-600 text-white hover:bg-blue-700 shadow-md hover:shadow-lg",
     glass:
-      "glass-card text-blue-600 dark:text-blue-400 hover:bg-white/20 dark:hover:bg-white/10",
+      "glass-card text-blue-700 dark:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/30 border border-blue-200 dark:border-blue-800",
     outline:
-      "glass-light border-2 border-blue-600/30 text-blue-600 dark:text-blue-400 hover:bg-blue-600/20 dark:hover:bg-blue-400/20",
+      "border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/30 hover:border-blue-700",
   };
 
   // Combine all styles
@@ -53,17 +53,15 @@ const Button = ({
     variantStyles[variant]
   } ${disabled ? "opacity-50 cursor-not-allowed" : ""} ${className}`;
 
-  // Motion props
+  // Motion props - Subtle and professional
   const motionProps = {
     whileHover: disabled
       ? {}
       : {
-          scale: 1.05,
-          ...(variant === "primary" && {
-            boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1)",
-          }),
+          scale: 1.02,
+          transition: { duration: 0.2 },
         },
-    whileTap: disabled ? {} : { scale: 0.95 },
+    whileTap: disabled ? {} : { scale: 0.98 },
   };
 
   // Render as external link
