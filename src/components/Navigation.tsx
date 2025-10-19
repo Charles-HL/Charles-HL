@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, Moon, Sun } from "lucide-react";
 import { usePathname, useRouter, Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 
@@ -17,6 +17,8 @@ const Navigation = () => {
   const [shouldAnimate, setShouldAnimate] = useState(
     !animationState.hasAnimated
   );
+  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [mounted, setMounted] = useState(false);
   const t = useTranslations("navigation");
   const locale = useLocale();
   const router = useRouter();
@@ -37,27 +39,41 @@ const Navigation = () => {
     );
   };
 
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+  };
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
+
     if (element) {
-      // Calcul de l'offset selon la taille de l'écran
-      // Desktop: header flottant de ~80px + padding
-      // Mobile: header fixe de ~48px + padding
-      const isMobile = window.innerWidth < 1024;
-      const headerOffset = isMobile ? 60 : 100; // Ajustement pour mobile vs desktop
+      // Fermer le menu mobile immédiatement
+      setIsOpen(false);
 
-      const elementPosition =
-        element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerOffset;
+      // Petit délai pour que le menu se ferme avant le scroll
+      setTimeout(() => {
+        // Calcul de l'offset selon la taille de l'écran
+        // Desktop: header flottant de ~80px + padding
+        // Mobile: header fixe de ~48px + padding
+        const isMobile = window.innerWidth < 1024;
+        const headerOffset = isMobile ? 60 : 100; // Ajustement pour mobile vs desktop
 
-      // Mettre à jour l'URL dans la barre d'adresse
-      const newUrl = `${window.location.pathname}#${sectionId}`;
-      window.history.pushState(null, "", newUrl);
+        const elementPosition =
+          element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+        // Mettre à jour l'URL dans la barre d'adresse
+        const newUrl = `${window.location.pathname}#${sectionId}`;
+        window.history.pushState(null, "", newUrl);
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }, 300); // Délai pour la fermeture du menu
     }
   };
 
@@ -87,6 +103,22 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    setMounted(true);
+
+    // Initialiser le thème
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
+    } else {
+      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      setTheme(systemTheme);
+      document.documentElement.classList.toggle("dark", systemTheme === "dark");
+    }
+
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       detectActiveSection();
@@ -195,6 +227,31 @@ const Navigation = () => {
               </motion.div>
             ))}
 
+            {/* Theme Toggle */}
+            <motion.button
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="cursor-pointer p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200"
+              aria-label="Toggle theme"
+            >
+              {mounted && (
+                <motion.div
+                  initial={false}
+                  animate={{
+                    rotate: theme === "dark" ? 180 : 0,
+                  }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  {theme === "light" ? (
+                    <Sun className="w-5 h-5" />
+                  ) : (
+                    <Moon className="w-5 h-5" />
+                  )}
+                </motion.div>
+              )}
+            </motion.button>
+
             {/* Quote Button - Conversion-focused orange */}
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
@@ -226,7 +283,7 @@ const Navigation = () => {
             >
               <Link href="/" className="block">
                 <div className="flex items-center justify-center w-8 h-8">
-                  <span className="text-lg font-bold bg-gradient-to-br from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
+                  <span className="text-lg font-bold bg-gradient-to-br from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                     CHL
                   </span>
                 </div>
@@ -263,10 +320,13 @@ const Navigation = () => {
                     item.anchor ? (
                       <motion.button
                         key={item.key}
+                        type="button"
                         whileHover={{ x: 5 }}
-                        onClick={() => {
-                          scrollToSection(item.anchor!.replace("#", ""));
-                          setIsOpen(false);
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          const sectionId = item.anchor!.replace("#", "");
+                          scrollToSection(sectionId);
                         }}
                         className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 w-full text-left box-border cursor-pointer ${
                           isActiveItem(item)
@@ -302,6 +362,29 @@ const Navigation = () => {
                     >
                       {t("quote")}
                     </Link>
+                  </motion.div>
+
+                  {/* Mobile Theme Toggle */}
+                  <motion.div whileHover={{ x: 5 }} className="pt-2">
+                    <motion.button
+                      onClick={() => {
+                        toggleTheme();
+                      }}
+                      className="glass-card flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 w-full cursor-pointer"
+                    >
+                      {mounted && (
+                        <>
+                          {theme === "light" ? (
+                            <Sun className="w-4 h-4" />
+                          ) : (
+                            <Moon className="w-4 h-4" />
+                          )}
+                          <span className="text-base font-medium">
+                            {theme === "light" ? "Light" : "Dark"}
+                          </span>
+                        </>
+                      )}
+                    </motion.button>
                   </motion.div>
 
                   {/* Mobile Language Toggle */}

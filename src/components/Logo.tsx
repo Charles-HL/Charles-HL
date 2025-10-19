@@ -20,7 +20,7 @@ const Logo = () => {
             {/* Logo principal */}
             <div className="relative glass-nav rounded-2xl p-3 transition-all duration-300 group-hover:bg-white/20 dark:group-hover:bg-white/10 shadow-lg">
               <div className="flex items-center justify-center w-12 h-12">
-                <span className="text-2xl font-bold bg-gradient-to-br from-blue-600 via-purple-600 to-orange-500 bg-clip-text text-transparent">
+                <span className="text-2xl font-bold bg-gradient-to-br from-blue-600 to-emerald-600 bg-clip-text text-transparent">
                   CHL
                 </span>
               </div>

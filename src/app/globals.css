@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/utilities" layer(utilities);
+
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --background: #FAFAFA;
@@ -14,22 +19,13 @@
   --bg-subtle: #F8FAFC;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0F172A;
-    --foreground: #F1F5F9;
-    --text-primary: #F1F5F9;
-    --text-secondary: #94A3B8;
-    --bg-card: #1E293B;
-    --bg-subtle: #0F172A;
-  }
+.dark {
+  --background: #0F172A;
+  --foreground: #F1F5F9;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --bg-card: #1E293B;
+  --bg-subtle: #0F172A;
 }
 
 body {
@@ -105,25 +101,23 @@ body {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-@media (prefers-color-scheme: dark) {
-  .glass-light {
-    background: var(--bg-card);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  }
-  
-  .glass-card {
-    background: var(--bg-card);
-    border: 1px solid rgba(37, 99, 235, 0.25);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  }
-  
-  .glass-nav {
-    background: rgba(30, 41, 59, 0.98);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(37, 99, 235, 0.2);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
-  }
+.dark .glass-light {
+  background: var(--bg-card);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.dark .glass-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.dark .glass-nav {
+  background: rgba(30, 41, 59, 0.98);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Professional gradient text - Static for better readability */
@@ -221,10 +215,8 @@ html {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.15);
 }
 
-@media (prefers-color-scheme: dark) {
-  .glass-hover:hover {
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
-  }
+.dark .glass-hover:hover {
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
 }
 
 /* Prevent animation conflicts */
