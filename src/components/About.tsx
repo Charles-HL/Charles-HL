@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Code, Database, Brain, Layers, ExternalLink, Cpu } from "lucide-react";
 import Button from "./Button";
+import Image from "next/image";
 
 const About = () => {
   const t = useTranslations("about");
@@ -80,21 +81,24 @@ const About = () => {
           variants={containerVariants}
           className="text-center mb-16 relative will-change-transform"
         >
-          {/* Photo placeholder - positioned absolutely to not affect layout - Hidden on mobile */}
+          {/* Profile Photo - Centered on mobile, positioned absolutely on desktop */}
           <motion.div
             variants={itemVariants}
-            className="hidden md:block absolute top-0 right-4 md:right-8 lg:right-16 will-change-transform"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="flex justify-center mb-6 lg:mb-0 lg:block lg:absolute lg:top-0 lg:right-16 will-change-transform"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           >
-            <div className="w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-xl">
-              <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
-                <span className="text-sm md:text-base lg:text-lg font-bold text-gray-400 dark:text-gray-500">
-                  CHL
-                </span>
-              </div>
+            <div className="relative w-24 h-24 md:w-28 md:h-28 lg:w-40 lg:h-40 rounded-full overflow-hidden ring-4 ring-blue-500/20 shadow-xl">
+              <Image
+                src="/charles-hl-profile.jpg"
+                alt="Charles HL - Full Stack Software Engineer & AI Specialist"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 96px, (max-width: 1024px) 112px, 160px"
+                priority
+              />
             </div>
           </motion.div>
 

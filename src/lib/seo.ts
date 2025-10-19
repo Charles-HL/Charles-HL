@@ -135,6 +135,7 @@ export function generatePersonSchema(locale: string = "fr") {
         : "Full stack software engineer specializing in artificial intelligence and data science",
     url: siteConfig.url,
     email: siteConfig.email,
+    image: `${siteConfig.url}/charles-hl-profile.jpg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Toulouse",

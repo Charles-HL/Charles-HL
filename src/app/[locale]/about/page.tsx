@@ -5,6 +5,7 @@ import StructuredData from "@/components/StructuredData";
 import PageLayout from "@/components/PageLayout";
 import { Download, MapPin, Calendar, Coffee } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 
 type Props = {
   params: Promise<{ locale: "en" | "fr" }>;
@@ -87,14 +88,17 @@ export default async function AboutPage({ params }: Props) {
         <section className="pt-24 pb-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              {/* Photo placeholder */}
+              {/* Profile Photo */}
               <div className="flex justify-center mb-8">
-                <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-xl">
-                  <div className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
-                    <span className="text-4xl md:text-5xl font-bold text-gray-400 dark:text-gray-500">
-                      CHL
-                    </span>
-                  </div>
+                <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden ring-4 ring-blue-500/30 shadow-2xl">
+                  <Image
+                    src="/charles-hl-profile.jpg"
+                    alt="Charles HL - Full Stack Developer, AI Engineer & Data Scientist based in Toulouse, France"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 192px, (max-width: 1024px) 224px, 256px"
+                    priority
+                  />
                 </div>
               </div>
 
