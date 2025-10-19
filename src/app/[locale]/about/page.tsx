@@ -3,7 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { generateSEOMetadata, generateBreadcrumbSchema } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
 import PageLayout from "@/components/PageLayout";
-import { Download, MapPin, Calendar, Coffee } from "lucide-react";
+import { Download, MapPin, Calendar, Coffee, CheckCircle2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 
@@ -150,6 +150,63 @@ export default async function AboutPage({ params }: Props) {
                     </span>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Expertise Section */}
+        <section className="py-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                  {t("expertise.title")}
+                </h2>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl shadow-lg p-8">
+                <ul className="grid md:grid-cols-2 gap-4">
+                  {(t.raw("expertise.items") as string[]).map((item, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start text-gray-700 dark:text-gray-300"
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-blue-600 mr-3 mt-0.5 flex-shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Me */}
+        <section className="py-8 bg-gray-50 dark:bg-gray-900/50">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                {t("whyChooseMe.title")}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  t("whyChooseMe.fast"),
+                  t("whyChooseMe.adapted"),
+                  t("whyChooseMe.modern"),
+                  t("whyChooseMe.support"),
+                  t("whyChooseMe.local"),
+                  t("whyChooseMe.experience"),
+                ].map((reason, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md"
+                  >
+                    <p className="text-lg text-gray-700 dark:text-gray-300">
+                      {reason}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

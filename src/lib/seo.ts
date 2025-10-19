@@ -202,8 +202,8 @@ export function generateOrganizationSchema(locale: string = "fr") {
     alternateName: "Charles HL Development",
     description:
       locale === "fr"
-        ? "Services de développement web full stack et d'intelligence artificielle à Toulouse"
-        : "Full stack web development and artificial intelligence services in Toulouse",
+        ? "Développeur web freelance à Toulouse. Création d'applications web sur mesure, sites vitrines, outils de gestion pour TPE, PME, artisans et grandes entreprises. Expert en développement Full Stack et intelligence artificielle."
+        : "Freelance web developer in Toulouse. Custom web applications, showcase websites, management tools for small businesses, SMEs, craftsmen and large companies. Expert in Full Stack development and artificial intelligence.",
     url: siteConfig.url,
     email: siteConfig.email,
     telephone: "+33-XXX-XXX-XXX", // À remplir si disponible
@@ -218,12 +218,63 @@ export function generateOrganizationSchema(locale: string = "fr") {
       name: siteConfig.name,
     },
     sameAs: [siteConfig.social.linkedin, siteConfig.social.github],
+    areaServed: {
+      "@type": "City",
+      name: "Toulouse",
+    },
+    priceRange: "€€",
     serviceType: [
       "Web Development",
       "Full Stack Development",
       "AI Development",
       "Data Science",
       "Technical Consulting",
+      "Custom Web Applications",
+      "Business Websites",
+      "Internal Management Tools",
+      "Web Automation",
+      "Database Integration",
+    ],
+    makesOffer: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name:
+            locale === "fr"
+              ? "Applications web sur mesure"
+              : "Custom web applications",
+          description:
+            locale === "fr"
+              ? "Outils internes, formulaires dynamiques, tableaux de bord"
+              : "Internal tools, dynamic forms, dashboards",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name:
+            locale === "fr"
+              ? "Sites vitrines modernes"
+              : "Modern showcase websites",
+          description:
+            locale === "fr"
+              ? "Création ou refonte, SEO et performance"
+              : "Creation or redesign, SEO and performance",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: locale === "fr" ? "Automatisations" : "Automation",
+          description:
+            locale === "fr"
+              ? "Simplifier vos tâches récurrentes"
+              : "Simplify your recurring tasks",
+        },
+      },
     ],
   };
 }

@@ -5,9 +5,9 @@
 export const siteConfig = {
   // Informations du site
   name: "Charles HILD LÊ",
-  title: "Charles HL - Full Stack Developer & AI Engineer",
+  title: "Charles HL - Développeur Web Freelance & Ingénieur Full Stack",
   description:
-    "Portfolio professionnel de Charles HILD LÊ, ingénieur logiciel full stack spécialisé en intelligence artificielle et science des données. Freelance et salarié chez Thales.",
+    "Développeur web freelance à Toulouse spécialisé en création d'applications et sites sur mesure pour TPE, PME et grandes entreprises. Expert en développement Full Stack, IA et automatisation. Sites vitrines, outils de gestion, formulaires dynamiques et solutions web modernes.",
 
   // URLs et domaine
   url: "https://charleshl.com",
@@ -42,6 +42,25 @@ export const siteConfig = {
     "Intelligence Artificielle",
     "Développement Web",
     "Consultant Technique",
+    // Mots-clés TPE/PME
+    "Développeur web freelance Toulouse",
+    "Création site web TPE PME",
+    "Application web sur mesure",
+    "Développeur freelance petite entreprise",
+    "Site vitrine moderne",
+    "Formulaire dynamique web",
+    "Application gestion interne",
+    "CRM sur mesure",
+    "Outil métier web",
+    "Tableau de bord web",
+    "Automatisation web",
+    "Refonte site internet",
+    "Développeur web artisan",
+    "Développeur web commerce",
+    "Application web garage",
+    "Site internet professionnel",
+    "Hébergement web clé en main",
+    "SEO optimisation Toulouse",
   ],
 
   // Langues supportées

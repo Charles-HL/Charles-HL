@@ -10,15 +10,38 @@
   "hero": {
     "title": "Charles HL",
     "subtitle": "Ingénieur Logiciel Web Full Stack & Data Science/IA",
-    "description": "Développeur passionné spécialisé en développement web moderne et intelligence artificielle. Freelance et salarié chez Thales, je crée des solutions innovantes qui allient technologie et créativité.",
+    "description": "Développeur passionné spécialisé en développement web moderne et intelligence artificielle. Freelance et salarié chez Thales, je crée des solutions innovantes qui allient technologie et créativité. De l'application web sur mesure au site vitrine performant, j'accompagne TPE, PME et grandes entreprises dans leurs projets digitaux.",
     "cta": "Découvrir mon travail",
     "contact": "Me contacter",
-    "quote": "Devis"
+    "quote": "Demander un devis"
   },
   "about": {
     "title": "À propos de moi",
     "subtitle": "Diplômé d'une grande école d'ingénieurs dans un domaine très complet autour de l'IA et de la robotique",
     "description": "Basé à Toulouse, je suis un ingénieur logiciel web full stack avec une expertise particulière en intelligence artificielle et science des données. Ma passion pour la technologie m'amène à créer des solutions innovantes autant en freelance qu'en tant que salarié chez Thales.",
+    "expertise": {
+      "title": "Mon Expertise",
+      "freelance": {
+        "title": "Services Freelance pour TPE/PME",
+        "items": [
+          "🌐 Sites vitrines modernes et performants",
+          "🧰 Applications web sur mesure (gestion, formulaires, CRM)",
+          "⚙️ Automatisations et intégrations (emails, APIs, stockage)",
+          "🔒 Solutions sécurisées avec bases de données",
+          "📱 Interfaces adaptées mobile et tablette",
+          "🚀 Hébergement et maintenance simplifiés"
+        ]
+      },
+      "enterprise": {
+        "title": "Développement Entreprise",
+        "items": [
+          "Applications Full Stack complexes",
+          "Intelligence Artificielle & Data Science",
+          "Architectures scalables et performantes",
+          "Intégration systèmes existants"
+        ]
+      }
+    },
     "skills": {
       "title": "Compétences principales",
       "frontend": "Développement Frontend (React, Vue.js)",
@@ -28,6 +51,15 @@
       "fullstack": "Applications Web Full Stack",
       "databases": "Bases de données (PostgreSQL, Solr)",
       "robotics": "Robotique"
+    },
+    "whyChooseMe": {
+      "title": "Pourquoi Me Choisir ?",
+      "fast": "⚡ Développement rapide et fiable",
+      "adapted": "💼 Solutions adaptées à votre budget",
+      "modern": "🚀 Technologies modernes (React, Next.js, Node.js)",
+      "support": "🛠️ Hébergement et maintenance simplifiés",
+      "local": "📍 Basé à Toulouse, disponible en France",
+      "experience": "✨ Expertise freelance et grande entreprise (Thales)"
     },
     "learnMore": "En savoir plus sur moi",
     "additional": {
@@ -101,17 +133,21 @@
     "rights": "Tous droits réservés",
     "built": "Construit avec Next.js et Tailwind CSS",
     "brand": {
-      "description": "Ingénieur Logiciel Full Stack spécialisé en IA et Data Science. Création de solutions innovantes qui allient technologie et créativité.",
+      "description": "Développeur web freelance à Toulouse spécialisé en création d'applications et sites sur mesure pour TPE, PME et grandes entreprises. Expert Full Stack, IA et automatisation web.",
+      "tagline": "Solutions web modernes pour petites et grandes entreprises",
       "email": "contact@charleshl.com",
       "location": "Toulouse, France"
     },
     "quickLinks": "Liens Rapides",
     "services": {
       "title": "Services",
-      "web": "Développement Web",
+      "customApps": "Applications Web Sur Mesure",
+      "websites": "Sites Vitrines Modernes",
+      "tools": "Outils de Gestion & CRM",
+      "automation": "Automatisation & Intégrations",
+      "fullstack": "Applications Full Stack",
+      "ai": "IA & Data Science",
       "backend": "APIs Backend",
-      "fullstack": "Applications Full Stack", 
-      "ai": "IA/Data Science",
       "consulting": "Conseil Technique"
     },
     "madeWith": "Fait avec",
@@ -135,6 +171,28 @@
       "personalStory": {
         "title": "Mon Parcours",
         "content": "Après avoir été diplômé d'une grande école d'ingénieurs avec un focus complet sur l'IA et la robotique, je travaille à la fois en tant que freelance et en tant que salarié chez Thales. Cette double expérience m'a donné une perspective unique sur le développement entrepreneurial et d'entreprise."
+      },
+      "expertise": {
+        "title": "Mon Expertise",
+        "items": [
+          "🌐 Sites vitrines modernes et performants",
+          "🧰 Applications web sur mesure (gestion, formulaires, CRM)",
+          "⚙️ Automatisations et intégrations (emails, APIs, stockage)",
+          "🔒 Solutions sécurisées avec bases de données",
+          "📱 Interfaces adaptées mobile et tablette",
+          "💻 Applications Full Stack complexes",
+          "🤖 Intelligence Artificielle & Data Science",
+          "🚀 Architectures scalables et hébergement simplifié"
+        ]
+      },
+      "whyChooseMe": {
+        "title": "Pourquoi Me Choisir ?",
+        "fast": "⚡ Développement rapide et fiable",
+        "adapted": "💼 Solutions adaptées à votre budget",
+        "modern": "🚀 Technologies modernes (React, Next.js, Node.js)",
+        "support": "🛠️ Hébergement et maintenance simplifiés",
+        "local": "📍 Basé à Toulouse, disponible en France",
+        "experience": "✨ Expertise freelance et grande entreprise (Thales)"
       },
       "skills": {
         "title": "Expertise Technique",

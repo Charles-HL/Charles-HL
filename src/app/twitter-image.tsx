@@ -1,11 +1,9 @@
 import { ImageResponse } from "next/og";
 import siteConfig from "@/config";
-import fs from "fs";
-import path from "path";
 
 export const runtime = "edge";
 
-export const alt = `${siteConfig.name} - Full Stack Developer & AI Engineer`;
+export const alt = `${siteConfig.name} - Développeur Web Freelance & Ingénieur Full Stack`;
 export const size = {
   width: 800,
   height: 418,
@@ -13,23 +11,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function TwitterImage() {
-  // Charger l'image de profil
-  const profileImagePath = path.join(
-    process.cwd(),
-    "public",
-    "charles-hl-profile.jpg"
-  );
-  let profileImageBase64 = "";
-
-  try {
-    const imageBuffer = fs.readFileSync(profileImagePath);
-    profileImageBase64 = `data:image/jpeg;base64,${imageBuffer.toString(
-      "base64"
-    )}`;
-  } catch (error) {
-    console.error("Error loading profile image:", error);
-  }
-
   return new ImageResponse(
     (
       <div
@@ -50,8 +31,9 @@ export default async function TwitterImage() {
             width: "100%",
             height: "100%",
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            justifyContent: "space-between",
+            justifyContent: "center",
             padding: "40px 50px",
             boxShadow: "0 15px 40px rgba(0, 0, 0, 0.3)",
           }}
@@ -61,7 +43,8 @@ export default async function TwitterImage() {
             style={{
               display: "flex",
               flexDirection: "column",
-              maxWidth: "55%",
+              alignItems: "center",
+              textAlign: "center",
             }}
           >
             <div
@@ -84,42 +67,26 @@ export default async function TwitterImage() {
                 lineHeight: 1.2,
               }}
             >
-              Full Stack Developer & AI Engineer
+              Développeur Web Freelance & Ingénieur Full Stack
+            </div>
+            <div
+              style={{
+                fontSize: 20,
+                color: "#6b7280",
+                marginBottom: 8,
+              }}
+            >
+              Applications Web Sur Mesure | IA & Data Science
             </div>
             <div
               style={{
                 fontSize: 18,
-                color: "#6b7280",
+                color: "#9ca3af",
               }}
             >
               📍 Toulouse, France
             </div>
           </div>
-
-          {/* Profile Image */}
-          {profileImageBase64 && (
-            <div
-              style={{
-                display: "flex",
-                width: "200px",
-                height: "200px",
-                borderRadius: "50%",
-                overflow: "hidden",
-                border: "6px solid #1DA1F2",
-                boxShadow: "0 8px 30px rgba(29, 161, 242, 0.4)",
-              }}
-            >
-              <img
-                src={profileImageBase64}
-                alt={siteConfig.name}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-          )}
         </div>
       </div>
     ),

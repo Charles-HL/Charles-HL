@@ -17,23 +17,37 @@ const Footer = () => {
     { name: t("navigation.quote"), href: "/quote" as const },
   ];
 
+  const services = [
+    t("footer.services.customApps"),
+    t("footer.services.websites"),
+    t("footer.services.tools"),
+    t("footer.services.automation"),
+    t("footer.services.fullstack"),
+    t("footer.services.ai"),
+    t("footer.services.backend"),
+    t("footer.services.consulting"),
+  ];
+
   return (
     <footer className="bg-gray-900/90 backdrop-blur-sm text-white py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="col-span-2"
+            className="lg:col-span-2"
           >
             <h3 className="text-2xl font-bold gradient-text mb-4">
               Charles HL
             </h3>
-            <p className="text-gray-400 mb-4 leading-relaxed">
+            <p className="text-gray-400 mb-3 leading-relaxed">
               {t("footer.brand.description")}
+            </p>
+            <p className="text-sm text-blue-400 mb-4 font-medium">
+              {t("footer.brand.tagline")}
             </p>
             <div className="space-y-2">
               <div className="flex items-center text-gray-400">
@@ -76,7 +90,7 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Services */}
+          {/* Services Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,11 +101,11 @@ const Footer = () => {
               {t("footer.services.title")}
             </h4>
             <ul className="space-y-2 text-gray-400">
-              <li>{t("footer.services.web")}</li>
-              <li>{t("footer.services.backend")}</li>
-              <li>{t("footer.services.fullstack")}</li>
-              <li>{t("footer.services.ai")}</li>
-              <li>{t("footer.services.consulting")}</li>
+              {services.map((service, idx) => (
+                <li key={idx} className="text-sm">
+                  {service}
+                </li>
+              ))}
             </ul>
           </motion.div>
         </div>
