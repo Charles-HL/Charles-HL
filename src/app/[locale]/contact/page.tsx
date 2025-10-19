@@ -149,10 +149,10 @@ export default function ContactPage({}: Props) {
                         {t("pages.contact.methods.email")}
                       </h3>
                       <a
-                        href="mailto:contact@charleshl.dev"
+                        href="mailto:contact@charleshl.com"
                         className="text-blue-600 hover:text-blue-700 transition-colors"
                       >
-                        contact@charleshl.dev
+                        contact@charleshl.com
                       </a>
                     </div>
                   </div>
@@ -221,7 +221,10 @@ export default function ContactPage({}: Props) {
 
                   {/* Status Messages */}
                   {submitStatus === "success" && (
-                    <div ref={statusMessageRef} className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center">
+                    <div
+                      ref={statusMessageRef}
+                      className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center"
+                    >
                       <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 mr-3" />
                       <p className="text-green-800 dark:text-green-200">
                         {statusMessage}
@@ -236,14 +239,20 @@ export default function ContactPage({}: Props) {
                           errorDetails.length > 0 ? statusMessage : undefined
                         }
                         errors={
-                          errorDetails.length > 0 ? errorDetails : [statusMessage]
+                          errorDetails.length > 0
+                            ? errorDetails
+                            : [statusMessage]
                         }
                         className="mb-6"
                       />
                     </div>
                   )}
 
-                  <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+                  <form
+                    className="space-y-6"
+                    onSubmit={handleSubmit}
+                    noValidate
+                  >
                     <div>
                       <label
                         htmlFor="name"

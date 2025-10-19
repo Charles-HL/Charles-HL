@@ -39,7 +39,7 @@ const Footer = () => {
               <div className="flex items-center text-gray-400">
                 <Mail className="w-4 h-4 mr-2" />
                 <a
-                  href="mailto:contact@charleshl.dev"
+                  href="mailto:contact@charleshl.com"
                   className="hover:text-blue-400 transition-colors"
                 >
                   {t("footer.brand.email")}

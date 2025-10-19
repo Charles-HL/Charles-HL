@@ -76,7 +76,7 @@ export function generateSEOMetadata({
       title: fullTitle,
       description,
       images: [imageUrl],
-      creator: "@charleshl_dev",
+      creator: "@charleshl_com",
     },
 
     // Métadonnées techniques

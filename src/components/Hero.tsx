@@ -64,7 +64,7 @@ const Hero = () => {
             className="flex justify-center space-x-6 mb-12"
           >
             <motion.a
-              href="mailto:contact@charleshl.dev"
+              href="mailto:contact@charleshl.com"
               whileHover={{ scale: 1.1 }}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-3 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20"
             >

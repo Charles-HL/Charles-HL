@@ -12,8 +12,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       label: t("email"),
-      value: "contact@charleshl.dev",
-      href: "mailto:contact@charleshl.dev",
+      value: "contact@charleshl.com",
+      href: "mailto:contact@charleshl.com",
       color: "from-blue-600 to-blue-700",
     },
     {
@@ -158,7 +158,7 @@ const Contact = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
-                href="mailto:contact@charleshl.dev"
+                href="mailto:contact@charleshl.com"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "tween", duration: 0.2 }}
