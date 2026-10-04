@@ -1,20 +1,16 @@
 import { notFound } from "next/navigation";
 import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
-import {
-  getMessages,
-  getTranslations,
-  setRequestLocale,
-} from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import { routing } from "@/i18n/routing";
+import { pickClientMessages } from "@/i18n/client-messages";
 import {
-  generateSEOMetadata,
+  buildBaseMetadata,
   generatePersonSchema,
-  generateOrganizationSchema,
+  generateWebSiteSchema,
 } from "@/lib/seo";
 import StructuredData from "@/components/StructuredData";
-import siteConfig from "@/config";
 import "../globals.css";
 
 type Props = {
@@ -30,18 +26,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: Omit<Props, "children">) {
   const { locale } = await props.params;
-
-  const t = await getTranslations({ locale, namespace: "LocaleLayout" });
-
-  return generateSEOMetadata({
-    title: t("title"),
-    description:
-      locale === "fr"
-        ? siteConfig.description
-        : "Professional portfolio of Charles HILD LÊ, full stack software engineer specializing in artificial intelligence and data science. Freelance and employee at Thales.",
-    locale,
-    type: "profile",
-  });
+  return buildBaseMetadata(locale);
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
@@ -54,8 +39,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  // Providing all messages to the client side
-  const messages = await getMessages();
+  // Only the namespaces used by client components travel to the browser.
+  const messages = pickClientMessages(await getMessages());
 
   return (
     <html lang={locale} className="scroll-smooth" suppressHydrationWarning>
@@ -80,10 +65,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           }}
         />
         <StructuredData
-          data={[
-            generatePersonSchema(locale),
-            generateOrganizationSchema(locale),
-          ]}
+          data={[generatePersonSchema(locale), generateWebSiteSchema(locale)]}
         />
       </head>
       <body

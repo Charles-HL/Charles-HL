@@ -1,6 +1,6 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import { usePathname, useRouter } from "@/i18n/navigation";
@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 
 const LanguageToggle = () => {
   const locale = useLocale();
+  const t = useTranslations("navigation");
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
@@ -33,7 +34,9 @@ const LanguageToggle = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
+        type="button"
         onClick={toggleLanguage}
+        aria-label={t("switchLanguage")}
         className="cursor-pointer glass-nav flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-4 py-3 rounded-2xl hover:bg-white/10 dark:hover:bg-white/5 shadow-lg"
       >
         <Globe className="w-4 h-4" />

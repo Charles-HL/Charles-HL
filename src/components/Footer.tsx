@@ -1,142 +1,107 @@
-"use client";
-
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { Heart, Code, Mail, MapPin } from "lucide-react";
+import { getTranslations } from "next-intl/server";
+import { Linkedin, Mail, MapPin } from "lucide-react";
+import siteConfig from "@/config";
+import { audiences } from "@/content/audiences";
 import { Link } from "@/i18n/navigation";
 
-const Footer = () => {
-  const t = useTranslations();
+const linkClass = "text-gray-400 transition-colors hover:text-blue-400";
+
+export default async function Footer() {
+  const [t, tNav] = await Promise.all([
+    getTranslations("footer"),
+    getTranslations("navigation"),
+  ]);
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: t("navigation.about"), href: "/about" as const },
-    { name: t("navigation.experience"), href: "/experience" as const },
-    { name: t("navigation.projects"), href: "/projects" as const },
-    { name: t("navigation.contact"), href: "/contact" as const },
-    { name: t("navigation.quote"), href: "/quote" as const },
-  ];
-
-  const services = [
-    t("footer.services.customApps"),
-    t("footer.services.websites"),
-    t("footer.services.tools"),
-    t("footer.services.automation"),
-    t("footer.services.fullstack"),
-    t("footer.services.ai"),
-    t("footer.services.backend"),
-    t("footer.services.consulting"),
-  ];
+    { label: tNav("home"), href: "/" },
+    { label: tNav("projects"), href: "/projects" },
+    { label: tNav("ai"), href: "/ai-engineering" },
+    { label: tNav("about"), href: "/about" },
+    { label: tNav("contact"), href: "/contact" },
+    { label: t("quote"), href: "/quote" },
+  ] as const;
 
   return (
-    <footer className="bg-gray-900/90 backdrop-blur-sm text-white py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-2"
-          >
-            <h3 className="text-2xl font-bold gradient-text mb-4">
-              Charles HL
-            </h3>
-            <p className="text-gray-400 mb-3 leading-relaxed">
-              {t("footer.brand.description")}
+    <footer className="relative z-10 bg-gray-900/95 py-14 text-white backdrop-blur-sm">
+      <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <p className="gradient-text mb-4 text-2xl font-bold">
+              {siteConfig.shortName}
             </p>
-            <p className="text-sm text-blue-400 mb-4 font-medium">
-              {t("footer.brand.tagline")}
+            <p className="mb-3 max-w-md leading-relaxed text-gray-400">
+              {t("brandDescription")}
             </p>
-            <div className="space-y-2">
-              <div className="flex items-center text-gray-400">
-                <Mail className="w-4 h-4 mr-2" />
-                <a
-                  href="mailto:contact@charleshl.com"
-                  className="hover:text-blue-400 transition-colors"
-                >
-                  {t("footer.brand.email")}
+            <p className="mb-5 max-w-md text-sm font-medium text-blue-400">
+              {t("tagline")}
+            </p>
+            <ul className="space-y-2 text-gray-400">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 shrink-0" />
+                <a href={`mailto:${siteConfig.email}`} className={linkClass}>
+                  {siteConfig.email}
                 </a>
-              </div>
-              <div className="flex items-center text-gray-400">
-                <MapPin className="w-4 h-4 mr-2" />
-                <span>{t("footer.brand.location")}</span>
-              </div>
-            </div>
-          </motion.div>
+              </li>
+              <li className="flex items-center gap-2">
+                <Linkedin className="h-4 w-4 shrink-0" />
+                <a
+                  href={siteConfig.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  LinkedIn
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 shrink-0" />
+                <span>{siteConfig.location}</span>
+              </li>
+            </ul>
+          </div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h4 className="text-lg font-semibold mb-4">
-              {t("footer.quickLinks")}
-            </h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors"
-                  >
-                    {link.name}
+          {/* Audiences: descriptive anchors for internal linking */}
+          <nav aria-labelledby="footer-audiences">
+            <p id="footer-audiences" className="mb-4 text-lg font-semibold">
+              {t("audiencesTitle")}
+            </p>
+            <ul className="space-y-3">
+              {audiences.map((audience) => (
+                <li key={audience.id}>
+                  <Link href={audience.href} className={linkClass}>
+                    {t(`audiences.${audience.id}`)}
                   </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </nav>
 
-          {/* Services Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h4 className="text-lg font-semibold mb-4">
-              {t("footer.services.title")}
-            </h4>
-            <ul className="space-y-2 text-gray-400">
-              {services.map((service, idx) => (
-                <li key={idx} className="text-sm">
-                  {service}
+          {/* Quick links */}
+          <nav aria-labelledby="footer-links">
+            <p id="footer-links" className="mb-4 text-lg font-semibold">
+              {t("linksTitle")}
+            </p>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={linkClass}>
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
-          </motion.div>
+          </nav>
         </div>
 
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-gray-800 mt-12 pt-8"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} Charles HL. {t("footer.rights")}.
-            </p>
-
-            <div className="flex items-center text-gray-400 text-sm">
-              <span>{t("footer.madeWith")}</span>
-              <Heart
-                className="w-4 h-4 mx-2 text-red-500"
-                fill="currentColor"
-              />
-              <span>{t("footer.and")}</span>
-              <Code className="w-4 h-4 ml-2" />
-            </div>
-          </div>
-        </motion.div>
+        <div className="mt-12 flex flex-col gap-2 border-t border-gray-800 pt-8 text-sm text-gray-400 md:flex-row md:items-center md:justify-between">
+          <p>
+            © {currentYear} {siteConfig.shortName}. {t("rights")}
+          </p>
+          <p>{t("logosNotice")}</p>
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

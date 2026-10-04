@@ -1,27 +1,48 @@
 import { defineRouting } from "next-intl/routing";
 
 export const routing = defineRouting({
-  locales: ["en", "fr"],
-  defaultLocale: "en",
+  locales: ["fr", "en"],
+  defaultLocale: "fr",
+  // French lives at the root, English under /en.
+  localePrefix: "as-needed",
+  // No browser-language redirect: every URL serves a single, crawlable locale.
+  localeDetection: false,
+  // hreflang links are emitted in the HTML head by `src/lib/seo.ts`.
+  alternateLinks: false,
   pathnames: {
     "/": "/",
-    "/about": {
-      fr: "/a-propos",
+    "/freelance": {
+      fr: "/developpeur-freelance",
+      en: "/freelance-developer",
     },
-    "/experience": {
-      fr: "/experience",
+    "/consulting": {
+      fr: "/consultant-full-stack",
+      en: "/full-stack-consultant",
+    },
+    "/recruiters": {
+      fr: "/recruteurs",
+      en: "/recruiters",
+    },
+    "/ai-engineering": {
+      fr: "/ingenierie-ia",
+      en: "/ai-engineering",
     },
     "/projects": {
       fr: "/projets",
+      en: "/projects",
     },
     "/projects/[slug]": {
       fr: "/projets/[slug]",
+      en: "/projects/[slug]",
     },
-    "/contact": {
-      fr: "/contact",
+    "/about": {
+      fr: "/a-propos",
+      en: "/about",
     },
+    "/contact": "/contact",
     "/quote": {
       fr: "/devis",
+      en: "/quote",
     },
   },
 });

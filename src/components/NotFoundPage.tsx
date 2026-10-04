@@ -1,12 +1,22 @@
-import { useTranslations } from "next-intl";
-// import PageLayout from './PageLayout';
+import { getTranslations } from "next-intl/server";
+import Button from "./Button";
+import PageLayout from "./PageLayout";
+import PageHeader from "./ui/PageHeader";
+import Section from "./ui/Section";
 
-export default function NotFoundPage() {
-  const t = useTranslations("NotFoundPage");
+export default async function NotFoundPage() {
+  const t = await getTranslations("NotFoundPage");
 
   return (
-    // <PageLayout title={t('title')}>
-    <p className="max-w-[460px]">{t("description")}</p>
-    // </PageLayout>
+    <PageLayout>
+      <PageHeader title={t("title")} intro={t("description")} />
+      <Section>
+        <div className="flex justify-center">
+          <Button href="/" variant="primary">
+            {t("back")}
+          </Button>
+        </div>
+      </Section>
+    </PageLayout>
   );
 }

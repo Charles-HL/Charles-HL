@@ -267,3 +267,23 @@ html {
   -webkit-text-fill-color: white !important;
   color: white !important;
 }
+/* Motifs of the project fallback visuals (one per category family) */
+.pattern-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.35) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.14) 0 2px,
+    transparent 2px 14px
+  );
+}

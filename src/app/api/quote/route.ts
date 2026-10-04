@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { escapeHtml } from "@/lib/escape-html";
 import { getValidationMessage, getProjectTypeInvalidMessage, getTimelineInvalidMessage, type Locale } from "@/lib/validation-messages";
 
 // Fonction pour extraire la locale depuis les headers ou body
@@ -277,26 +278,26 @@ export async function POST(request: NextRequest) {
           
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #374151; margin-top: 0;">Informations client</h3>
-            <p><strong>Nom:</strong> ${firstName} ${lastName}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            ${company ? `<p><strong>Entreprise:</strong> ${company}</p>` : ""}
+            <p><strong>Nom:</strong> ${escapeHtml(firstName)} ${escapeHtml(lastName)}</p>
+            <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+            ${company ? `<p><strong>Entreprise:</strong> ${escapeHtml(company)}</p>` : ""}
           </div>
           
           <div style="background-color: #fff7ed; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ea580c;">
             <h3 style="color: #ea580c; margin-top: 0;">Détails du projet</h3>
-            <p><strong>Type de projet:</strong> ${formatProjectType(
-              projectType
+            <p><strong>Type de projet:</strong> ${escapeHtml(
+              formatProjectType(projectType)
             )}</p>
             <p><strong>Budget:</strong> ${formatBudget(
               budgetMin,
               budgetMax
             )}</p>
-            <p><strong>Délai souhaité:</strong> ${formatTimeline(timeline)}</p>
+            <p><strong>Délai souhaité:</strong> ${escapeHtml(formatTimeline(timeline))}</p>
           </div>
           
           <div style="margin: 20px 0;">
             <h3 style="color: #374151;">Description du projet</h3>
-            <div style="background-color: #ffffff; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${description}</div>
+            <div style="background-color: #ffffff; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${escapeHtml(description)}</div>
           </div>
           
           ${
@@ -304,7 +305,7 @@ export async function POST(request: NextRequest) {
               ? `
           <div style="margin: 20px 0;">
             <h3 style="color: #374151;">Exigences spécifiques</h3>
-            <div style="background-color: #f3f4f6; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${requirements}</div>
+            <div style="background-color: #f3f4f6; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${escapeHtml(requirements)}</div>
           </div>
           `
               : ""

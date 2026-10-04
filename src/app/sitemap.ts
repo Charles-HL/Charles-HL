@@ -1,76 +1,53 @@
 import { MetadataRoute } from "next";
-import { Locale } from "next-intl";
 import { routing } from "@/i18n/routing";
-import { getPathname } from "@/i18n/navigation";
-import projectsData from "../../data/projects.json";
+import { getAllProjects } from "@/lib/projects";
+import { getAbsoluteUrl, type Href } from "@/lib/seo";
 
-const SITE_URL = "https://charleshl.com";
+type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]["changeFrequency"]>;
+
+interface SitemapRoute {
+  href: Href;
+  changeFrequency: ChangeFrequency;
+  priority: number;
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    "/",
-    "/about",
-    "/experience",
-    "/projects",
-    "/contact",
-    "/quote",
+  const routes: SitemapRoute[] = [
+    { href: "/", changeFrequency: "weekly", priority: 1 },
+    { href: "/freelance", changeFrequency: "monthly", priority: 0.9 },
+    { href: "/consulting", changeFrequency: "monthly", priority: 0.9 },
+    { href: "/recruiters", changeFrequency: "monthly", priority: 0.9 },
+    { href: "/projects", changeFrequency: "monthly", priority: 0.8 },
+    { href: "/ai-engineering", changeFrequency: "monthly", priority: 0.8 },
+    { href: "/about", changeFrequency: "yearly", priority: 0.7 },
+    { href: "/contact", changeFrequency: "yearly", priority: 0.6 },
+    { href: "/quote", changeFrequency: "yearly", priority: 0.6 },
+    ...getAllProjects().map((project) => ({
+      href: {
+        pathname: "/projects/[slug]" as const,
+        params: { slug: project.slug },
+      },
+      changeFrequency: "monthly" as const,
+      priority: project.featured ? 0.7 : 0.5,
+    })),
   ];
 
-  const staticPages = routes.flatMap((route) =>
-    getEntries(route as Parameters<typeof getPathname>[0]["href"])
-  );
+  const lastModified = new Date();
 
-  // Ajouter les pages de projets dynamiques
-  const projectPages = projectsData.projects.flatMap((project) =>
-    getEntries(
-      `/projects/${project.id}` as Parameters<typeof getPathname>[0]["href"]
-    )
-  );
-
-  return [...staticPages, ...projectPages];
-}
-
-type Href = Parameters<typeof getPathname>[0]["href"];
-
-function getEntries(href: Href): MetadataRoute.Sitemap {
-  return routing.locales.map((locale) => {
-    const url = getUrl(href, locale);
-    const pathname = getPathname({ locale, href });
-
-    return {
-      url,
-      lastModified: new Date(),
-      changeFrequency: getChangeFrequency(pathname),
-      priority: getPriority(pathname),
+  return routes.flatMap(({ href, changeFrequency, priority }) =>
+    routing.locales.map((locale) => ({
+      url: getAbsoluteUrl(href, locale),
+      lastModified,
+      changeFrequency,
+      priority,
       alternates: {
-        languages: Object.fromEntries(
-          routing.locales.map((cur) => [cur, getUrl(href, cur)])
-        ),
+        languages: {
+          ...Object.fromEntries(
+            routing.locales.map((current) => [current, getAbsoluteUrl(href, current)])
+          ),
+          "x-default": getAbsoluteUrl(href, routing.defaultLocale),
+        },
       },
-    };
-  });
-}
-
-function getUrl(href: Href, locale: Locale) {
-  const pathname = getPathname({ locale, href });
-  return SITE_URL + pathname;
-}
-
-function getChangeFrequency(
-  path: string
-): "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never" {
-  if (path === "/") return "weekly";
-  if (path === "/projects" || path.includes("/projects/")) return "monthly";
-  if (path === "/experience") return "monthly";
-  return "yearly";
-}
-
-function getPriority(path: string): number {
-  if (path === "/") return 1.0;
-  if (path === "/about") return 0.9;
-  if (path === "/projects") return 0.8;
-  if (path === "/experience") return 0.7;
-  if (path === "/contact") return 0.6;
-  if (path.includes("/projects/")) return 0.5;
-  return 0.4;
+    }))
+  );
 }

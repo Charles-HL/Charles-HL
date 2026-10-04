@@ -1,390 +1,955 @@
 {
   "navigation": {
+    "mainLabel": "Main navigation",
     "home": "Home",
-    "about": "About",
-    "experience": "Experience",
+    "expertise": "Expertise",
+    "ai": "AI engineering",
     "projects": "Projects",
+    "about": "About",
     "contact": "Contact",
-    "quote": "Get Quote"
+    "cta": "Let's talk about your project",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "themeLight": "Light theme",
+    "themeDark": "Dark theme",
+    "switchLanguage": "Passer en français"
   },
-  "hero": {
-    "title": "Charles HL",
-    "subtitle": "Full Stack Software Engineer & Data Science/AI",
-    "description": "Passionate developer specializing in modern web development and artificial intelligence. Freelancer and employee at Thales, I create innovative solutions that combine technology and creativity. From custom web applications to high-performance websites, I support small businesses, SMEs and large companies in their digital projects.",
-    "cta": "Discover my work",
-    "contact": "Contact me",
-    "quote": "Get Quote"
+  "common": {
+    "viewProject": "View project",
+    "viewAllProjects": "All projects",
+    "seeFullProfile": "See the full profile",
+    "moreItems": "+{count} more",
+    "newWindow": "new window",
+    "humanValidation": "Human sign-off",
+    "cvOnRequest": "Résumé available on request",
+    "profilePhotoAlt": "Portrait of Charles HILD LÊ, full stack software engineer in Toulouse",
+    "breadcrumbHome": "Home",
+    "location": "Toulouse, France"
   },
-  "about": {
-    "title": "About me",
-    "subtitle": "Graduated from a major engineering school in a very comprehensive field around AI and robotics",
-    "description": "Based in Toulouse, I am a full stack software engineer with particular expertise in artificial intelligence and data science. My passion for technology leads me to create innovative solutions both as a freelancer and as an employee at Thales.",
-    "expertise": {
-      "title": "My Expertise",
-      "freelance": {
-        "title": "Freelance Services for Small Businesses",
-        "items": [
-          "🌐 Modern and high-performance showcase websites",
-          "🧰 Custom web applications (management, forms, CRM)",
-          "⚙️ Automation and integrations (emails, APIs, storage)",
-          "🔒 Secure solutions with databases",
-          "📱 Mobile and tablet-friendly interfaces",
-          "🚀 Simplified hosting and maintenance"
+  "footer": {
+    "brandDescription": "Full stack software engineer in Toulouse. I design complete business platforms and ship them to production.",
+    "tagline": "Engineer first. AI executes; I design, decide, review and prove.",
+    "audiencesTitle": "Who is it for?",
+    "audiences": {
+      "freelance": "Freelance developer for small businesses",
+      "consulting": "Full stack consultant for IT services firms and enterprises",
+      "recruiters": "Lead developer and architect: for recruiters"
+    },
+    "linksTitle": "Navigation",
+    "contactTitle": "Contact",
+    "quote": "Request a quote",
+    "rights": "All rights reserved.",
+    "logosNotice": "Logos are the property of their respective owners."
+  },
+  "landing": {
+    "home": {
+      "meta": {
+        "title": "Charles HL · Full stack software engineer & AI, Toulouse",
+        "description": "Full stack software engineer in Toulouse: complete business platforms from architecture to production, and agentic engineering under engineering control.",
+        "keywords": [
+          "full stack software engineer",
+          "full stack developer Toulouse",
+          "software architect",
+          "agentic engineering",
+          "TypeScript",
+          "Next.js",
+          "Node.js"
         ]
       },
-      "enterprise": {
-        "title": "Enterprise Development",
+      "hero": {
+        "eyebrow": "Charles HILD LÊ · Toulouse, France",
+        "title": "Full stack software engineer & agentic engineering",
+        "pitch": "Architecture, backend, frontend, security, infrastructure: I design complete business platforms and ship them to production.",
+        "primaryCta": "View projects",
+        "secondaryCta": "Let's talk about your project",
+        "proofs": [
+          "From architecture to production",
+          "Large groups and small businesses",
+          "Industrialized AI, under engineering control"
+        ]
+      },
+      "expertise": {
+        "eyebrow": "Expertise",
+        "title": "From the data model to production monitoring",
+        "intro": "The whole software chain, backed by systems actually shipped."
+      },
+      "agentic": {
+        "intro": "AI is the second pillar of my work — never a replacement for engineering."
+      },
+      "projects": {
+        "eyebrow": "Work",
+        "title": "Featured projects",
+        "intro": "The context, the technical decisions and the results, project by project."
+      },
+      "process": {
+        "eyebrow": "Method",
+        "title": "A clear process, from idea to operations",
+        "intro": "Understand, scope, ship in steps, prove, maintain."
+      },
+      "audiences": {
+        "eyebrow": "You are…",
+        "title": "Find the page that speaks to you",
+        "intro": "Each page presents the same profile from the angle that matters to you."
+      },
+      "cta": {
+        "title": "A project, an assignment, an opportunity?",
+        "description": "Describe your context in a few lines. Reply within 24 business hours.",
+        "button": "Let's talk about your project"
+      }
+    },
+    "freelance": {
+      "meta": {
+        "title": "Freelance full stack developer in Toulouse",
+        "description": "Freelance developer in Toulouse: custom business applications, e-commerce, ERP and point of sale, SEO websites. One single contact, from idea to production.",
+        "keywords": [
+          "freelance developer Toulouse",
+          "custom web application SME",
+          "e-commerce development",
+          "custom business software",
+          "freelance Next.js developer",
+          "SEO website"
+        ],
+        "breadcrumb": "Freelance developer"
+      },
+      "hero": {
+        "eyebrow": "Small businesses and project owners",
+        "title": "Freelance full stack developer in Toulouse",
+        "pitch": "One contact, from idea to launch. I come from engineering in large groups: you get software built to last, not a mock-up.",
+        "primaryCta": "Request a quote",
+        "secondaryCta": "See my work",
+        "proofs": [
+          "One contact, from idea to launch",
+          "Code, repositories and accounts in your name",
+          "A detailed, staged quote before we start"
+        ]
+      },
+      "expertise": {
+        "eyebrow": "Services",
+        "title": "What I can build for you",
+        "intro": "Tools that save time and connect to what you already use."
+      },
+      "projects": {
+        "eyebrow": "Work",
+        "title": "Concrete results for an SME",
+        "intro": "Tools used every day, with their results."
+      },
+      "process": {
+        "eyebrow": "How it works",
+        "title": "Simple, transparent support",
+        "intro": "At every stage you know what has been delivered, what remains to be done and what it costs."
+      },
+      "agentic": {
+        "intro": "AI helps me execute. It does not design your software and decides nothing for me."
+      },
+      "faq": {
+        "eyebrow": "FAQ",
+        "title": "Frequently asked questions",
+        "intro": "Answers to the questions I'm asked most often before a project starts.",
         "items": [
-          "Complex Full Stack applications",
-          "Artificial Intelligence & Data Science",
-          "Scalable and high-performance architectures",
-          "Existing systems integration"
+          {
+            "question": "Why not build the application myself with an AI or no-code tool?",
+            "answer": "They are great for prototyping. The hard part comes next: connecting your software, handling permissions and edge cases, migrating your data, fixing things without breaking others. If such a tool is enough, I will tell you."
+          },
+          {
+            "question": "How long will it take to build my project?",
+            "answer": "A few days for a usable prototype, several weeks in increments for a full business application. The quote sets out a stage-by-stage schedule."
+          },
+          {
+            "question": "How do you put a quote together?",
+            "answer": "After a first conversation, I write a short specification and a quote broken down by batch: scope, deliverables, schedule and price."
+          },
+          {
+            "question": "Who owns the code and the accounts?",
+            "answer": "Yours: code, repositories, hosting, domain names and service accounts are in your name, documentation included."
+          },
+          {
+            "question": "Do you take care of hosting and maintenance?",
+            "answer": "Yes if you want it: deployment, monitoring, alerts and backups, or a rollout on your own infrastructure."
+          },
+          {
+            "question": "Do you work remotely or on site?",
+            "answer": "Both: remotely anywhere in France, and on site around Toulouse when it helps."
+          },
+          {
+            "question": "Can you take over an existing application?",
+            "answer": "Yes. I start with a review of the code and the data, then propose a gradual evolution rather than a risky rewrite."
+          },
+          {
+            "question": "What role does AI play, and does my code stay confidential?",
+            "answer": "AI speeds up execution; I design, I review and I stay responsible. No secret is handed to it, and the code stays in your repositories."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Let's talk about your project",
+        "description": "Describe your need: you get a first estimate and the questions worth answering.",
+        "button": "Request a quote"
+      }
+    },
+    "consulting": {
+      "meta": {
+        "title": "Senior full stack consultant & tech lead",
+        "description": "Senior full stack consultant and TypeScript, React, Node.js tech lead: architecture, industrialized delivery and agentic engineering for enterprise clients.",
+        "keywords": [
+          "senior full stack consultant",
+          "freelance TypeScript tech lead",
+          "React Node.js tech lead",
+          "software architect contract",
+          "agentic engineering for enterprises"
+        ],
+        "breadcrumb": "Full stack consultant"
+      },
+      "hero": {
+        "eyebrow": "IT services firms and enterprises",
+        "title": "Senior full stack consultant & tech lead",
+        "pitch": "An engineer with experience in defence, energy and space. I designed a complete information system, from architecture to operations.",
+        "primaryCta": "Propose an assignment",
+        "secondaryCta": "See my work",
+        "proofs": [
+          "Architecture and industrialized delivery",
+          "Critical environments: defence, energy, space",
+          "Upskilling a team on AI"
+        ]
+      },
+      "expertise": {
+        "eyebrow": "Skills",
+        "title": "Architecture, security and industrialization",
+        "intro": "What a senior consultant is expected to bring, with the accent on security, quality and operations."
+      },
+      "agentic": {
+        "intro": "The point is not to use AI, but to industrialize it without losing control."
+      },
+      "projects": {
+        "eyebrow": "Case studies",
+        "title": "Complete, documented architectures",
+        "intro": "For each project, the architecture decisions and the engineering challenges."
+      },
+      "process": {
+        "eyebrow": "On assignment",
+        "title": "How I work with your teams",
+        "intro": "Ramp up fast, secure delivery and leave a team more autonomous than when I arrived."
+      },
+      "terms": {
+        "eyebrow": "Terms",
+        "title": "A flexible engagement model",
+        "intro": "Terms adapt to the assignment and to your organization.",
+        "items": [
+          {
+            "title": "Time and materials or fixed price",
+            "description": "Embedded in your teams on a time-and-materials basis, or a fixed-price commitment on a defined scope."
+          },
+          {
+            "title": "Remote or hybrid",
+            "description": "Remote, or hybrid around Toulouse depending on the needs of the assignment."
+          },
+          {
+            "title": "Availability",
+            "description": "Start date and length of engagement agreed together, based on the assignment schedule."
+          }
+        ]
+      },
+      "audiences": {
+        "eyebrow": "Other profiles",
+        "title": "Are you rather…",
+        "intro": "The same background, presented for other needs."
+      },
+      "cta": {
+        "title": "An assignment to staff?",
+        "description": "Context, stack and timeline: I reply with my analysis and my availability.",
+        "button": "Propose an assignment"
+      }
+    },
+    "recruiters": {
+      "meta": {
+        "title": "Full stack lead developer & software architect",
+        "description": "Full stack lead developer and software architect, agentic AI engineer: ownership of a complete information system, product vision and team upskilling.",
+        "keywords": [
+          "full stack lead developer",
+          "software architect",
+          "agentic AI engineer",
+          "AI tech lead",
+          "TypeScript lead developer"
+        ],
+        "breadcrumb": "Recruiters"
+      },
+      "hero": {
+        "eyebrow": "Recruiters and hiring companies",
+        "title": "Lead developer & full stack software architect",
+        "pitch": "An engineer trained in AI and robotics, with experience in large groups. I designed, shipped and operated an entire information system on my own.",
+        "primaryCta": "Discuss an opportunity",
+        "secondaryCta": "See my work",
+        "proofs": [
+          "Full autonomy, from architecture to operations",
+          "Experience in large groups and small businesses",
+          "Agentic engineering practised daily"
+        ]
+      },
+      "profile": {
+        "eyebrow": "Profile",
+        "title": "An engineer before being an AI user",
+        "intro": "What you need to know in one minute.",
+        "items": [
+          {
+            "title": "Education",
+            "description": "An engineering school degree in artificial intelligence and robotics, then several years of software development in large groups."
+          },
+          {
+            "title": "Engineering philosophy",
+            "description": "Understand the business before coding, design simple and safe, prove every delivery."
+          },
+          {
+            "title": "What I bring to a team",
+            "description": "An end-to-end view and a method to bring in AI agents without losing control of the code."
+          }
+        ]
+      },
+      "expertise": {
+        "eyebrow": "Skills",
+        "title": "A complete technical foundation",
+        "intro": "Skills used together, on applications running in production."
+      },
+      "agentic": {
+        "intro": "A skill in its own right, which I practise and can spread across a team."
+      },
+      "projects": {
+        "eyebrow": "Work",
+        "title": "Skills demonstrated in production",
+        "intro": "The technologies, the responsibilities and the problems solved."
+      },
+      "seeking": {
+        "eyebrow": "What I'm looking for",
+        "title": "Roles with technical responsibility",
+        "intro": "I'm open to roles where architecture, quality and agentic AI carry real weight.",
+        "items": [
+          {
+            "title": "Lead developer",
+            "description": "Own the technical quality of a product and support a development team."
+          },
+          {
+            "title": "Software architect",
+            "description": "Design and evolve complete, secure and maintainable systems."
+          },
+          {
+            "title": "AI tech lead",
+            "description": "Structure how a team uses AI agents: methods, tools and safeguards."
+          }
+        ]
+      },
+      "audiences": {
+        "eyebrow": "Other profiles",
+        "title": "Are you rather…",
+        "intro": "The same background, presented for other needs."
+      },
+      "cta": {
+        "title": "Let's discuss your opportunity",
+        "description": "Tell me about the role and the technical stakes. CV on request.",
+        "button": "Discuss an opportunity"
+      }
+    }
+  },
+  "sections": {
+    "companies": {
+      "labels": {
+        "home": "Experience in large groups",
+        "freelance": "A background in large groups",
+        "consulting": "Large-account environments",
+        "recruiters": "Professional background"
+      },
+      "title": "Software delivered for large groups",
+      "intro": "Defence, energy, space, aeronautics, AI research: the contexts where I designed and shipped software.",
+      "notice": "Organizations listed as experience references. Logos remain the property of their owners.",
+      "sectors": {
+        "energy": "Energy",
+        "defense": "Defence",
+        "space": "Space",
+        "aeronautics": "Aeronautics",
+        "aiResearch": "AI research",
+        "digitalServices": "Consulting and digital services"
+      }
+    },
+    "expertise": {
+      "stackLabel": "Stack",
+      "skillsLabel": "Know-how:",
+      "workStyle": {
+        "title": "How I work",
+        "items": [
+          "Deep understanding of business needs",
+          "Product vision",
+          "Anticipation",
+          "High quality standards and attention to detail",
+          "End-to-end autonomy"
+        ]
+      },
+      "pillars": {
+        "architecture": {
+          "title": "Architecture & backend",
+          "skills": "Idempotency, concurrency locks, workers, scheduled jobs, workflows and state machines.",
+          "businessTitle": "Reliable management applications",
+          "businessDescription": "A central tool that brings your data together, automates repetitive tasks and stays reliable when activity peaks: no duplicates, no lost orders."
+        },
+        "frontend": {
+          "title": "Frontend & product",
+          "skills": "PDF generation, electronic signature, field photo capture, technical SEO.",
+          "businessTitle": "Screens your teams actually adopt",
+          "businessDescription": "Clear interfaces for the office, the workshop or the field: quotes and contracts signed online, photos, PDFs, on desktop, tablet or mobile."
+        },
+        "security": {
+          "title": "Security & identity",
+          "skills": "HttpOnly sessions and CSRF protection, AES-256-GCM encryption, rate limiting, server hardening.",
+          "businessTitle": "Protected access and data",
+          "businessDescription": "One secure account per employee, two-factor authentication, access revoked in one click and sensitive data encrypted.",
+          "details": [
+            "Self-hosted identity provider, configured through CI only",
+            "Tokens kept server-side (BFF pattern), opaque HttpOnly sessions",
+            "Migration without loss of access and a reversible cutover across 9 applications"
+          ]
+        },
+        "devops": {
+          "title": "DevOps & operations",
+          "skills": "Reproducible deployments, rollback by tag, monitoring, alerting and deduplicated pull-mode backups.",
+          "businessTitle": "Online, monitored and backed up",
+          "businessDescription": "Controlled releases with fast rollback, monitoring that alerts before you notice, and verified backups.",
+          "details": [
+            "Docker images tagged per commit and rollback by tag",
+            "Metrics, logs and alerts: Prometheus, Grafana, Loki, Alertmanager",
+            "No application port exposed, three-tier backups"
+          ]
+        },
+        "integrations": {
+          "title": "Business integrations",
+          "skills": "Online payment, ERP, electronic invoicing, calendars, transactional emails, and point-of-sale hardware.",
+          "businessTitle": "Connected e-commerce, ERP and point of sale",
+          "businessDescription": "Online store, payments, ERP, e-invoicing, calendar and point-of-sale hardware work together: no more double data entry."
+        },
+        "ai": {
+          "title": "AI & data",
+          "skills": "Engineering degree in AI and robotics: ML, deep learning, reinforcement learning, NLP, explainability.",
+          "businessTitle": "Automation and controlled AI",
+          "businessDescription": "Catalog imports, bank reconciliation, scheduled jobs: I remove manual data entry, and AI speeds up development under my control."
+        }
+      }
+    },
+    "agentic": {
+      "eyebrow": "Artificial intelligence",
+      "title": "Agentic engineering: AI under an engineer's control",
+      "motto": "Engineer first. AI executes; I design, decide, review and prove.",
+      "intro": "I do not delegate my understanding: I scope, I orchestrate, I review every change and I keep the final say.",
+      "moreLink": "See the method in detail",
+      "comparison": {
+        "title": "Not vibe coding",
+        "vibe": "Vibe coding",
+        "mine": "My practice",
+        "rows": [
+          {
+            "vibe": "Accepting code without reading it",
+            "mine": "Versioned specs before any generation"
+          },
+          {
+            "vibe": "Improvised prompts",
+            "mine": "A plan I approve"
+          },
+          {
+            "vibe": "“It seems to work”",
+            "mine": "Systematic code review"
+          },
+          {
+            "vibe": "Invisible debt",
+            "mine": "Tests first, tooled acceptance testing, evidence in production"
+          }
+        ]
+      },
+      "pillarsTitle": "Six principles, each one verifiable",
+      "proofLabel": "Evidence:",
+      "pillars": {
+        "frame": {
+          "title": "Scope before generating",
+          "description": "The need becomes versioned specs, split into deliverables with acceptance criteria. One contract per repository sets the rules.",
+          "proof": "A 28-deliverable roadmap drove the SSO rollout across 9 applications."
+        },
+        "orchestrate": {
+          "title": "Orchestrate",
+          "description": "A plan approved before any code, specialized sub-agents, effort calibrated to risk, worktrees to parallelize without conflict.",
+          "proof": "A fresh session executes what another one planned, to remove confirmation bias."
+        },
+        "guard": {
+          "title": "Set guardrails",
+          "description": "Deterministic hooks, restricted permissions, no secret handed to AI. Autonomy is bounded, human escalation explicit.",
+          "proof": "Guardrails are technical, not just instructions."
+        },
+        "prove": {
+          "title": "Prove it",
+          "description": "Failing tests first, then multi-agent testing in a real browser. Every verdict is re-measured and the evidence is kept.",
+          "proof": "5 campaigns, over 800 cases, up to 11 agents in parallel."
+        },
+        "decide": {
+          "title": "Keep the final say",
+          "description": "Every change reviewed, architecture and security calls made by me. No code I do not understand gets merged.",
+          "proof": "I remain accountable for what goes to production."
+        },
+        "capitalize": {
+          "title": "Capitalize and stay ahead",
+          "description": "Reusable skills, a registry of pitfalls, a wiki updated in the same patch, long-term memory shared between agents.",
+          "proof": "Active watch: agentic engineering, spec-driven development, MCP, Claude Code and Codex updates."
+        }
+      },
+      "workflow": {
+        "title": "From need to production",
+        "steps": {
+          "need": "Business need & scoping",
+          "spec": "Versioned spec & roadmap",
+          "plan": "Approved plan",
+          "implement": "Implementation by agents (worktrees)",
+          "review": "Code review & tests",
+          "qa": "Multi-agent acceptance testing (browser)",
+          "fix": "Fix loop",
+          "ship": "Sign-off & production release",
+          "capitalize": "Capitalization (skills, memory)"
+        }
+      },
+      "tools": {
+        "title": "Tools",
+        "items": [
+          "Claude Code (Opus, Sonnet)",
+          "OpenAI Codex",
+          "Skills",
+          "Hooks",
+          "Subagents",
+          "MCP (Chrome DevTools, Cloudflare, Resend, Vercel)",
+          "Git worktrees",
+          "AGENTS.md",
+          "Hindsight",
+          "GitHub Actions"
+        ]
+      },
+      "benefits": {
+        "title": "What's in it for you",
+        "items": [
+          {
+            "title": "Shorter lead times",
+            "description": "AI takes on the repetitive execution: you get a usable version sooner."
+          },
+          {
+            "title": "Controlled quality",
+            "description": "Every change is reviewed, tested and checked. Nothing ships without approval."
+          },
+          {
+            "title": "A documented, maintainable tool",
+            "description": "Specs and documentation evolve with the code: your tool stays easy to pick up."
+          }
+        ]
+      },
+      "team": {
+        "title": "Industrializing AI within a team",
+        "intro": "What I apply on my own carries over to a team, with shared rules rather than individual habits.",
+        "items": [
+          {
+            "title": "Shared conventions",
+            "description": "An instruction contract per repository, versioned specs and a common definition of done."
+          },
+          {
+            "title": "Team skills",
+            "description": "Reusable workflows (feature, acceptance testing, diagnostics) versioned with the code."
+          },
+          {
+            "title": "Guardrails",
+            "description": "Hooks, permissions and mandatory reviews: AI stays within a technical frame, not just a declared one."
+          },
+          {
+            "title": "Upskilling",
+            "description": "Helping developers move from improvised prompting to a measurable engineering practice."
+          }
         ]
       }
     },
-    "skills": {
-      "title": "Core Skills",
-      "frontend": "Frontend Development (React, Vue.js)",
-      "backend": "Backend Development (Node.js, NestJS, Express)",
-      "ai": "Artificial Intelligence & Data Science",
-      "data": "Complex Data Management & Processing",
-      "fullstack": "Full Stack Web Applications",
-      "databases": "Databases (PostgreSQL, Solr)",
-      "robotics": "Robotics"
+    "process": {
+      "client": [
+        {
+          "title": "Understand your business",
+          "description": "I listen to your constraints, habits and pain points before talking technology."
+        },
+        {
+          "title": "Scope and estimate",
+          "description": "A clear specification and a detailed quote: you know what will be delivered, when and for how much."
+        },
+        {
+          "title": "Build in demonstrable increments",
+          "description": "Regular releases you test yourself, so adjustments happen early rather than late."
+        },
+        {
+          "title": "Acceptance and go-live",
+          "description": "Testing, acceptance and a supervised release, with data migration when needed."
+        },
+        {
+          "title": "Maintain and evolve",
+          "description": "Monitoring, backups and new features: your tool keeps serving you."
+        }
+      ],
+      "mission": [
+        {
+          "title": "Immersion in the system and its constraints",
+          "description": "Understand the existing landscape, business stakes, security and organization before proposing anything."
+        },
+        {
+          "title": "Architecture and breakdown",
+          "description": "Reasoned decisions and a breakdown into verifiable deliverables."
+        },
+        {
+          "title": "Tooled delivery",
+          "description": "CI/CD, automated tests and systematic code review."
+        },
+        {
+          "title": "Industrialization and observability",
+          "description": "Reproducible deployments, metrics, logs and alerts."
+        },
+        {
+          "title": "Handover and documentation",
+          "description": "Documentation, runbooks and team upskilling."
+        }
+      ]
     },
-    "whyChooseMe": {
-      "title": "Why Choose Me?",
-      "fast": "⚡ Fast and reliable development",
-      "adapted": "💼 Solutions tailored to your budget",
-      "modern": "🚀 Modern technologies (React, Next.js, Node.js)",
-      "support": "🛠️ Simplified hosting and maintenance",
-      "local": "📍 Based in Toulouse, available in France",
-      "experience": "✨ Freelance and enterprise expertise (Thales)"
+    "audiences": {
+      "items": {
+        "freelance": {
+          "title": "A business / a project owner",
+          "description": "You need a management tool, an online store or a website that works for you.",
+          "cta": "See the freelance offer"
+        },
+        "consulting": {
+          "title": "An IT services firm / an enterprise",
+          "description": "You are looking for a senior full stack consultant or a tech lead for a demanding assignment.",
+          "cta": "See the consultant profile"
+        },
+        "recruiters": {
+          "title": "A recruiter",
+          "description": "You are hiring a lead developer, a software architect or an AI tech lead.",
+          "cta": "See the recruiter page"
+        }
+      }
     },
-    "learnMore": "Learn More About Me",
-    "additional": {
-      "title": "Toulouse, France",
-      "description": "Based in Toulouse, I am available for freelance missions and team collaborations. Passionate about technological innovation and complex technical challenges."
+    "ecosystem": {
+      "diagramTitle": "Application ecosystem diagram",
+      "diagramDescription": "Public websites and business applications rely on the central API and the e-commerce platform, which connect to the ERP, the SSO identity provider and observability.",
+      "columns": {
+        "clients": "Public websites & business apps",
+        "core": "Application core",
+        "platform": "ERP, identity & operations"
+      },
+      "nodes": {
+        "website": "SEO showcase website",
+        "store": "Store & back office",
+        "workshop": "Workshop & field",
+        "rental": "Equipment rental",
+        "sales": "Sales & installation",
+        "banking": "Bank reconciliation",
+        "designSystem": "Shared design system",
+        "api": "Central business API",
+        "ecommerce": "E-commerce platform",
+        "erp": "ERP & connected point of sale",
+        "imports": "Catalog imports",
+        "sso": "SSO & MFA",
+        "infra": "Infrastructure & observability"
+      }
     }
   },
-  "experience": {
-    "title": "Professional Experience",
-    "current": "Current",
-    "freelance": {
-      "title": "Freelance Full Stack Developer",
-      "company": "Freelance",
-      "period": "October 2024 - Present",
-      "description": "Development of custom web solutions for various companies."
+  "projectsPage": {
+    "meta": {
+      "title": "Projects: IS, e-commerce, ERP, SSO, AI",
+      "description": "Detailed case studies: a complete information system, headless e-commerce, ERP and point of sale, SSO, business API, DevOps and an agentic development chain.",
+      "keywords": [
+        "full stack developer projects",
+        "e-commerce case study",
+        "custom ERP",
+        "OIDC SSO",
+        "software architecture"
+      ]
     },
-    "thales": {
-      "title": "Full Stack Web Engineer",
-      "company": "Thales",
-      "period": "July 2023 - Present",
-      "location": "Toulouse, Occitanie, France",
-      "description": "Development of web applications for managing and exploiting complex geological data and documents at TotalEnergies."
+    "eyebrow": "Work",
+    "title": "Projects",
+    "intro": "Systems running in production: the context, what I built, the results.",
+    "catalogTitle": "All projects",
+    "filter": {
+      "label": "Filter by category",
+      "all": "All"
     },
-    "sopra": {
-      "title": "Full Stack Software Engineer",
-      "company": "Sopra Steria",
-      "period": "November 2020 - June 2023",
-      "location": "Toulouse, Occitanie, France",
-      "description": "Full Stack Engineer for Airbus Navblue and Thales Alenia Space"
+    "count": "{count, plural, one {# project} other {# projects}}",
+    "categories": {
+      "architecture": "Architecture",
+      "ecommerce": "E-commerce",
+      "backend": "Backend",
+      "security": "Security",
+      "devops": "DevOps",
+      "erp": "ERP",
+      "frontend": "Frontend",
+      "design-system": "Design system",
+      "field-apps": "Field apps",
+      "data": "Data",
+      "ai": "AI",
+      "seo": "SEO"
     },
-    "viewDetailed": "View Detailed Experience"
+    "cta": {
+      "title": "Have a project in mind?",
+      "description": "Let's talk about your context: I'll tell you frankly what is feasible, how, and on what timeline.",
+      "contact": "Let's talk about your project",
+      "quote": "Request a quote"
+    }
   },
-  "projects": {
-    "title": "My Projects",
-    "subtitle": "Discover my recent achievements in web development and business applications",
-    "all": "All",
-    "keyFeatures": "Key Features",
-    "businessImpact": "Business Impact",
-    "technologiesUsed": "Technologies Used",
-    "noProjects": "No projects found for this technology.",
-    "viewProject": "View Project",
-    "viewAll": "View All Projects",
-    "projectDetail": {
-      "backToProjects": "Back to Projects",
-      "projectOverview": "Project Overview",
-      "interestedInSimilar": "Interested in Similar Work?",
-      "discussProject": "Let's discuss how I can help with your project.",
-      "getQuote": "Get Quote",
-      "contactMe": "Contact Me"
+  "projectDetail": {
+    "back": "All projects",
+    "keyFigures": "Key figures",
+    "context": "Context",
+    "role": "My role",
+    "solution": "Solution",
+    "highlights": "Key features",
+    "engineering": "Engineering challenges",
+    "stack": "Tech stack",
+    "ecosystem": "Ecosystem overview",
+    "agenticMethod": "See my agentic engineering method",
+    "stackGroups": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "data": "Data",
+      "security": "Security",
+      "infra": "Infrastructure",
+      "quality": "Quality",
+      "integrations": "Integrations",
+      "ai": "AI"
+    },
+    "cta": {
+      "title": "A project of this scale?",
+      "description": "Let's talk about your context: I'll tell you frankly what is feasible, how, and on what timeline.",
+      "contact": "Let's talk about your project",
+      "quote": "Request a quote"
+    }
+  },
+  "aiEngineering": {
+    "meta": {
+      "title": "Agentic engineering: AI under engineering control",
+      "description": "My method for building software with AI without losing control: versioned specifications, guardrails, human review, tests and evidence. The opposite of vibe coding.",
+      "keywords": [
+        "agentic engineering",
+        "AI-assisted development",
+        "spec-driven development",
+        "AI agents software development",
+        "vibe coding alternative"
+      ],
+      "breadcrumb": "AI engineering"
+    },
+    "eyebrow": "Method",
+    "title": "Agentic engineering: AI under engineering control",
+    "intro": "AI speeds up execution. It replaces neither design, nor review, nor responsibility for the result.",
+    "noCode": {
+      "eyebrow": "Frequent question",
+      "title": "Why not simply use an AI or no-code tool?",
+      "intro": "Those tools are great for prototyping. Here is what changes when the software has to run every day.",
+      "items": [
+        {
+          "title": "A prototype is not a system",
+          "description": "Generating a screen is easy. Connecting your software, handling permissions and edge cases, migrating your data is not."
+        },
+        {
+          "title": "Production has its own requirements",
+          "description": "Authentication, backups, personal data, monitoring, scaling, tests: what separates a demo from a tool you can rely on."
+        },
+        {
+          "title": "You stay the owner, and free to move",
+          "description": "Standard, documented code hosted on your own accounts, which any developer can pick up."
+        }
+      ]
+    },
+    "cta": {
+      "title": "A project to scope, or a team to equip?",
+      "description": "Let's talk about your context: I will tell you plainly what AI changes, and what it does not.",
+      "contact": "Get in touch",
+      "projects": "See the projects"
+    }
+  },
+  "about": {
+    "meta": {
+      "title": "About: software engineer and AI architect",
+      "description": "Engineer trained in AI and robotics, based in Toulouse, France: my engineering philosophy, my values and how I moved to agentic engineering.",
+      "keywords": [
+        "Charles HILD LÊ",
+        "software engineer Toulouse",
+        "engineering philosophy",
+        "agentic engineering"
+      ],
+      "breadcrumb": "About"
+    },
+    "eyebrow": "About",
+    "title": "Building software like products",
+    "intro": "Full stack software engineer and architect, in Toulouse. I design complete systems, from architecture to production.",
+    "education": {
+      "title": "Background",
+      "paragraphs": [
+        "I graduated from an engineering school in artificial intelligence and robotics.",
+        "Since then I have been building software for large groups — defence, energy, space, aeronautics, AI research — where I now own the architecture, the conventions and the code review of a team. Alongside that, I built the complete information system of an SME on my own."
+      ]
+    },
+    "values": {
+      "title": "What drives my work",
+      "items": [
+        {
+          "title": "Product",
+          "description": "Understand the business before writing code, and judge a feature by the value it delivers."
+        },
+        {
+          "title": "Architecture",
+          "description": "Simple, solid foundations: clear responsibilities, explicit contracts, security by design."
+        },
+        {
+          "title": "Anticipation",
+          "description": "Think about edge cases, migrations and rollback before they turn into emergencies."
+        },
+        {
+          "title": "Attention to detail",
+          "description": "Review, test, measure and document: details separate a tolerated tool from an adopted one."
+        }
+      ]
+    },
+    "agentic": {
+      "title": "Moving to agentic engineering",
+      "paragraphs": [
+        "I brought AI agents in the way an engineer brings in a new tool: with a method, guardrails and evidence. They multiply my output, never my judgement."
+      ],
+      "cta": "Discover my method"
+    },
+    "logos": "Career includes",
+    "cta": {
+      "title": "Let's work together",
+      "description": "A project, an assignment or a role? Write to me: I reply within one business day.",
+      "button": "Contact me"
     }
   },
   "contact": {
-    "title": "Let's work together",
-    "subtitle": "Ready for your next project?",
-    "description": "Whether for a freelance project or business collaboration, feel free to contact me.",
-    "email": "Email",
-    "linkedin": "LinkedIn",
-    "location": "Toulouse, France",
-    "cta": {
-      "title": "Ready to start your project?",
-      "description": "Whether for web development, artificial intelligence, or custom solutions, I'm here to help you.",
-      "sendEmail": "Send an email",
-      "requestQuote": "Request a quote",
-      "linkedin": "LinkedIn"
+    "meta": {
+      "title": "Contact: let's talk about your project",
+      "description": "Contact Charles HILD LÊ, full stack software engineer in Toulouse, about a project, a consulting assignment or a job opportunity. Reply within one business day.",
+      "breadcrumb": "Contact"
     },
-    "availability": {
-      "status": "Available for new projects",
-      "note": "Currently available for freelance projects"
+    "title": "Contact",
+    "subtitle": "A project, an assignment or an opportunity? Write to me.",
+    "getInTouch": "Get in touch",
+    "description": "Your context, your need, your timeline. I reply with precise questions or a first direction.",
+    "methods": {
+      "email": "Email",
+      "location": "Location",
+      "responseTime": "Response time",
+      "responseTimeValue": "Within one business day"
+    },
+    "social": "Find me on",
+    "sendMessage": "Send a message",
+    "form": {
+      "profile": {
+        "label": "You are",
+        "placeholder": "Select your profile",
+        "options": {
+          "freelance": "A business / a project owner",
+          "consulting": "An IT services firm / an enterprise",
+          "recruiters": "A recruiter",
+          "other": "Other"
+        }
+      },
+      "name": "Your name",
+      "email": "Email address",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending…",
+      "success": "Message sent successfully!",
+      "error": "Error while sending. Please try again.",
+      "placeholders": {
+        "name": "Your full name",
+        "email": "your.email@example.com",
+        "subject": "Project, assignment, opportunity…",
+        "message": "Tell me about your context, your needs and your schedule…"
+      }
+    },
+    "quickQuote": {
+      "title": "Need a quote?",
+      "description": "Describe your project in a few minutes and get a personalized estimate.",
+      "button": "Request a quote"
     }
   },
-  "footer": {
-    "rights": "All rights reserved",
-    "built": "Built with Next.js and Tailwind CSS",
-    "brand": {
-      "description": "Freelance web developer in Toulouse specialized in custom applications and websites for small businesses, SMEs and enterprises. Expert in Full Stack, AI and web automation.",
-      "tagline": "Modern web solutions for small and large businesses",
-      "email": "contact@charleshl.com",
-      "location": "Toulouse, France"
+  "quote": {
+    "meta": {
+      "title": "Request a quote: application, e-commerce, website",
+      "description": "Request a quote for your management application, e-commerce, ERP or showcase website: a personalized estimate and a reply within one business day.",
+      "breadcrumb": "Quote"
     },
-    "quickLinks": "Quick Links",
-    "services": {
-      "title": "Services",
-      "customApps": "Custom Web Applications",
-      "websites": "Modern Business Websites",
-      "tools": "Management Tools & CRM",
-      "automation": "Automation & Integrations",
-      "fullstack": "Full Stack Applications",
-      "ai": "AI & Data Science",
-      "backend": "Backend APIs",
-      "consulting": "Technical Consulting"
+    "title": "Request a quote",
+    "subtitle": "Tell me about your project and get a personalized estimate",
+    "process": {
+      "step1": {
+        "title": "1. Describe your project",
+        "description": "Your business, goals and constraints"
+      },
+      "step2": {
+        "title": "2. I analyze and estimate",
+        "description": "Detailed scope and cost breakdown"
+      },
+      "step3": {
+        "title": "3. You receive the quote",
+        "description": "Transparent pricing and a schedule per stage"
+      },
+      "step4": {
+        "title": "4. We build",
+        "description": "Regular deliveries that you approve"
+      }
     },
-    "madeWith": "Made with",
-    "and": "and"
+    "form": {
+      "projectDetails": "Project details",
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email address",
+      "company": "Company (optional)",
+      "selectProjectType": "Select project type",
+      "selectTimeline": "Select timeline",
+      "requiredNote": "* Required fields. I'll get back to you within one business day.",
+      "projectType": {
+        "label": "Project type",
+        "options": {
+          "website": "Website / web application",
+          "backend": "Backend API",
+          "fullstack": "Full stack application",
+          "mobile": "Mobile application",
+          "other": "Other"
+        }
+      },
+      "budget": {
+        "label": "Budget range",
+        "minimum": "Minimum (€)",
+        "maximum": "Maximum (€)",
+        "help": "Enter your budget range in euros",
+        "errorMinMax": "The minimum amount cannot be greater than the maximum"
+      },
+      "timeline": {
+        "label": "Desired timeline",
+        "options": {
+          "urgent": "As soon as possible (rush fees apply)",
+          "fast": "1 to 2 months",
+          "normal": "2 to 4 months",
+          "flexible": "Flexible"
+        }
+      },
+      "description": "Project description",
+      "requirements": "Specific requirements",
+      "submit": "Request a quote",
+      "submitting": "Sending…",
+      "success": "Quote request sent! I'll get back to you within one business day.",
+      "error": "Error while sending. Please try again.",
+      "placeholders": {
+        "description": "Describe your goals, your users, the key features and any particular constraints…",
+        "requirements": "Required technologies, integrations, design preferences or technical requirements…"
+      }
+    }
   },
   "NotFoundPage": {
-    "title": "Page Not Found",
-    "description": "The page you are looking for does not exist. Please check the URL or return to the homepage."
-  },
-  "LocaleLayout": {
-    "title": "Charles HL - Full Stack Web Developer"
+    "title": "Page not found",
+    "description": "The page you are looking for doesn't exist. Check the URL or go back to the home page.",
+    "back": "Back to home"
   },
   "Manifest": {
-    "name": "Charles HL"
-  },
-  "pages": {
-    "about": {
-      "title": "About Me",
-      "subtitle": "Full Stack Software Engineer specializing in AI and Data Science",
-      "description": "Passionate about creating innovative solutions that bridge technology and creativity. Based in Toulouse, I combine my expertise in full-stack development with advanced knowledge in artificial intelligence and data science.",
-      "personalStory": {
-        "title": "My Journey",
-        "content": "After graduating from a major engineering school with a comprehensive focus on AI and robotics, I've been working both as a freelancer and as an employee at Thales. This dual experience has given me a unique perspective on both entrepreneurial and enterprise-level development."
-      },
-      "expertise": {
-        "title": "My Expertise",
-        "items": [
-          "🌐 Modern and high-performance showcase websites",
-          "🧰 Custom web applications (management, forms, CRM)",
-          "⚙️ Automation and integrations (emails, APIs, storage)",
-          "🔒 Secure solutions with databases",
-          "📱 Mobile and tablet-friendly interfaces",
-          "💻 Complex Full Stack applications",
-          "🤖 Artificial Intelligence & Data Science",
-          "🚀 Scalable architectures and simplified hosting"
-        ]
-      },
-      "whyChooseMe": {
-        "title": "Why Choose Me?",
-        "fast": "⚡ Fast and reliable development",
-        "adapted": "💼 Solutions tailored to your budget",
-        "modern": "🚀 Modern technologies (React, Next.js, Node.js)",
-        "support": "🛠️ Simplified hosting and maintenance",
-        "local": "📍 Based in Toulouse, available in France",
-        "experience": "✨ Freelance and enterprise expertise (Thales)"
-      },
-      "skills": {
-        "title": "Technical Expertise",
-        "subtitle": "Technologies I work with daily"
-      },
-      "downloadResume": "Download Resume",
-      "quickFacts": {
-        "location": "Toulouse, France",
-        "experience": "Years Experience",
-        "coffeeEnthusiast": "Coffee Enthusiast"
-      },
-      "cta": {
-        "getInTouch": "Get in Touch",
-        "requestQuote": "Request Quote"
-      },
-      "availability": {
-        "title": "Availability",
-        "status": "Currently available for freelance projects",
-        "note": "Open to both short-term projects and long-term collaborations"
-      }
-    },
-    "experience": {
-      "title": "Professional Experience",
-      "subtitle": "A timeline of my career journey",
-      "keyAchievements": "Key Achievements",
-      "cta": {
-        "title": "Ready to Work Together?",
-        "description": "Let's discuss how my experience can help bring your project to life.",
-        "contactMe": "Contact Me",
-        "viewMyWork": "View My Work"
-      },
-      "detailed": {
-        "thales": {
-          "description": "Development of web applications for managing and exploiting complex geological data and documents at TotalEnergies.",
-          "achievements": [
-            "Data centralization and exploration application: Aggregation of numerous geological databases and documents with interactive mapping",
-            "Development of a digital document ordering and distribution system",
-            "Geological data submission and processing application with improvement and editing tools",
-            "Advanced technical stack: React, Node.js, Express, NestJS, Prisma, PostgreSQL, Solr, Python for Well Log extraction",
-            "Asynchronous task management with contribsys/Faktory and TypeORM"
-          ]
-        },
-        "freelance": {
-          "description": "Providing custom web solutions for various companies, from startups to established businesses.",
-          "achievements": [
-            "Successfully delivered 8+ major projects",
-            "Specialized in robotic equipment management systems",
-            "Built end-to-end solutions from backend APIs to responsive frontends"
-          ]
-        },
-        "sopra": {
-          "description": "Multifaceted experience at Sopra Steria including Full Stack development, AI and Data Science for Airbus Navblue and Thales Alenia Space.",
-          "achievements": [
-            "Developed real-time web interfaces with WebSocket and API for Thales Alenia Space (Angular, Java, OpenAPI)",
-            "Development and maintenance of critical aerospace software (Java, AngularJS, Hibernate, SQL)",
-            "Implemented reinforcement learning methods for robotic arm trajectory optimization",
-            "Developed chatbot using automatic natural language processing techniques",
-            "Machine Learning and data visualization for Thales Alenia Space",
-            "Research in AI explainability (XAI) with ANITI and Adagos for Airbus",
-            "Full Stack Engineer for Airbus Navblue using C#, ArcGIS, Vue.js"
-          ]
-        }
-      }
-    },
-    "projects": {
-      "title": "Featured Projects",
-      "subtitle": "Showcasing my recent work and technical achievements",
-      "viewProject": "View Project",
-      "viewAll": "View All Projects",
-      "cta": {
-        "title": "Have a Project in Mind?",
-        "description": "Let's create something amazing together.",
-        "getQuote": "Get Quote",
-        "contactMe": "Contact Me"
-      },
-      "filters": {
-        "all": "All Projects",
-        "web": "Web Applications",
-        "backend": "Backend Systems",
-        "fullstack": "Full Stack"
-      }
-    },
-    "contact": {
-      "title": "Let's Work Together",
-      "subtitle": "Ready to start your next project?",
-      "getInTouch": "Get in Touch",
-      "description": "Ready to start your next project? I'd love to hear from you. Send me a message and I'll respond as soon as possible.",
-      "methods": {
-        "email": "Email",
-        "location": "Location",
-        "responseTime": "Response Time",
-        "responseTimeValue": "Usually within 24 hours"
-      },
-      "social": "Connect with me",
-      "sendMessage": "Send Message",
-      "quickQuote": {
-        "title": "Need a Quick Quote?",
-        "description": "Get a personalized estimate for your project in just a few minutes.",
-        "button": "Request Quote"
-      },
-      "form": {
-        "name": "Your Name",
-        "email": "Email Address",
-        "subject": "Subject",
-        "message": "Message",
-        "send": "Send Message",
-        "sending": "Sending...",
-        "success": "Message sent successfully!",
-        "error": "Error sending message. Please try again.",
-        "placeholders": {
-          "name": "Your full name",
-          "email": "your.email@example.com",
-          "subject": "Project inquiry, collaboration, etc.",
-          "message": "Tell me about your project, timeline, and any specific requirements..."
-        }
-      }
-    },
-    "quote": {
-      "title": "Request a Quote",
-      "subtitle": "Tell me about your project and get a personalized estimate",
-      "process": {
-        "step1": {
-          "title": "1. Tell us about your project",
-          "description": "Share your vision and requirements"
-        },
-        "step2": {
-          "title": "2. We analyze & estimate",
-          "description": "Detailed scope and cost breakdown"
-        },
-        "step3": {
-          "title": "3. Receive your quote",
-          "description": "Transparent pricing and timeline"
-        },
-        "step4": {
-          "title": "4. Start building",
-          "description": "Begin your project immediately"
-        }
-      },
-      "form": {
-        "projectDetails": "Project Details",
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "email": "Email Address",
-        "company": "Company (Optional)",
-        "selectProjectType": "Select project type",
-        "selectBudgetRange": "Select budget range",
-        "selectTimeline": "Select timeline",
-        "requiredNote": "* Required fields. I'll get back to you within 24 hours.",
-        "projectType": {
-          "label": "Project Type",
-          "options": {
-            "website": "Website/Web App",
-            "backend": "Backend API",
-            "fullstack": "Full Stack Application",
-            "mobile": "Mobile Application",
-            "other": "Other"
-          }
-        },
-        "budget": {
-          "label": "Budget Range",
-          "minimum": "Minimum (€)",
-          "maximum": "Maximum (€)",
-          "help": "Indicate your budget range in euros",
-          "errorMinMax": "The minimum amount cannot be greater than the maximum",
-          "options": {
-            "small": "€1,000 - €5,000",
-            "medium": "€5,000 - €15,000",
-            "large": "€15,000 - €30,000",
-            "enterprise": "€30,000+"
-          }
-        },
-        "timeline": {
-          "label": "Desired Timeline",
-          "options": {
-            "urgent": "ASAP (Rush fee applies)",
-            "fast": "1-2 months",
-            "normal": "2-4 months",
-            "flexible": "Flexible"
-          }
-        },
-        "description": "Project Description",
-        "requirements": "Specific Requirements",
-        "submit": "Request Quote",
-        "submitting": "Submitting...",
-        "success": "Quote request sent! I'll get back to you within 24 hours.",
-        "error": "Error sending request. Please try again.",
-        "placeholders": {
-          "description": "Describe your project goals, target audience, key features, and any specific requirements...",
-          "requirements": "Any specific technologies, integrations, design preferences, or technical requirements..."
-        }
-      }
-    }
+    "name": "Charles HL · Full stack software engineer & AI"
   }
 }

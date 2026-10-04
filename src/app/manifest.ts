@@ -13,6 +13,7 @@ export default async function manifest(): Promise<MetadataRoute.Manifest> {
     name: t("name"),
     short_name: "Charles HL",
     description: siteConfig.description,
+    id: "/",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

@@ -22,6 +22,11 @@ const AnimatedBackground = () => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    let frameId = 0;
+
     // Floating particles
     const particles: Array<{
       x: number;
@@ -96,12 +101,15 @@ const AnimatedBackground = () => {
         ctx.restore();
       });
 
-      requestAnimationFrame(animate);
+      if (!prefersReducedMotion) {
+        frameId = requestAnimationFrame(animate);
+      }
     };
 
     animate();
 
     return () => {
+      cancelAnimationFrame(frameId);
       window.removeEventListener("resize", resizeCanvas);
     };
   }, []);

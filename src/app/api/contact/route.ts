@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { isContactProfile, type ContactProfile } from "@/content/audiences";
+import { escapeHtml } from "@/lib/escape-html";
 import { getValidationMessage, type Locale } from "@/lib/validation-messages";
+
+// Libellés du profil dans l'e-mail reçu (en français)
+const profileLabels: Record<ContactProfile, string> = {
+  freelance: "Entreprise / porteur de projet",
+  consulting: "ESN / grand compte",
+  recruiters: "Recruteur",
+  other: "Autre",
+};
 
 // Fonction pour extraire la locale depuis les headers ou body
 const getLocaleFromRequest = (
@@ -46,6 +56,13 @@ const validateContactData = (
   }
 
   const obj = data as Record<string, unknown>;
+
+  // Validation du profil
+  if (typeof obj.profile !== "string" || obj.profile.trim().length === 0) {
+    errors.push(getValidationMessage("profileRequired", locale));
+  } else if (!isContactProfile(obj.profile)) {
+    errors.push(getValidationMessage("profileInvalid", locale));
+  }
 
   // Validation du nom
   if (typeof obj.name !== "string") {
@@ -125,6 +142,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { name, email, subject, message } = body;
+    const profile = profileLabels[body.profile as ContactProfile];
 
     // Création du transporteur
     const transporter = createTransporter();
@@ -137,7 +155,7 @@ export async function POST(request: NextRequest) {
       from: process.env.SMTP_EMAIL,
       to: process.env.TO_EMAIL,
       replyTo: email, // Permettre de répondre directement au client
-      subject: `[Contact Site Web] ${subject}`,
+      subject: `[Contact Site Web · ${profile}] ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
@@ -145,14 +163,15 @@ export async function POST(request: NextRequest) {
           </h2>
           
           <div style="background-color: #f8fafc; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Nom:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Sujet:</strong> ${subject}</p>
+            <p><strong>Profil:</strong> ${escapeHtml(profile)}</p>
+            <p><strong>Nom:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> <a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></p>
+            <p><strong>Sujet:</strong> ${escapeHtml(subject)}</p>
           </div>
           
           <div style="margin: 20px 0;">
             <h3 style="color: #374151;">Message:</h3>
-            <div style="background-color: #ffffff; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${message}</div>
+            <div style="background-color: #ffffff; border: 1px solid #e5e7eb; padding: 15px; border-radius: 6px; white-space: pre-wrap;">${escapeHtml(message)}</div>
           </div>
           
           <hr style="margin: 20px 0; border: none; border-top: 1px solid #e5e7eb;">
@@ -167,6 +186,7 @@ export async function POST(request: NextRequest) {
       text: `
 Nouveau message de contact
 
+Profil: ${profile}
 Nom: ${name}
 Email: ${email}
 Sujet: ${subject}

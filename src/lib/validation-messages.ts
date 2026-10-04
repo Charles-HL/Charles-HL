@@ -18,6 +18,9 @@ export const validationMessages = {
     lastNameTooShort: "Le nom de famille doit contenir au moins 2 caractères",
     lastNameTooLong: "Le nom de famille ne peut pas dépasser 50 caractères",
 
+    profileRequired: "Indiquez votre profil",
+    profileInvalid: "Profil invalide",
+
     nameRequired: "Le nom est requis et doit être une chaîne de caractères",
     nameEmpty: "Le nom ne peut pas être vide",
     nameTooShort: "Le nom doit contenir au moins 2 caractères",
@@ -99,6 +102,9 @@ export const validationMessages = {
     lastNameEmpty: "Last name cannot be empty",
     lastNameTooShort: "Last name must contain at least 2 characters",
     lastNameTooLong: "Last name cannot exceed 50 characters",
+
+    profileRequired: "Please tell us who you are",
+    profileInvalid: "Invalid profile",
 
     nameRequired: "Name is required and must be a string",
     nameEmpty: "Name cannot be empty",

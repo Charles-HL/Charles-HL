@@ -2,13 +2,17 @@
 
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
-import { ReactNode } from "react";
+import { ComponentProps, ReactNode } from "react";
+
+/** A localized route, or an in-page anchor such as `#projects`. */
+export type ButtonHref = ComponentProps<typeof Link>["href"] | `#${string}`;
 
 export interface ButtonProps {
   children: ReactNode;
   variant?: "primary" | "secondary" | "glass" | "outline";
   size?: "sm" | "md" | "lg";
-  href?: string;
+  /** External URLs require `isExternal`. */
+  href?: ButtonHref | `https://${string}` | `mailto:${string}`;
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
@@ -27,7 +31,7 @@ const Button = ({
 }: ButtonProps) => {
   // Base styles
   const baseStyles =
-    "font-semibold rounded-2xl transition-all duration-300 inline-block text-center";
+    "font-semibold rounded-2xl transition-all duration-300 inline-flex items-center justify-center gap-2 text-center cursor-pointer";
 
   // Size variants
   const sizeStyles = {
@@ -65,7 +69,7 @@ const Button = ({
   };
 
   // Render as external link
-  if (href && isExternal) {
+  if (typeof href === "string" && isExternal) {
     return (
       <motion.a
         href={href}
@@ -81,7 +85,7 @@ const Button = ({
   }
 
   // Render as internal anchor link
-  if (href && href.startsWith("#")) {
+  if (typeof href === "string" && href.startsWith("#")) {
     return (
       <motion.a
         href={href}
@@ -97,17 +101,9 @@ const Button = ({
   // Render as Next.js Link
   if (href) {
     return (
-      <motion.div {...motionProps} style={{ width: "fit-content" }}>
+      <motion.div {...motionProps} className="inline-flex">
         <Link
-          href={
-            href as
-              | "/"
-              | "/about"
-              | "/experience"
-              | "/projects"
-              | "/contact"
-              | "/quote"
-          }
+          href={href as ComponentProps<typeof Link>["href"]}
           className={buttonClasses}
           onClick={onClick}
         >

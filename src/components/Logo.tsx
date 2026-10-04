@@ -1,9 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 
 const Logo = () => {
+  const t = useTranslations("navigation");
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -50 }}
@@ -12,7 +15,7 @@ const Logo = () => {
       className="hidden lg:block fixed top-4 left-4 z-50"
     >
       <motion.div whileHover={{ scale: 1.05 }}>
-        <Link href="/" className="block">
+        <Link href="/" className="block" aria-label={t("home")}>
           <div className="relative group">
             {/* Fond avec glassmorphism */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-xl blur-sm group-hover:blur-none transition-all duration-300"></div>

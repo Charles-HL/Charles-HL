@@ -3,6 +3,39 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
+/** Anciens slugs de projets → nouveaux slugs (identiques en FR et en EN). */
+const legacyProjectSlugs: Record<string, string> = {
+  "web-app-installation-robots": "vente-installation-robots",
+  "backend-server-enterprise": "api-metier-centrale",
+  "modern-showcase-website": "site-vitrine-seo-devis",
+  "workshop-management-solution": "gestion-atelier-reparation",
+  "field-intervention-management": "gestion-atelier-reparation",
+  "industrial-equipment-rental-operator": "location-materiel",
+  "industrial-machine-rental-management": "location-materiel",
+  "responsive-online-store": "boutique-en-ligne-click-and-collect",
+};
+
+const permanent = (source: string, destination: string) => ({
+  source,
+  destination,
+  statusCode: 301 as const,
+});
+
+// Les règles spécifiques précèdent la règle générique `/fr/:path*`.
+const legacyRedirects = [
+  ...Object.entries(legacyProjectSlugs).flatMap(([oldSlug, newSlug]) => [
+    permanent(`/fr/projets/${oldSlug}`, `/projets/${newSlug}`),
+    permanent(`/projets/${oldSlug}`, `/projets/${newSlug}`),
+    permanent(`/en/projects/${oldSlug}`, `/en/projects/${newSlug}`),
+  ]),
+  permanent("/experience", "/"),
+  permanent("/fr/experience", "/"),
+  permanent("/en/experience", "/en"),
+  permanent("/fr", "/"),
+  // Les images Open Graph générées restent servies sous leur chemin interne /fr/….
+  permanent("/fr/:path((?!.*opengraph-image).*)", "/:path"),
+];
+
 const nextConfig: NextConfig = {
   // Optimisations SEO et performance
   poweredByHeader: false,
@@ -46,25 +79,12 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Redirections
+  // Redirections 301 : ancienne arborescence (FR préfixé, /experience, anciens slugs)
   async redirects() {
     return [
-      {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
+      { source: "/home", destination: "/", permanent: true },
+      ...legacyRedirects,
     ];
-  },
-
-  // Optimisation du bundle
-  turbopack: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
-      },
-    },
   },
 
   // Webpack optimizations

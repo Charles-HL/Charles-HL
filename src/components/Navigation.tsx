@@ -1,14 +1,39 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, type ComponentProps } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Globe, Moon, Sun } from "lucide-react";
-import { usePathname, useRouter, Link } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
+import { usePathname, useRouter, Link } from "@/i18n/navigation";
+import { getCtaHref, landingPathnames } from "@/content/audiences";
 
 // Variable globale pour vérifier si l'animation a déjà eu lieu
 const animationState = { hasAnimated: false };
+
+type LinkHref = ComponentProps<typeof Link>["href"];
+
+/** Sections present on every landing page, reached by in-page anchors. */
+const sectionItems = [{ key: "expertise", sectionId: "expertise" }] as const;
+
+const pageItems = [
+  { key: "ai", href: "/ai-engineering" },
+  { key: "projects", href: "/projects" },
+  { key: "about", href: "/about" },
+  { key: "contact", href: "/contact" },
+] as const;
+
+type NavKey =
+  | (typeof sectionItems)[number]["key"]
+  | (typeof pageItems)[number]["key"];
+
+interface NavItem {
+  key: NavKey;
+  href: LinkHref | `#${string}`;
+  isActive: boolean;
+}
+
+const landingPaths: string[] = Object.values(landingPathnames);
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,8 +50,9 @@ const Navigation = () => {
   const pathname = usePathname();
   const params = useParams();
 
-  // Check if we're on the home page
-  const isHomePage = pathname === "/";
+  // Every landing page owns the #expertise section
+  const isLandingPage = landingPaths.includes(pathname);
+  const ctaHref = getCtaHref(pathname);
 
   const toggleLanguage = () => {
     const nextLocale = locale === "en" ? "fr" : "en";
@@ -46,61 +72,21 @@ const Navigation = () => {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-
-    if (element) {
-      // Fermer le menu mobile immédiatement
-      setIsOpen(false);
-
-      // Petit délai pour que le menu se ferme avant le scroll
-      setTimeout(() => {
-        // Calcul de l'offset selon la taille de l'écran
-        // Desktop: header flottant de ~80px + padding
-        // Mobile: header fixe de ~48px + padding
-        const isMobile = window.innerWidth < 1024;
-        const headerOffset = isMobile ? 60 : 100; // Ajustement pour mobile vs desktop
-
-        const elementPosition =
-          element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementPosition - headerOffset;
-
-        // Mettre à jour l'URL dans la barre d'adresse
-        const newUrl = `${window.location.pathname}#${sectionId}`;
-        window.history.pushState(null, "", newUrl);
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        });
-      }, 300); // Délai pour la fermeture du menu
-    }
-  };
-
-  // Fonction pour détecter la section active
+  // Section active pendant le défilement d'une landing page
   const detectActiveSection = useCallback(() => {
-    if (!isHomePage) return;
+    if (!isLandingPage) return;
 
-    const sections = ["hero", "about", "experience", "projects", "contact"];
-    const scrollPosition = window.scrollY + 150; // Offset pour la détection
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const element = document.getElementById(sections[i]);
-      if (element && element.offsetTop <= scrollPosition) {
-        setActiveSection(sections[i]);
-        break;
-      }
-    }
-  }, [isHomePage]);
-
-  // Fonction pour vérifier si un élément de navigation est actif
-  const isActiveItem = (item: (typeof navItems)[0]) => {
-    if (item.anchor && isHomePage) {
-      const sectionId = item.anchor.replace("#", "");
-      return activeSection === sectionId;
-    }
-    return pathname === item.href;
-  };
+    const probe = window.scrollY + 150;
+    const current = sectionItems.find(({ sectionId }) => {
+      const element = document.getElementById(sectionId);
+      return (
+        element &&
+        element.offsetTop <= probe &&
+        element.offsetTop + element.offsetHeight > probe
+      );
+    });
+    setActiveSection(current?.sectionId ?? "");
+  }, [isLandingPage]);
 
   useEffect(() => {
     setMounted(true);
@@ -124,20 +110,8 @@ const Navigation = () => {
       detectActiveSection();
     };
 
-    window.addEventListener("scroll", handleScroll);
-
-    // Initialiser la section active et détecter au chargement
-    if (isHomePage) {
-      // Petit délai pour s'assurer que les éléments sont rendus
-      setTimeout(() => {
-        const hash = window.location.hash.replace("#", "");
-        if (hash) {
-          setActiveSection(hash);
-        } else {
-          detectActiveSection();
-        }
-      }, 100);
-    }
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     // Marquer que l'animation a eu lieu après le premier rendu
     if (shouldAnimate) {
@@ -146,40 +120,62 @@ const Navigation = () => {
     }
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [shouldAnimate, isHomePage, detectActiveSection]);
+  }, [shouldAnimate, detectActiveSection]);
 
-  const navItems = [
-    {
-      key: "home" as const,
-      href: "/" as const,
-      anchor: isHomePage ? "#hero" : undefined,
-    },
-    {
-      key: "about" as const,
-      href: "/about" as const,
-      anchor: isHomePage ? "#about" : undefined,
-    },
-    {
-      key: "experience" as const,
-      href: "/experience" as const,
-      anchor: isHomePage ? "#experience" : undefined,
-    },
-    {
-      key: "projects" as const,
-      href: "/projects" as const,
-      anchor: isHomePage ? "#projects" : undefined,
-    },
-    {
-      key: "contact" as const,
-      href: "/contact" as const,
-      anchor: isHomePage ? "#contact" : undefined,
-    },
+  const navItems: NavItem[] = [
+    ...sectionItems.map(({ key, sectionId }) => ({
+      key,
+      href: isLandingPage
+        ? (`#${sectionId}` as const)
+        : { pathname: "/" as const, hash: sectionId },
+      isActive: isLandingPage && activeSection === sectionId,
+    })),
+    ...pageItems.map(({ key, href }) => ({
+      key,
+      href,
+      isActive: pathname === href || pathname.startsWith(`${href}/`),
+    })),
   ];
+
+  const itemClass = (isActive: boolean, size: "desktop" | "mobile") =>
+    `${
+      size === "desktop"
+        ? "px-3 py-1.5 rounded-xl text-sm min-h-[36px] flex items-center"
+        : "block px-3 py-2.5 rounded-lg text-base w-full text-left"
+    } font-semibold transition-all duration-200 box-border cursor-pointer border ${
+      isActive
+        ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 shadow-sm border-blue-200 dark:border-blue-800"
+        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border-transparent"
+    }`;
+
+  const renderItem = (item: NavItem, size: "desktop" | "mobile") => {
+    const className = itemClass(item.isActive, size);
+    const current = item.isActive ? ("true" as const) : undefined;
+    const close = () => setIsOpen(false);
+
+    return typeof item.href === "string" && item.href.startsWith("#") ? (
+      <a href={item.href} className={className} aria-current={current} onClick={close}>
+        {t(item.key)}
+      </a>
+    ) : (
+      <Link
+        href={item.href as LinkHref}
+        className={className}
+        aria-current={item.isActive ? "page" : undefined}
+        onClick={close}
+      >
+        {t(item.key)}
+      </Link>
+    );
+  };
+
+  const themeIcon = theme === "light" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />;
 
   return (
     <>
       {/* Desktop Navigation - Flottant centré */}
       <motion.nav
+        aria-label={t("mainLabel")}
         initial={shouldAnimate ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
         transition={
@@ -188,120 +184,96 @@ const Navigation = () => {
         className="hidden lg:block fixed top-4 left-1/2 transform -translate-x-1/2 z-40"
       >
         <div
-          className={`glass-nav rounded-2xl px-8 py-3 transition-all duration-300 ${
+          className={`glass-nav rounded-2xl px-4 py-2.5 transition-all duration-300 ${
             scrolled ? "shadow-lg shadow-black/10" : ""
           }`}
         >
-          <div className="flex items-center space-x-8 whitespace-nowrap">
-            {navItems.map((item) => (
-              <motion.div
-                key={item.key}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {item.anchor ? (
-                  <button
-                    onClick={() =>
-                      scrollToSection(item.anchor!.replace("#", ""))
-                    }
-                    className={`px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 box-border min-h-[36px] flex items-center cursor-pointer ${
-                      isActiveItem(item)
-                        ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 shadow-sm border border-blue-200 dark:border-blue-800"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
-                    }`}
-                  >
-                    {t(item.key)}
-                  </button>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className={`px-4 py-1.5 rounded-xl text-sm font-semibold transition-all duration-200 box-border min-h-[36px] flex items-center cursor-pointer ${
-                      isActiveItem(item)
-                        ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 shadow-sm border border-blue-200 dark:border-blue-800"
-                        : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
-                    }`}
-                  >
-                    {t(item.key)}
-                  </Link>
-                )}
-              </motion.div>
-            ))}
+          <div className="flex items-center gap-1 whitespace-nowrap">
+            <Link
+              href="/"
+              aria-label={`CHL, ${t("home")}`}
+              aria-current={pathname === "/" ? "page" : undefined}
+              className="mr-2 rounded-xl px-2 py-1.5 text-lg font-bold transition-colors hover:bg-blue-50/50 dark:hover:bg-blue-900/20"
+            >
+              <span className="bg-gradient-to-br from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                CHL
+              </span>
+            </Link>
+            <ul className="flex items-center gap-1">
+              {navItems.map((item) => (
+                <li key={item.key}>{renderItem(item, "desktop")}</li>
+              ))}
+            </ul>
 
             {/* Theme Toggle */}
             <motion.button
+              type="button"
               onClick={toggleTheme}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="cursor-pointer p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200"
-              aria-label="Toggle theme"
+              className="cursor-pointer p-2 mx-1 rounded-lg text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-all duration-200"
+              aria-label={t("toggleTheme")}
             >
-              {mounted && (
+              {mounted ? (
                 <motion.div
                   initial={false}
-                  animate={{
-                    rotate: theme === "dark" ? 180 : 0,
-                  }}
+                  animate={{ rotate: theme === "dark" ? 180 : 0 }}
                   transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  {theme === "light" ? (
-                    <Sun className="w-5 h-5" />
-                  ) : (
-                    <Moon className="w-5 h-5" />
-                  )}
+                  {themeIcon}
                 </motion.div>
+              ) : (
+                <span className="block w-5 h-5" />
               )}
             </motion.button>
 
-            {/* Quote Button - Conversion-focused orange */}
+            {/* Call to action - Conversion-focused orange */}
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
               <Link
-                href="/quote"
-                className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-xl text-sm font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap cursor-pointer"
+                href={ctaHref}
+                className="block bg-gradient-to-r from-orange-500 to-orange-600 text-white px-5 py-2 rounded-xl text-sm font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap cursor-pointer"
               >
-                {t("quote")}
+                {t("cta")}
               </Link>
             </motion.div>
           </div>
         </div>
       </motion.nav>
 
-      {/* Mobile Navigation - Pleine largeur comme avant */}
+      {/* Mobile Navigation - Pleine largeur */}
       <motion.nav
+        aria-label={t("mainLabel")}
         initial={shouldAnimate ? { y: -100, opacity: 0 } : { y: 0, opacity: 1 }}
         animate={{ y: 0, opacity: 1 }}
         transition={shouldAnimate ? { duration: 0.6 } : { duration: 0 }}
         className={`lg:hidden fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass-nav shadow-lg" : "bg-transparent"
+          scrolled || isOpen ? "glass-nav shadow-lg" : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex items-center justify-between h-12 py-2">
+          <div className="flex items-center justify-between h-14 py-2">
             {/* Mobile Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              className="flex items-center"
+            <Link
+              href="/"
+              className="flex items-center justify-center min-w-10 h-10"
+              aria-label={`CHL, ${t("home")}`}
             >
-              <Link href="/" className="block">
-                <div className="flex items-center justify-center w-8 h-8">
-                  <span className="text-lg font-bold bg-gradient-to-br from-blue-600 to-emerald-600 bg-clip-text text-transparent">
-                    CHL
-                  </span>
-                </div>
-              </Link>
-            </motion.div>
+              <span className="text-lg font-bold bg-gradient-to-br from-blue-600 to-emerald-600 bg-clip-text text-transparent">
+                CHL
+              </span>
+            </Link>
 
             {/* Mobile menu button */}
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              type="button"
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5"
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? t("closeMenu") : t("openMenu")}
+              className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 p-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5"
             >
-              {isOpen ? (
-                <X className="w-6 h-6" />
-              ) : (
-                <Menu className="w-6 h-6" />
-              )}
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </motion.button>
           </div>
 
@@ -309,99 +281,65 @@ const Navigation = () => {
           <AnimatePresence>
             {isOpen && (
               <motion.div
+                id="mobile-menu"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-2 pt-2 pb-3 space-y-1 glass-nav rounded-lg mt-2">
-                  {navItems.map((item) =>
-                    item.anchor ? (
-                      <motion.button
-                        key={item.key}
-                        type="button"
-                        whileHover={{ x: 5 }}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          const sectionId = item.anchor!.replace("#", "");
-                          scrollToSection(sectionId);
-                        }}
-                        className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 w-full text-left box-border cursor-pointer ${
-                          isActiveItem(item)
-                            ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800"
-                            : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
-                        }`}
-                      >
-                        {t(item.key)}
-                      </motion.button>
-                    ) : (
-                      <motion.div key={item.key} whileHover={{ x: 5 }}>
-                        <Link
-                          href={item.href}
-                          onClick={() => setIsOpen(false)}
-                          className={`block px-3 py-2.5 rounded-lg text-base font-semibold transition-all duration-200 box-border cursor-pointer ${
-                            isActiveItem(item)
-                              ? "text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/40 border border-blue-200 dark:border-blue-800"
-                              : "text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 border border-transparent"
-                          }`}
-                        >
-                          {t(item.key)}
-                        </Link>
-                      </motion.div>
-                    )
-                  )}
+                <div className="px-2 pt-2 pb-4 space-y-1 max-h-[calc(100dvh-4rem)] overflow-y-auto">
+                  <ul className="space-y-1">
+                    {navItems.map((item) => (
+                      <li key={item.key}>{renderItem(item, "mobile")}</li>
+                    ))}
+                  </ul>
 
-                  {/* Mobile Quote Button - Conversion-focused */}
-                  <motion.div whileHover={{ x: 5 }} className="pt-2">
+                  {/* Mobile call to action */}
+                  <div className="pt-2">
                     <Link
-                      href="/quote"
+                      href={ctaHref}
                       onClick={() => setIsOpen(false)}
                       className="bg-gradient-to-r from-orange-500 to-orange-600 text-white block px-3 py-3 rounded-lg text-base font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 text-center shadow-lg cursor-pointer"
                     >
-                      {t("quote")}
+                      {t("cta")}
                     </Link>
-                  </motion.div>
+                  </div>
 
-                  {/* Mobile Theme Toggle */}
-                  <motion.div whileHover={{ x: 5 }} className="pt-2">
-                    <motion.button
-                      onClick={() => {
-                        toggleTheme();
-                      }}
-                      className="glass-card flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 w-full cursor-pointer"
+                  <div className="grid grid-cols-2 gap-2 pt-2">
+                    {/* Mobile Theme Toggle */}
+                    <button
+                      type="button"
+                      onClick={toggleTheme}
+                      aria-label={t("toggleTheme")}
+                      className="glass-card flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2.5 rounded-lg cursor-pointer"
                     >
                       {mounted && (
                         <>
-                          {theme === "light" ? (
-                            <Sun className="w-4 h-4" />
-                          ) : (
-                            <Moon className="w-4 h-4" />
-                          )}
-                          <span className="text-base font-medium">
-                            {theme === "light" ? "Light" : "Dark"}
+                          {themeIcon}
+                          <span className="text-sm font-medium">
+                            {theme === "light" ? t("themeLight") : t("themeDark")}
                           </span>
                         </>
                       )}
-                    </motion.button>
-                  </motion.div>
+                    </button>
 
-                  {/* Mobile Language Toggle */}
-                  <motion.div whileHover={{ x: 5 }} className="pt-2">
-                    <motion.button
+                    {/* Mobile Language Toggle */}
+                    <button
+                      type="button"
                       onClick={() => {
                         toggleLanguage();
                         setIsOpen(false);
                       }}
-                      className="glass-card flex items-center justify-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 dark:hover:bg-white/5 w-full cursor-pointer"
+                      aria-label={t("switchLanguage")}
+                      className="glass-card flex items-center justify-center gap-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-200 px-3 py-2.5 rounded-lg cursor-pointer"
                     >
                       <Globe className="w-4 h-4" />
-                      <span className="text-base font-medium">
-                        {locale.toUpperCase()}
+                      <span className="text-sm font-medium">
+                        {locale === "fr" ? "EN" : "FR"}
                       </span>
-                    </motion.button>
-                  </motion.div>
+                    </button>
+                  </div>
                 </div>
               </motion.div>
             )}

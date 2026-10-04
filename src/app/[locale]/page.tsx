@@ -1,39 +1,21 @@
-import Navigation from "@/components/Navigation";
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Experience from "@/components/Experience";
-import Projects from "@/components/Projects";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import AnimatedBackground from "@/components/AnimatedBackground";
-import Logo from "@/components/Logo";
-import LanguageToggle from "@/components/LanguageToggle";
+import type { Locale } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
+import LandingPage from "@/components/landing/LandingPage";
+import { generateLandingMetadata } from "@/components/landing/landing-metadata";
+import { landings } from "@/content/landings";
 
-export default function HomePage() {
-  return (
-    <main className="min-h-screen relative">
-      <AnimatedBackground />
-      <Logo />
-      <LanguageToggle />
-      <Navigation />
-      <div className="relative z-10">
-        <section id="hero">
-          <Hero />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="experience">
-          <Experience />
-        </section>
-        <section id="projects">
-          <Projects />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
-        <Footer />
-      </div>
-    </main>
-  );
+type Props = {
+  params: Promise<{ locale: Locale }>;
+};
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+  return generateLandingMetadata(landings.home, locale);
+}
+
+export default async function HomePage({ params }: Props) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  return <LandingPage config={landings.home} locale={locale} />;
 }

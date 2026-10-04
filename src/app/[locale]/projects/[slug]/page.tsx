@@ -1,202 +1,276 @@
-import { getTranslations } from "next-intl/server";
-import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import type { Locale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import Button from "@/components/Button";
 import PageLayout from "@/components/PageLayout";
-import { Calendar, Tag, ExternalLink, ArrowLeft } from "lucide-react";
+import StructuredData from "@/components/StructuredData";
+import EcosystemDiagram from "@/components/projects/EcosystemDiagram";
+import ProjectVisual from "@/components/projects/ProjectVisual";
+import CtaBanner from "@/components/sections/CtaBanner";
+import Card from "@/components/ui/Card";
+import Chip from "@/components/ui/Chip";
+import Reveal from "@/components/ui/Reveal";
+import Section from "@/components/ui/Section";
 import { Link } from "@/i18n/navigation";
-import projectsData from "../../../../../data/projects.json";
+import { routing } from "@/i18n/routing";
+import { buildBreadcrumb } from "@/lib/breadcrumbs";
+import {
+  AGENTIC_PROJECT_SLUG,
+  ECOSYSTEM_PROJECT_SLUG,
+  getAllProjects,
+  getProjectBySlug,
+} from "@/lib/projects";
+import { buildPageMetadata, generateProjectSchema } from "@/lib/seo";
+import type { StackGroup } from "@/types/project";
 
 type Props = {
-  params: Promise<{ locale: "en" | "fr"; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 };
 
-interface Project {
-  id: string;
-  title: { en: string; fr: string };
-  subtitle: { en: string; fr: string };
-  period: { en: string; fr: string };
-  type: { en: string; fr: string };
-  description: { en: string; fr: string };
-  keyFeatures: { en: string[]; fr: string[] };
-  businessImpact?: { en: string[]; fr: string[] };
-  technologies: string[];
+const stackGroupKeys: Record<
+  StackGroup,
+  "frontend" | "backend" | "data" | "security" | "infra" | "quality" | "integrations" | "ai"
+> = {
+  Frontend: "frontend",
+  Backend: "backend",
+  Data: "data",
+  Sécurité: "security",
+  Infra: "infra",
+  Qualité: "quality",
+  Intégrations: "integrations",
+  IA: "ai",
+};
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    getAllProjects().map((project) => ({ locale, slug: project.slug }))
+  );
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) return {};
+
+  return buildPageMetadata({
+    locale,
+    href: { pathname: "/projects/[slug]", params: { slug } },
+    title: project.title[locale],
+    description: project.summary[locale],
+    keywords: project.stack.flatMap((group) => group.items).slice(0, 10),
+    type: "article",
+  });
+}
+
+function DetailBlock({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <Reveal>
+      <h2 className="mb-5 text-2xl font-bold text-gray-900 md:text-3xl dark:text-white">
+        {title}
+      </h2>
+      {children}
+    </Reveal>
+  );
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations();
 
-  const project = (projectsData.projects as Project[]).find(
-    (p) => p.id === slug
-  );
-
+  const project = getProjectBySlug(slug);
   if (!project) {
     notFound();
   }
 
+  const [t, tCategories, tProjects] = await Promise.all([
+    getTranslations("projectDetail"),
+    getTranslations("projectsPage.categories"),
+    getTranslations("projectsPage"),
+  ]);
+  const metrics = project.metrics[locale];
+  const paragraphs = project.solution[locale].split("\n\n");
+
   return (
     <PageLayout>
-      {/* Hero Section */}
-      <section className="pt-24 pb-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            {/* Back Button */}
-            <Link
-              href="/projects"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8 transition-colors duration-200"
+      <StructuredData
+        data={[
+          generateProjectSchema(project, locale),
+          await buildBreadcrumb(locale, [
+            { name: tProjects("title"), href: "/projects" },
+            {
+              name: project.title[locale],
+              href: { pathname: "/projects/[slug]", params: { slug } },
+            },
+          ]),
+        ]}
+      />
+
+      {/* Hero */}
+      <Section className="pt-28 md:pt-36">
+        <Link
+          href="/projects"
+          className="mb-8 inline-flex items-center gap-2 font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          {t("back")}
+        </Link>
+
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {project.categories.map((category) => (
+                <Chip key={category} tone="accent">
+                  {tCategories(category)}
+                </Chip>
+              ))}
+            </div>
+            <h1 className="text-3xl font-bold leading-tight text-balance md:text-4xl lg:text-5xl">
+              <span className="gradient-text">{project.title[locale]}</span>
+            </h1>
+            <p className="mt-5 text-lg leading-relaxed text-gray-700 text-pretty md:text-xl dark:text-gray-300">
+              {project.tagline[locale]}
+            </p>
+          </div>
+          <ProjectVisual project={project} variant="hero" />
+        </div>
+
+        {metrics.length > 0 && (
+          <div className="mt-10">
+            <h2 className="sr-only">{t("keyFigures")}</h2>
+            <dl
+              className={`grid grid-cols-2 gap-4 ${
+                metrics.length >= 4 ? "lg:grid-cols-4" : "md:grid-cols-3"
+              }`}
             >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              {t("projects.projectDetail.backToProjects")}
-            </Link>
-
-            <div className="text-center">
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <span className="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">
-                  {project.type[locale]}
-                </span>
-                <div className="flex items-center text-gray-500 dark:text-gray-400">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {project.period[locale]}
-                </div>
-              </div>
-
-              <h1 className="text-4xl md:text-6xl font-bold gradient-text mb-6">
-                {project.title[locale]}
-              </h1>
-
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                {project.subtitle[locale]}
-              </p>
-            </div>
+              {metrics.map((metric) => (
+                <Card key={metric.label} className="flex flex-col-reverse p-4 sm:p-5">
+                  <dt className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    {metric.label}
+                  </dt>
+                  <dd className="text-2xl font-bold sm:text-3xl">
+                    <span className="gradient-text">{metric.value}</span>
+                  </dd>
+                </Card>
+              ))}
+            </dl>
           </div>
-        </div>
-      </section>
+        )}
+      </Section>
 
-      {/* Project Overview */}
-      <section className="pb-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 rounded-2xl shadow-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                {t("projects.projectDetail.projectOverview")}
-              </h2>
-              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                {project.description[locale]}
-              </p>
+      {/* Context, role and solution */}
+      <Section tone="muted">
+        <div className="mx-auto max-w-4xl space-y-14">
+          <DetailBlock title={t("context")}>
+            <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              {project.context[locale]}
+            </p>
+          </DetailBlock>
+
+          <DetailBlock title={t("role")}>
+            <p className="rounded-2xl border-l-4 border-blue-600 bg-white p-5 text-lg font-medium text-gray-900 shadow-sm dark:bg-gray-800 dark:text-white">
+              {project.role[locale]}
+            </p>
+          </DetailBlock>
+
+          <DetailBlock title={t("solution")}>
+            <div className="space-y-4 text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+              {paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-          </div>
+          </DetailBlock>
         </div>
-      </section>
+      </Section>
 
-      {/* Key Features */}
-      <section className="py-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 rounded-2xl shadow-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                {t("projects.keyFeatures")}
-              </h2>
-              <div className="grid gap-6">
-                {project.keyFeatures[locale].map((feature, index) => (
-                  <div key={index} className="flex items-start">
-                    <div className="w-8 h-8 bg-blue-100/80 dark:bg-blue-900/80 backdrop-blur-sm border border-blue-200/30 dark:border-blue-800/30 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
-                      <span className="text-blue-600 dark:text-blue-300 font-bold text-sm">
-                        {index + 1}
-                      </span>
-                    </div>
-                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                      {feature}
+      {/* Highlights and engineering */}
+      <Section>
+        <div className="space-y-16">
+          <DetailBlock title={t("highlights")}>
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {project.highlights[locale].map((highlight) => (
+                <li key={highlight.title}>
+                  <Card className="p-5">
+                    <h3 className="mb-2 flex items-start gap-2 font-semibold text-gray-900 dark:text-white">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                      {highlight.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {highlight.description}
                     </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                  </Card>
+                </li>
+              ))}
+            </ul>
+          </DetailBlock>
 
-      {/* Business Impact */}
-      {project.businessImpact && (
-        <section className="py-2">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-gradient-to-r from-green-50/80 to-blue-50/80 dark:from-green-900/30 dark:to-blue-900/30 backdrop-blur-lg border border-white/20 dark:border-gray-700/20 rounded-2xl shadow-2xl p-8 md:p-12">
-                <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                  {t("projects.businessImpact")}
-                </h2>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {project.businessImpact[locale].map((impact, index) => (
-                    <div key={index} className="flex items-start">
-                      <div className="w-6 h-6 bg-green-500/90 backdrop-blur-sm border border-green-400/20 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
-                        <ExternalLink className="w-3 h-3 text-white" />
-                      </div>
-                      <p className="text-gray-700 dark:text-gray-300">
-                        {impact}
+          <DetailBlock title={t("engineering")}>
+            <ol className="space-y-4">
+              {project.engineering[locale].map((point, index) => (
+                <li key={point.title}>
+                  <Card className="flex gap-4 p-5">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 text-sm font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h3 className="mb-1 font-semibold text-gray-900 dark:text-white">
+                        {point.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        {point.description}
                       </p>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+                  </Card>
+                </li>
+              ))}
+            </ol>
+          </DetailBlock>
+
+          <DetailBlock title={t("stack")}>
+            <dl className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {project.stack.map((group) => (
+                <Card key={group.group} className="p-5">
+                  <dt className="mb-3 text-sm font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                    {t(`stackGroups.${stackGroupKeys[group.group]}`)}
+                  </dt>
+                  <dd className="flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <Chip key={item}>{item}</Chip>
+                    ))}
+                  </dd>
+                </Card>
+              ))}
+            </dl>
+          </DetailBlock>
+        </div>
+      </Section>
+
+      {project.slug === ECOSYSTEM_PROJECT_SLUG && (
+        <Section tone="muted">
+          <DetailBlock title={t("ecosystem")}>
+            <EcosystemDiagram />
+          </DetailBlock>
+        </Section>
       )}
 
-      {/* Technologies */}
-      <section className="py-2">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 rounded-2xl shadow-2xl p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">
-                {t("projects.technologiesUsed")}
-              </h2>
-              <div className="flex flex-wrap gap-3">
-                {project.technologies.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-flex items-center px-4 py-2 bg-blue-100/80 dark:bg-blue-900/80 backdrop-blur-sm border border-blue-200/30 dark:border-blue-800/30 text-blue-800 dark:text-blue-200 rounded-full font-medium"
-                  >
-                    <Tag className="w-4 h-4 mr-2" />
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+      {project.slug === AGENTIC_PROJECT_SLUG && (
+        <Section tone="muted" spacing="compact">
+          <div className="flex justify-center">
+            <Button variant="secondary" href="/ai-engineering">
+              {t("agenticMethod")}
+              <ArrowRight className="h-5 w-5" />
+            </Button>
           </div>
-        </div>
-      </section>
+        </Section>
+      )}
 
-      {/* CTA Section */}
-      <section className="pt-4 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-r from-blue-600/90 to-purple-600/90 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl p-8 md:p-12 text-center text-white">
-              <h2 className="text-3xl font-bold mb-4">
-                {t("projects.projectDetail.interestedInSimilar")}
-              </h2>
-              <p className="text-xl mb-8 text-blue-100">
-                {t("projects.projectDetail.discussProject")}
-              </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/quote"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white/90 backdrop-blur-sm border border-white/20 text-blue-600 rounded-full font-semibold hover:bg-white hover:shadow-lg transition-all duration-200"
-                >
-                  {t("projects.projectDetail.getQuote")}
-                </Link>
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white rounded-full font-semibold hover:bg-white/20 hover:border-white/50 transition-all duration-200"
-                >
-                  {t("projects.projectDetail.contactMe")}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBanner
+        title={t("cta.title")}
+        description={t("cta.description")}
+        primary={{ label: t("cta.contact"), href: "/contact" }}
+        secondary={{ label: t("cta.quote"), href: "/quote" }}
+      />
     </PageLayout>
   );
 }
