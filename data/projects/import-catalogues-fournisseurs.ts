@@ -7,8 +7,8 @@ const project = {
   categories: ["data", "erp"],
   icon: "FileSpreadsheet",
   title: {
-    fr: "Import intelligent de catalogues fournisseurs : du prototype à l'intégration native",
-    en: "Smart supplier catalogue import: from prototype to native integration",
+    fr: "Import de catalogues fournisseurs : du prototype à l'intégration native",
+    en: "Supplier catalogue import: from prototype to native integration",
   },
   tagline: {
     fr: "Des tarifs fournisseurs massifs importés dans l'ERP, sans ressaisie ni altération.",
@@ -17,6 +17,10 @@ const project = {
   summary: {
     fr: "Prototype livré en 4 jours, puis assistant d'import en 7 étapes dans l'ERP : 2 200+ produits créés en production sans altérer l'existant.",
     en: "A prototype in 4 days, then a 7-step import wizard inside the ERP: 2,200+ products created in production without touching existing data.",
+  },
+  metaTitle: {
+    fr: "Import de catalogues fournisseurs : prototype puis ERP natif",
+    en: "Supplier catalogue import: prototype to native ERP wizard",
   },
   context: {
     fr: "Une PME de distribution et de services reçoit ses tarifs fournisseurs sous forme de gros fichiers Excel ou XML. Ils étaient ressaisis à la main ou butaient sur les limites de l'import natif de l'ERP.",

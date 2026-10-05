@@ -257,6 +257,38 @@ export function generateProfessionalServiceSchema(locale: Locale): JsonLd {
   };
 }
 
+/** Only used on the consulting landing page. */
+export function generateConsultingServiceSchema(locale: Locale): JsonLd {
+  const fr = locale === "fr";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: fr
+      ? "Consulting full stack : architecture et tech lead"
+      : "Full stack consulting: architecture and tech lead",
+    serviceType: fr ? "Consulting en ingénierie logicielle" : "Software engineering consulting",
+    description: fr
+      ? "Mission de consultant full stack senior : architecture, lead technique, revue de code et mise en place de l'ingénierie agentique dans une équipe."
+      : "Senior full stack consultant engagement: architecture, technical lead, code review and agentic engineering set up inside a team.",
+    url: getAbsoluteUrl("/consulting", locale),
+    inLanguage: locale,
+    provider: { "@id": PERSON_ID },
+    areaServed: { "@type": "Country", name: "France" },
+  };
+}
+
+/** Only used on the recruiters landing page: the page is a profile of the Person. */
+export function generateProfilePageSchema(locale: Locale): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    url: getAbsoluteUrl("/recruiters", locale),
+    inLanguage: locale,
+    mainEntity: { "@id": PERSON_ID },
+  };
+}
+
 export function generateBreadcrumbSchema(
   items: Array<{ name: string; url: string }>
 ): JsonLd {

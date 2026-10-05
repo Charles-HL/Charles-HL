@@ -18,13 +18,17 @@ const project = {
     fr: "Plateforme e-commerce en 3 applications : catalogue piloté par l'ERP, paiement Mollie, factures légales et retours.",
     en: "A 3-app headless e-commerce platform: ERP-driven catalogue, Mollie payments, legal invoicing and returns handling.",
   },
+  metaDescription: {
+    fr: "Plateforme e-commerce headless en 3 applications connectées à l'ERP : catalogue piloté par l'ERP, paiement Mollie, factures légales et retours.",
+    en: "A headless e-commerce platform in 3 apps connected to the ERP: ERP-driven catalogue, Mollie payments, legal invoicing and returns handling.",
+  },
   context: {
     fr: "Il fallait vendre en ligne du matériel professionnel, avec un catalogue piloté par l'ERP. La boutique devait encaisser les paiements, émettre des factures légales et traiter les retours, et les équipes non techniques avaient besoin d'un back-office simple.",
     en: "The business needed to sell professional equipment online, with a catalogue driven by the ERP. The store had to take payments, issue compliant invoices and handle returns, and non-technical staff needed a simple back-office.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "La plateforme repose sur 3 briques. Une API MedusaJS v2 porte 6 modules sur mesure : paiement, synchronisation ERP, opérations de commande, CMS, sécurité des comptes et e-mails. Elle expose 70 routes et 11 tâches planifiées.\n\nL'ERP reste la source unique du catalogue ; MeiliSearch assure la recherche instantanée. La boutique Next.js 15 couvre catalogue, panier, paiement, location et espace client, et le back-office suit une architecture BFF branchée sur le SSO. Le projet est encadré par 8 specs, 5 audits et 5 campagnes de recette.",

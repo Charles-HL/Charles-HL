@@ -113,6 +113,7 @@ export default async function ContactPage({ params }: Props) {
       </Section>
 
       <CtaBanner
+        tone="muted"
         title={t("quickQuote.title")}
         description={t("quickQuote.description")}
         primary={{ label: t("quickQuote.button"), href: "/quote" }}

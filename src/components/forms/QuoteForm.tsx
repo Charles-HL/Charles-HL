@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import FormStatus from "./FormStatus";
+import HoneypotField from "./HoneypotField";
 import { fieldClass, labelClass } from "./form-styles";
 import { useFormSubmission } from "./useFormSubmission";
 
@@ -20,6 +21,7 @@ const emptyForm = {
   timeline: "",
   description: "",
   requirements: "",
+  website: "",
 };
 
 export default function QuoteForm() {
@@ -64,7 +66,7 @@ export default function QuoteForm() {
 
       <FormStatus status={status} message={message} details={details} statusRef={statusRef} />
 
-      <form className="space-y-8" onSubmit={handleSubmit} noValidate>
+      <form className="relative space-y-8" onSubmit={handleSubmit} noValidate>
         <div className="grid gap-6 md:grid-cols-2">
           {(["firstName", "lastName"] as const).map((field) => (
             <div key={field}>
@@ -226,6 +228,7 @@ export default function QuoteForm() {
           </button>
           <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">{t("requiredNote")}</p>
         </div>
+        <HoneypotField value={formData.website} onChange={handleInputChange} />
       </form>
     </div>
   );

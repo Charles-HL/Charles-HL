@@ -13,7 +13,9 @@ import {
 } from "@/content/audiences";
 import {
   generateBreadcrumbSchema,
+  generateConsultingServiceSchema,
   generateProfessionalServiceSchema,
+  generateProfilePageSchema,
   getAbsoluteUrl,
 } from "@/lib/seo";
 
@@ -143,7 +145,10 @@ export const landings = {
       { type: "audiences" },
       { type: "cta" },
     ],
-    jsonLd: (context) => [breadcrumbJsonLd(landingPathnames.consulting)(context)],
+    jsonLd: (context) => [
+      breadcrumbJsonLd(landingPathnames.consulting)(context),
+      generateConsultingServiceSchema(context.locale),
+    ],
   },
   recruiters: {
     id: "recruiters",
@@ -168,6 +173,9 @@ export const landings = {
       { type: "audiences" },
       { type: "cta" },
     ],
-    jsonLd: (context) => [breadcrumbJsonLd(landingPathnames.recruiters)(context)],
+    jsonLd: (context) => [
+      breadcrumbJsonLd(landingPathnames.recruiters)(context),
+      generateProfilePageSchema(context.locale),
+    ],
   },
 } satisfies Record<LandingId, LandingConfig>;

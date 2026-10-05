@@ -23,8 +23,8 @@ const project = {
     en: "A distribution and services SME runs a repair workshop for motorised equipment. Every repair involves an intake, labour time, parts, technician scheduling and an invoice, to be tracked end to end.",
   },
   role: {
-    fr: "Conception, architecture, développement et mise en production des deux applications, en autonomie complète.",
-    en: "Design, architecture, development and deployment of both applications, fully autonomously.",
+    fr: "De la conception à la mise en production des deux applications, en autonomie complète.",
+    en: "From design to deployment of both applications, fully autonomously.",
   },
   solution: {
     fr: "L'app terrain gère la prise en charge du matériel, avec un formulaire piloté par une configuration servie par le serveur. Les photos sont prises à la caméra arrière et compressées à ~50 Ko, et la signature du client est obligatoire.\n\nLe back-office atelier centralise le suivi : grille des réparations, chronomètre de temps de travail, pièces et chiffrage, calendrier imprimable et vue de charge par technicien. Les factures de service sont synchronisées avec l'ERP, et le planning avec Google Calendar.",

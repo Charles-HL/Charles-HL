@@ -18,6 +18,10 @@ const project = {
     fr: "Boutique en ligne responsive de produits à emporter : rendu serveur Next.js pour le SEO, paiement Stripe, API Express et MongoDB.",
     en: "A responsive takeaway store: Next.js server rendering for SEO, Stripe payments, an Express API backed by MongoDB.",
   },
+  metaDescription: {
+    fr: "Boutique en ligne responsive de produits à emporter : rendu serveur Next.js pour le SEO, paiement Stripe, API Express et MongoDB.",
+    en: "A responsive online takeaway store: Next.js server rendering for SEO, Stripe payments, and an Express API backed by MongoDB.",
+  },
   context: {
     fr: "Vendre des produits à emporter en ligne suppose d'être trouvé sur les moteurs de recherche et d'encaisser les paiements en toute sécurité. Le catalogue devait aussi rester simple à gérer.",
     en: "Selling takeaway products online means being found on search engines and taking payments securely. The product catalogue also had to stay easy to manage.",

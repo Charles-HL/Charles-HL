@@ -73,6 +73,10 @@ export interface Project {
   tagline: Localized<string>;
   /** Two to three lines, shown on cards and used as meta description. */
   summary: Localized<string>;
+  /** Page title when `title` exceeds 60 characters (search results truncate it). */
+  metaTitle?: Localized<string>;
+  /** Meta description when `summary` falls outside 120-165 characters. */
+  metaDescription?: Localized<string>;
   /** The business problem. */
   context: Localized<string>;
   /** What I did. */

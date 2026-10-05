@@ -38,7 +38,7 @@ export default async function FeaturedProjects({
           </Reveal>
         ))}
       </ProjectGrid>
-      <div className="mt-12 flex justify-center">
+      <div className="mt-10 flex justify-center md:mt-14">
         <Button href="/projects" variant="primary" size="lg">
           {t("viewAllProjects")}
           <ArrowRight className="h-5 w-5" />

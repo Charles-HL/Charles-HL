@@ -1,6 +1,6 @@
 import Button, { type ButtonHref } from "@/components/Button";
 import Reveal from "@/components/ui/Reveal";
-import Section from "@/components/ui/Section";
+import Section, { type SectionTone } from "@/components/ui/Section";
 
 interface CtaAction {
   label: string;
@@ -12,6 +12,8 @@ interface CtaBannerProps {
   description: string;
   primary: CtaAction;
   secondary?: CtaAction;
+  /** Band opposite to the previous section, so the call to action never melts into it. */
+  tone?: SectionTone;
 }
 
 /** Closing call to action (style of the former home contact block). */
@@ -20,9 +22,10 @@ export default function CtaBanner({
   description,
   primary,
   secondary,
+  tone,
 }: CtaBannerProps) {
   return (
-    <Section id="cta">
+    <Section id="cta" tone={tone}>
       <Reveal>
         <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 p-8 text-center text-white shadow-xl md:p-12">
           <h2 className="mb-4 text-2xl font-bold text-balance md:text-4xl">

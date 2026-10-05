@@ -23,8 +23,8 @@ const project = {
     en: "The workshop, rentals, sales, invoicing, bank reconciliation and inventory all had to run on a single backend. That backend serves 7 internal applications, the showcase website and the online store.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "Les routes sont organisées par application consommatrice : environ 250 endpoints, adossés à 44 modèles Prisma. L'API génère les devis en PDF et les fait signer en ligne par un lien à jeton unique. Elle émet aussi des demandes de paiement avec QR code de virement, relancées puis annulées automatiquement.\n\nLes factures de service partent vers l'ERP sans bloquer l'action locale, et une passerelle de facturation idempotente sert la boutique. Le rapprochement bancaire tourne dans un worker thread, par correspondance floue. S'y ajoutent l'agenda, les documents, les e-mails transactionnels et la revalidation du cache du site public.",

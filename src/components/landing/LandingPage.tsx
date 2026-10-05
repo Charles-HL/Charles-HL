@@ -116,7 +116,7 @@ const renderers: SectionRenderers = {
       tone={tone}
     />
   ),
-  cta: async (_, { config }) => {
+  cta: async (_, { config, tone }) => {
     const copy = await getLandingCopy<{ title: string; description: string; button: string }>(
       config.id,
       "cta"
@@ -126,6 +126,7 @@ const renderers: SectionRenderers = {
         title={copy.title}
         description={copy.description}
         primary={{ label: copy.button, href: config.ctaHref }}
+        tone={tone}
       />
     );
   },

@@ -23,8 +23,8 @@ const project = {
     en: "Manually matching incoming payments to issued invoices is slow and error-prone: references are incomplete and names rarely match exactly. The business needed a tool that suggests matches and leaves the final call to a person.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "L'utilisateur importe un relevé bancaire et un export de factures. Le traitement s'exécute côté serveur, dans un worker thread, et sa progression survit à un rechargement de la page.\n\nLe moteur de correspondance floue combine quatre approches : référence, montant, nom approché et combinée. Chaque proposition reçoit un score de confiance de 0 à 100. Un éditeur de revue permet de valider, de rejeter et de résoudre les cas multiples.",

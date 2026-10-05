@@ -1,38 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
 import { escapeHtml } from "@/lib/escape-html";
+import {
+  createTransporter,
+  getLocaleFromRequest,
+  isHoneypotFilled,
+  isRateLimited,
+  isSmtpConfigured,
+  isValidEmail,
+  singleLine,
+} from "@/lib/mail-api";
 import { getValidationMessage, getProjectTypeInvalidMessage, getTimelineInvalidMessage, type Locale } from "@/lib/validation-messages";
-
-// Fonction pour extraire la locale depuis les headers ou body
-const getLocaleFromRequest = (
-  request: NextRequest,
-  body?: Record<string, unknown>
-): Locale => {
-  // Priorité 1: locale dans le body de la requête
-  if (body?.locale && (body.locale === "fr" || body.locale === "en")) {
-    return body.locale as Locale;
-  }
-
-  // Priorité 2: header Accept-Language
-  const acceptLanguage = request.headers.get("accept-language");
-  if (acceptLanguage?.includes("fr")) {
-    return "fr";
-  }
-
-  // Par défaut: français
-  return "fr";
-};
-
-// Configuration du transporteur SMTP
-const createTransporter = () => {
-  return nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.SMTP_EMAIL,
-      pass: process.env.SMTP_PASSWORD, // Mot de passe d'application Google
-    },
-  });
-};
 
 // Validation des données du formulaire avec messages d'erreur détaillés
 const validateQuoteData = (
@@ -75,7 +52,7 @@ const validateQuoteData = (
     errors.push(getValidationMessage("emailRequired", locale));
   } else if (obj.email.trim().length === 0) {
     errors.push(getValidationMessage("emailEmpty", locale));
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(obj.email)) {
+  } else if (!isValidEmail(obj.email)) {
     errors.push(getValidationMessage("emailInvalid", locale));
   } else if (obj.email.length > 254) {
     errors.push(getValidationMessage("emailTooLong", locale));
@@ -216,7 +193,7 @@ const formatTimeline = (timeline: string): string => {
 export async function POST(request: NextRequest) {
   try {
     // Vérification des variables d'environnement
-    if (!process.env.SMTP_EMAIL || !process.env.SMTP_PASSWORD) {
+    if (!isSmtpConfigured()) {
       console.error("Configuration SMTP manquante");
       return NextResponse.json(
         { success: false, error: "Configuration serveur manquante" },
@@ -224,8 +201,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (isRateLimited(request)) {
+      return NextResponse.json(
+        { success: false, error: "Trop de demandes. Veuillez réessayer plus tard." },
+        { status: 429 }
+      );
+    }
+
     // Parsing des données JSON
-    const body = await request.json();
+    const body = await request.json().catch(() => undefined);
+
+    // Champ piège : un robot le remplit, on feint le succès sans rien envoyer
+    if (isHoneypotFilled(body)) {
+      return NextResponse.json({ success: true }, { status: 200 });
+    }
 
     // Récupération de la locale
     const locale = getLocaleFromRequest(request, body);
@@ -266,10 +255,10 @@ export async function POST(request: NextRequest) {
     const mailOptions = {
       from: process.env.SMTP_EMAIL,
       to: process.env.TO_EMAIL,
-      replyTo: email, // Permettre de répondre directement au client
+      replyTo: email.trim(), // Permettre de répondre directement au client
       subject: `[Demande de Devis] ${formatProjectType(
         projectType
-      )} - ${firstName} ${lastName}`,
+      )} - ${singleLine(`${firstName} ${lastName}`)}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #2563eb; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
@@ -360,14 +349,17 @@ Répondez rapidement pour maintenir un excellent service client.
     // Envoi de l'email
     await transporter.sendMail(mailOptions);
 
-    console.log(`Demande de devis envoyée avec succès de ${email}`);
+    console.log("Demande de devis envoyée");
 
     return NextResponse.json(
       { success: true, message: "Demande de devis envoyée avec succès" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Erreur lors de l'envoi de la demande de devis:", error);
+    console.error(
+      "Erreur lors de l'envoi de la demande de devis:",
+      error instanceof Error ? error.message : "inconnue"
+    );
 
     return NextResponse.json(
       {
@@ -377,16 +369,4 @@ Répondez rapidement pour maintenir un excellent service client.
       { status: 500 }
     );
   }
-}
-
-// Méthode OPTIONS pour CORS si nécessaire
-export async function OPTIONS() {
-  return new Response(null, {
-    status: 200,
-    headers: {
-      "Access-Control-Allow-Origin": "*",
-      "Access-Control-Allow-Methods": "POST, OPTIONS",
-      "Access-Control-Allow-Headers": "Content-Type",
-    },
-  });
 }

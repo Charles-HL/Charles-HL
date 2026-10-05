@@ -59,6 +59,10 @@ copy of a page that exists on its own.
    `context` two sentences, `role` one sentence, `solution` two paragraphs,
    `highlights` and `engineering` four items of one sentence each.
 
+8. Audience labels describe the need ("un projet à réaliser", "une mission à
+   confier", "un poste à pourvoir"), never jargon such as "ESN et grands
+   comptes"; the contact form field is "Vous cherchez".
+
 Verification (must return nothing):
 
 ```sh

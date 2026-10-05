@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { CONTACT_PROFILES, type ContactProfile } from "@/content/audiences";
 import FormStatus from "./FormStatus";
+import HoneypotField from "./HoneypotField";
 import { fieldClass, labelClass } from "./form-styles";
 import { useFormSubmission } from "./useFormSubmission";
 
@@ -18,6 +19,7 @@ const emptyForm = (profile: ContactProfile | "" = "") => ({
   email: "",
   subject: "",
   message: "",
+  website: "",
 });
 
 export default function ContactForm({ initialProfile }: ContactFormProps) {
@@ -52,7 +54,7 @@ export default function ContactForm({ initialProfile }: ContactFormProps) {
 
       <FormStatus status={status} message={message} details={details} statusRef={statusRef} />
 
-      <form className="space-y-6" onSubmit={handleSubmit} noValidate>
+      <form className="relative space-y-6" onSubmit={handleSubmit} noValidate>
         <div>
           <label htmlFor="profile" className={labelClass}>
             {t("form.profile.label")}
@@ -116,6 +118,7 @@ export default function ContactForm({ initialProfile }: ContactFormProps) {
         >
           {isSubmitting ? t("form.sending") : t("form.send")}
         </button>
+        <HoneypotField value={formData.website} onChange={handleInputChange} />
       </form>
     </div>
   );

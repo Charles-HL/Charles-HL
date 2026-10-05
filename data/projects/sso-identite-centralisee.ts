@@ -23,8 +23,8 @@ const project = {
     en: "The applications relied on shared accounts, with no second factor protecting access. And without central revocation, there was no single place to withdraw someone's access.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "Le fournisseur d'identité Zitadel est auto-hébergé : base dédiée, reverse proxy gRPC, tunnel dédié, supervision et sauvegarde. Les applications suivent le flux OIDC Authorization Code + PKCE.\n\nLes jetons restent côté serveur ; les fronts ne manipulent qu'une session opaque HttpOnly, protégée contre le CSRF. Un client de session partagé et un paquet BFF réutilisable évitent de réécrire l'intégration dans chaque application. La MFA laisse le choix entre passkeys, TOTP ou OTP par e-mail.",

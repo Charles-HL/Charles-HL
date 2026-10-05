@@ -33,7 +33,7 @@
     "audiencesTitle": "Who is it for?",
     "audiences": {
       "freelance": "Freelance developer for small businesses",
-      "consulting": "Full stack consultant for IT services firms and enterprises",
+      "consulting": "Senior full stack consultant for company assignments",
       "recruiters": "Lead developer and architect: for recruiters"
     },
     "linksTitle": "Navigation",
@@ -72,7 +72,7 @@
       "expertise": {
         "eyebrow": "Expertise",
         "title": "From the data model to production monitoring",
-        "intro": "The whole software chain, backed by systems actually shipped."
+        "intro": "The whole software chain, on systems actually shipped."
       },
       "agentic": {
         "intro": "AI is the second pillar of my work — never a replacement for engineering."
@@ -80,17 +80,17 @@
       "projects": {
         "eyebrow": "Work",
         "title": "Featured projects",
-        "intro": "The context, the technical decisions and the results, project by project."
+        "intro": "Context, technical decisions, results."
       },
       "process": {
         "eyebrow": "Method",
-        "title": "A clear process, from idea to operations",
+        "title": "From idea to operations",
         "intro": "Understand, scope, ship in steps, prove, maintain."
       },
       "audiences": {
-        "eyebrow": "You are…",
-        "title": "Find the page that speaks to you",
-        "intro": "Each page presents the same profile from the angle that matters to you."
+        "eyebrow": "You are looking for…",
+        "title": "Pick the page that fits your need",
+        "intro": "The same profile, three angles."
       },
       "cta": {
         "title": "A project, an assignment, an opportunity?",
@@ -115,7 +115,7 @@
       "hero": {
         "eyebrow": "Small businesses and project owners",
         "title": "Freelance full stack developer in Toulouse",
-        "pitch": "One contact, from idea to launch. I come from engineering in large groups: you get software built to last, not a mock-up.",
+        "pitch": "Custom tools built to large-group standards: software made to last, not a mock-up.",
         "primaryCta": "Request a quote",
         "secondaryCta": "See my work",
         "proofs": [
@@ -131,8 +131,8 @@
       },
       "projects": {
         "eyebrow": "Work",
-        "title": "Concrete results for an SME",
-        "intro": "Tools used every day, with their results."
+        "title": "Tools used every day",
+        "intro": "The context, what I built, the results."
       },
       "process": {
         "eyebrow": "How it works",
@@ -145,35 +145,35 @@
       "faq": {
         "eyebrow": "FAQ",
         "title": "Frequently asked questions",
-        "intro": "Answers to the questions I'm asked most often before a project starts.",
+        "intro": "What I'm asked most often before a project starts.",
         "items": [
           {
-            "question": "Why not build the application myself with an AI or no-code tool?",
-            "answer": "They are great for prototyping. The hard part comes next: connecting your software, handling permissions and edge cases, migrating your data, fixing things without breaking others. If such a tool is enough, I will tell you."
+            "question": "Why not an AI or no-code tool?",
+            "answer": "Great for prototyping. The hard part comes next: connecting your software, handling permissions and edge cases, migrating your data, fixing things without breaking others. If one is enough, I'll tell you."
           },
           {
-            "question": "How long will it take to build my project?",
-            "answer": "A few days for a usable prototype, several weeks in increments for a full business application. The quote sets out a stage-by-stage schedule."
+            "question": "How long will my project take?",
+            "answer": "A few days for a prototype, several weeks for a business application, delivered in stages."
           },
           {
             "question": "How do you put a quote together?",
-            "answer": "After a first conversation, I write a short specification and a quote broken down by batch: scope, deliverables, schedule and price."
+            "answer": "After a first conversation: a short specification and a quote by batch (scope, schedule, price)."
           },
           {
             "question": "Who owns the code and the accounts?",
-            "answer": "Yours: code, repositories, hosting, domain names and service accounts are in your name, documentation included."
+            "answer": "You do: code, repositories, hosting, domains and service accounts, documentation included."
           },
           {
             "question": "Do you take care of hosting and maintenance?",
-            "answer": "Yes if you want it: deployment, monitoring, alerts and backups, or a rollout on your own infrastructure."
+            "answer": "If you want: deployment, monitoring, backups, or a rollout on your own infrastructure."
           },
           {
             "question": "Do you work remotely or on site?",
-            "answer": "Both: remotely anywhere in France, and on site around Toulouse when it helps."
+            "answer": "Both: remotely anywhere in France, on site around Toulouse."
           },
           {
             "question": "Can you take over an existing application?",
-            "answer": "Yes. I start with a review of the code and the data, then propose a gradual evolution rather than a risky rewrite."
+            "answer": "Yes: a review of the code and data, then gradual evolution rather than a risky rewrite."
           },
           {
             "question": "What role does AI play, and does my code stay confidential?",
@@ -190,7 +190,7 @@
     "consulting": {
       "meta": {
         "title": "Senior full stack consultant & tech lead",
-        "description": "Senior full stack consultant and TypeScript, React, Node.js tech lead: architecture, industrialized delivery and agentic engineering for enterprise clients.",
+        "description": "Senior full stack consultant and tech lead (TypeScript, React, Node.js): architecture, industrialized delivery, agentic engineering. For companies and IT firms.",
         "keywords": [
           "senior full stack consultant",
           "freelance TypeScript tech lead",
@@ -201,7 +201,7 @@
         "breadcrumb": "Full stack consultant"
       },
       "hero": {
-        "eyebrow": "IT services firms and enterprises",
+        "eyebrow": "Consulting and tech lead assignments",
         "title": "Senior full stack consultant & tech lead",
         "pitch": "An engineer with experience in defence, energy and space. I designed a complete information system, from architecture to operations.",
         "primaryCta": "Propose an assignment",
@@ -215,7 +215,7 @@
       "expertise": {
         "eyebrow": "Skills",
         "title": "Architecture, security and industrialization",
-        "intro": "What a senior consultant is expected to bring, with the accent on security, quality and operations."
+        "intro": "Security, quality, operations: the foundation of a senior consultant."
       },
       "agentic": {
         "intro": "The point is not to use AI, but to industrialize it without losing control."
@@ -233,26 +233,26 @@
       "terms": {
         "eyebrow": "Terms",
         "title": "A flexible engagement model",
-        "intro": "Terms adapt to the assignment and to your organization.",
+        "intro": "Adapts to the assignment and to your organization.",
         "items": [
           {
             "title": "Time and materials or fixed price",
-            "description": "Embedded in your teams on a time-and-materials basis, or a fixed-price commitment on a defined scope."
+            "description": "Embedded in your teams on time and materials, or fixed price on a defined scope."
           },
           {
             "title": "Remote or hybrid",
-            "description": "Remote, or hybrid around Toulouse depending on the needs of the assignment."
+            "description": "Remote, or hybrid around Toulouse depending on the assignment."
           },
           {
             "title": "Availability",
-            "description": "Start date and length of engagement agreed together, based on the assignment schedule."
+            "description": "Start date and length agreed based on the assignment schedule."
           }
         ]
       },
       "audiences": {
-        "eyebrow": "Other profiles",
-        "title": "Are you rather…",
-        "intro": "The same background, presented for other needs."
+        "eyebrow": "Other needs",
+        "title": "Are you rather looking for…",
+        "intro": "The same background, for another need."
       },
       "cta": {
         "title": "An assignment to staff?",
@@ -274,9 +274,9 @@
         "breadcrumb": "Recruiters"
       },
       "hero": {
-        "eyebrow": "Recruiters and hiring companies",
+        "eyebrow": "Hiring: lead developer and architect",
         "title": "Lead developer & full stack software architect",
-        "pitch": "An engineer trained in AI and robotics, with experience in large groups. I designed, shipped and operated an entire information system on my own.",
+        "pitch": "An engineer trained in AI and robotics, with several years in large groups. I designed, shipped and operated an entire information system on my own.",
         "primaryCta": "Discuss an opportunity",
         "secondaryCta": "See my work",
         "proofs": [
@@ -292,7 +292,7 @@
         "items": [
           {
             "title": "Education",
-            "description": "An engineering school degree in artificial intelligence and robotics, then several years of software development in large groups."
+            "description": "Engineering school degree in AI and robotics, then several years of development in large groups."
           },
           {
             "title": "Engineering philosophy",
@@ -320,7 +320,7 @@
       "seeking": {
         "eyebrow": "What I'm looking for",
         "title": "Roles with technical responsibility",
-        "intro": "I'm open to roles where architecture, quality and agentic AI carry real weight.",
+        "intro": "Roles where architecture, quality and agentic AI carry real weight.",
         "items": [
           {
             "title": "Lead developer",
@@ -337,9 +337,9 @@
         ]
       },
       "audiences": {
-        "eyebrow": "Other profiles",
-        "title": "Are you rather…",
-        "intro": "The same background, presented for other needs."
+        "eyebrow": "Other needs",
+        "title": "Are you rather looking for…",
+        "intro": "The same background, for another need."
       },
       "cta": {
         "title": "Let's discuss your opportunity",
@@ -353,11 +353,11 @@
       "labels": {
         "home": "Experience in large groups",
         "freelance": "A background in large groups",
-        "consulting": "Large-account environments",
+        "consulting": "Experience in large groups",
         "recruiters": "Professional background"
       },
       "title": "Software delivered for large groups",
-      "intro": "Defence, energy, space, aeronautics, AI research: the contexts where I designed and shipped software.",
+      "intro": "Defence, energy, space, aeronautics, AI research.",
       "notice": "Organizations listed as experience references. Logos remain the property of their owners.",
       "sectors": {
         "energy": "Energy",
@@ -386,19 +386,19 @@
           "title": "Architecture & backend",
           "skills": "Idempotency, concurrency locks, workers, scheduled jobs, workflows and state machines.",
           "businessTitle": "Reliable management applications",
-          "businessDescription": "A central tool that brings your data together, automates repetitive tasks and stays reliable when activity peaks: no duplicates, no lost orders."
+          "businessDescription": "A central tool that brings your data together and automates repetitive tasks: no duplicates, no lost orders."
         },
         "frontend": {
           "title": "Frontend & product",
           "skills": "PDF generation, electronic signature, field photo capture, technical SEO.",
           "businessTitle": "Screens your teams actually adopt",
-          "businessDescription": "Clear interfaces for the office, the workshop or the field: quotes and contracts signed online, photos, PDFs, on desktop, tablet or mobile."
+          "businessDescription": "Clear screens for the office, the workshop or the field: quotes signed online, photos, PDFs, on any device."
         },
         "security": {
           "title": "Security & identity",
           "skills": "HttpOnly sessions and CSRF protection, AES-256-GCM encryption, rate limiting, server hardening.",
           "businessTitle": "Protected access and data",
-          "businessDescription": "One secure account per employee, two-factor authentication, access revoked in one click and sensitive data encrypted.",
+          "businessDescription": "One account per employee, two-factor authentication, access revoked in one click, sensitive data encrypted.",
           "details": [
             "Self-hosted identity provider, configured through CI only",
             "Tokens kept server-side (BFF pattern), opaque HttpOnly sessions",
@@ -409,7 +409,7 @@
           "title": "DevOps & operations",
           "skills": "Reproducible deployments, rollback by tag, monitoring, alerting and deduplicated pull-mode backups.",
           "businessTitle": "Online, monitored and backed up",
-          "businessDescription": "Controlled releases with fast rollback, monitoring that alerts before you notice, and verified backups.",
+          "businessDescription": "Controlled releases with fast rollback, monitoring that alerts before you notice, verified backups.",
           "details": [
             "Docker images tagged per commit and rollback by tag",
             "Metrics, logs and alerts: Prometheus, Grafana, Loki, Alertmanager",
@@ -420,13 +420,13 @@
           "title": "Business integrations",
           "skills": "Online payment, ERP, electronic invoicing, calendars, transactional emails, and point-of-sale hardware.",
           "businessTitle": "Connected e-commerce, ERP and point of sale",
-          "businessDescription": "Online store, payments, ERP, e-invoicing, calendar and point-of-sale hardware work together: no more double data entry."
+          "businessDescription": "Store, payments, ERP, e-invoicing, calendar and point of sale work together: no more double data entry."
         },
         "ai": {
           "title": "AI & data",
           "skills": "Engineering degree in AI and robotics: ML, deep learning, reinforcement learning, NLP, explainability.",
           "businessTitle": "Automation and controlled AI",
-          "businessDescription": "Catalog imports, bank reconciliation, scheduled jobs: I remove manual data entry, and AI speeds up development under my control."
+          "businessDescription": "Catalog imports, bank reconciliation, scheduled jobs: manual data entry disappears."
         }
       }
     },
@@ -434,7 +434,7 @@
       "eyebrow": "Artificial intelligence",
       "title": "Agentic engineering: AI under an engineer's control",
       "motto": "Engineer first. AI executes; I design, decide, review and prove.",
-      "intro": "I do not delegate my understanding: I scope, I orchestrate, I review every change and I keep the final say.",
+      "intro": "I do not delegate my understanding: every change is reviewed, and I keep the final say.",
       "moreLink": "See the method in detail",
       "comparison": {
         "title": "Not vibe coding",
@@ -464,22 +464,22 @@
       "pillars": {
         "frame": {
           "title": "Scope before generating",
-          "description": "The need becomes versioned specs, split into deliverables with acceptance criteria. One contract per repository sets the rules.",
+          "description": "Versioned specs split into deliverables with acceptance criteria; one instruction contract per repository.",
           "proof": "A 28-deliverable roadmap drove the SSO rollout across 9 applications."
         },
         "orchestrate": {
           "title": "Orchestrate",
-          "description": "A plan approved before any code, specialized sub-agents, effort calibrated to risk, worktrees to parallelize without conflict.",
-          "proof": "A fresh session executes what another one planned, to remove confirmation bias."
+          "description": "A plan approved before any code, specialized sub-agents, worktrees to parallelize without conflict.",
+          "proof": "A fresh session executes another one's plan: no confirmation bias."
         },
         "guard": {
           "title": "Set guardrails",
-          "description": "Deterministic hooks, restricted permissions, no secret handed to AI. Autonomy is bounded, human escalation explicit.",
+          "description": "Deterministic hooks, restricted permissions, no secret handed to AI, explicit human escalation.",
           "proof": "Guardrails are technical, not just instructions."
         },
         "prove": {
           "title": "Prove it",
-          "description": "Failing tests first, then multi-agent testing in a real browser. Every verdict is re-measured and the evidence is kept.",
+          "description": "Tests written first, then multi-agent testing in a real browser; every verdict is re-measured.",
           "proof": "5 campaigns, over 800 cases, up to 11 agents in parallel."
         },
         "decide": {
@@ -489,8 +489,8 @@
         },
         "capitalize": {
           "title": "Capitalize and stay ahead",
-          "description": "Reusable skills, a registry of pitfalls, a wiki updated in the same patch, long-term memory shared between agents.",
-          "proof": "Active watch: agentic engineering, spec-driven development, MCP, Claude Code and Codex updates."
+          "description": "Reusable skills, a wiki updated in the same patch, memory shared between agents.",
+          "proof": "Active watch: spec-driven development, MCP, Claude Code, Codex."
         }
       },
       "workflow": {
@@ -527,7 +527,7 @@
         "items": [
           {
             "title": "Shorter lead times",
-            "description": "AI takes on the repetitive execution: you get a usable version sooner."
+            "description": "AI takes on the repetitive execution: a usable version sooner."
           },
           {
             "title": "Controlled quality",
@@ -541,7 +541,7 @@
       },
       "team": {
         "title": "Industrializing AI within a team",
-        "intro": "What I apply on my own carries over to a team, with shared rules rather than individual habits.",
+        "intro": "Shared rules rather than individual habits.",
         "items": [
           {
             "title": "Shared conventions",
@@ -553,7 +553,7 @@
           },
           {
             "title": "Guardrails",
-            "description": "Hooks, permissions and mandatory reviews: AI stays within a technical frame, not just a declared one."
+            "description": "Hooks, permissions and mandatory reviews: a technical frame, not just a declared one."
           },
           {
             "title": "Upskilling",
@@ -566,19 +566,19 @@
       "client": [
         {
           "title": "Understand your business",
-          "description": "I listen to your constraints, habits and pain points before talking technology."
+          "description": "I listen to your constraints and pain points before talking technology."
         },
         {
           "title": "Scope and estimate",
-          "description": "A clear specification and a detailed quote: you know what will be delivered, when and for how much."
+          "description": "A clear specification and a detailed quote: what, when, how much."
         },
         {
-          "title": "Build in demonstrable increments",
-          "description": "Regular releases you test yourself, so adjustments happen early rather than late."
+          "title": "Build in stages",
+          "description": "Regular releases you test, so adjustments happen early."
         },
         {
           "title": "Acceptance and go-live",
-          "description": "Testing, acceptance and a supervised release, with data migration when needed."
+          "description": "Testing, acceptance, a supervised release, data migration if needed."
         },
         {
           "title": "Maintain and evolve",
@@ -587,8 +587,8 @@
       ],
       "mission": [
         {
-          "title": "Immersion in the system and its constraints",
-          "description": "Understand the existing landscape, business stakes, security and organization before proposing anything."
+          "title": "Immersion",
+          "description": "Understand the existing system, the business and the constraints before proposing anything."
         },
         {
           "title": "Architecture and breakdown",
@@ -611,18 +611,18 @@
     "audiences": {
       "items": {
         "freelance": {
-          "title": "A business / a project owner",
-          "description": "You need a management tool, an online store or a website that works for you.",
+          "title": "A project to build",
+          "description": "A management tool, an online store or a website that works for you.",
           "cta": "See the freelance offer"
         },
         "consulting": {
-          "title": "An IT services firm / an enterprise",
-          "description": "You are looking for a senior full stack consultant or a tech lead for a demanding assignment.",
+          "title": "An assignment to staff",
+          "description": "A senior full stack consultant or tech lead, time and materials or fixed price.",
           "cta": "See the consultant profile"
         },
         "recruiters": {
-          "title": "A recruiter",
-          "description": "You are hiring a lead developer, a software architect or an AI tech lead.",
+          "title": "A role to fill",
+          "description": "A lead developer, a software architect or an AI tech lead.",
           "cta": "See the recruiter page"
         }
       }
@@ -689,7 +689,7 @@
     },
     "cta": {
       "title": "Have a project in mind?",
-      "description": "Let's talk about your context: I'll tell you frankly what is feasible, how, and on what timeline.",
+      "description": "Let's talk about your context: I'll tell you frankly what is feasible, and how long it takes.",
       "contact": "Let's talk about your project",
       "quote": "Request a quote"
     }
@@ -717,7 +717,7 @@
     },
     "cta": {
       "title": "A project of this scale?",
-      "description": "Let's talk about your context: I'll tell you frankly what is feasible, how, and on what timeline.",
+      "description": "Let's talk about your context: I'll tell you frankly what is feasible, and how long it takes.",
       "contact": "Let's talk about your project",
       "quote": "Request a quote"
     }
@@ -741,7 +741,7 @@
     "noCode": {
       "eyebrow": "Frequent question",
       "title": "Why not simply use an AI or no-code tool?",
-      "intro": "Those tools are great for prototyping. Here is what changes when the software has to run every day.",
+      "intro": "Great for prototyping. Here is what changes when the software has to run every day.",
       "items": [
         {
           "title": "A prototype is not a system",
@@ -749,7 +749,7 @@
         },
         {
           "title": "Production has its own requirements",
-          "description": "Authentication, backups, personal data, monitoring, scaling, tests: what separates a demo from a tool you can rely on."
+          "description": "Authentication, backups, GDPR, monitoring, tests: what separates a demo from a tool you can rely on."
         },
         {
           "title": "You stay the owner, and free to move",
@@ -841,12 +841,12 @@
     "sendMessage": "Send a message",
     "form": {
       "profile": {
-        "label": "You are",
+        "label": "You are looking for",
         "placeholder": "Select your profile",
         "options": {
-          "freelance": "A business / a project owner",
-          "consulting": "An IT services firm / an enterprise",
-          "recruiters": "A recruiter",
+          "freelance": "A developer for a project",
+          "consulting": "A consultant for an assignment",
+          "recruiters": "Someone to hire",
           "other": "Other"
         }
       },

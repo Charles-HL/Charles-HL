@@ -103,7 +103,7 @@ export default async function AgenticEngineering({
         <h2 className="sr-only">{t("title")}</h2>
       )}
 
-      <Reveal className="mx-auto mb-12 max-w-4xl">
+      <Reveal className="mx-auto mb-10 max-w-4xl md:mb-14">
         <blockquote className="rounded-2xl bg-gradient-to-r from-blue-600 to-emerald-600 p-6 text-center text-xl font-semibold text-white shadow-xl md:p-8 md:text-2xl">
           {t("motto")}
         </blockquote>
@@ -113,13 +113,13 @@ export default async function AgenticEngineering({
       </Reveal>
 
       {depth === "full" && (
-        <Reveal className="mx-auto mb-16 max-w-4xl">
+        <Reveal className="mx-auto mb-10 max-w-4xl md:mb-14">
           <VibeVsAgentic />
         </Reveal>
       )}
 
       {isCompact ? (
-        <div className="mb-16">
+        <div className="mb-10 md:mb-14">
           <h3 className="mb-8 text-center text-2xl font-bold text-gray-900 dark:text-white">
             {t("benefits.title")}
           </h3>
@@ -129,7 +129,7 @@ export default async function AgenticEngineering({
           />
         </div>
       ) : (
-        <div className="mb-16">
+        <div className="mb-10 md:mb-14">
           <h3 className="mb-8 text-center text-2xl font-bold text-gray-900 dark:text-white">
             {t("pillarsTitle")}
           </h3>
@@ -160,7 +160,7 @@ export default async function AgenticEngineering({
       )}
 
       {depth === "full" && (
-        <Reveal className="mb-16">
+        <Reveal className="mb-10 md:mb-14">
           <AgenticWorkflow />
         </Reveal>
       )}
@@ -181,7 +181,7 @@ export default async function AgenticEngineering({
       )}
 
       {depth !== "compact" && (
-        <div className="mt-16">
+        <div className="mt-10 md:mt-14">
           <div className="mx-auto mb-8 max-w-3xl text-center">
             <h3 className="mb-3 flex items-center justify-center gap-2 text-2xl font-bold text-gray-900 dark:text-white">
               <Users className="h-6 w-6 text-blue-600 dark:text-blue-400" />
@@ -197,7 +197,7 @@ export default async function AgenticEngineering({
       )}
 
       {showMoreLink && (
-        <Reveal className="mt-14 flex justify-center">
+        <Reveal className="mt-10 flex justify-center md:mt-14">
           <Button variant="secondary" href="/ai-engineering">
             {t("moreLink")}
             <ArrowRight className="h-5 w-5" />

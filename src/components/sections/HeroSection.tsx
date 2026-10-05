@@ -37,7 +37,7 @@ export default async function HeroSection({
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-24 pb-16 md:pt-32 lg:pt-40 lg:pb-24"
+      className="relative overflow-hidden pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-40"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50/40 via-white/40 to-emerald-50/40 dark:from-gray-900/90 dark:via-gray-800/80 dark:to-gray-900/90" />
 

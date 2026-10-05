@@ -18,13 +18,21 @@ const project = {
     fr: "Deux applications pour vendre et installer : devis signés à distance, interventions sur iPad, factures synchronisées avec l'ERP.",
     en: "Two apps to sell and install: quotes signed remotely, site visits on iPad, invoices synced with the ERP.",
   },
+  metaTitle: {
+    fr: "Vente et installation : devis, intervention et facture",
+    en: "Sales and installation: quote, site visit and invoice",
+  },
+  metaDescription: {
+    fr: "Deux applications pour vendre et installer : devis signés à distance, interventions sur iPad, factures synchronisées avec l'ERP.",
+    en: "Two apps for the whole sales and installation cycle: quotes signed remotely, site visits on iPad, invoices issued on site and synced with the ERP.",
+  },
   context: {
     fr: "Chaque vente suit le même cycle : devis, commande, intervention chez le client, facture. Ce périmètre vivait dans une application plus large et devait disposer de ses propres outils, au bureau comme sur le terrain.",
     en: "Every sale follows the same cycle: quote, order, on-site installation, invoice. This scope lived inside a broader application and needed dedicated tools, in the office and in the field.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "L'administration commerciale gère le stock planifié par année, les devis et leur conversion en bon de commande avec acompte. Le client signe à distance par un lien public protégé. Elle a été extraite d'une application existante avec une parité fonctionnelle 1:1, en 3 jours.\n\nLe portail mobile accompagne l'installateur sur iPad : liste de contrôle, photos et signature. Les factures d'installation suivent leur cycle de vie complet et se synchronisent avec l'ERP.",

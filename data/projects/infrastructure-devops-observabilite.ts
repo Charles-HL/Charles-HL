@@ -18,6 +18,10 @@ const project = {
     fr: "Deux serveurs de production durcis et supervisés : aucun port applicatif exposé, rollback par tag et sauvegardes sur 3 niveaux.",
     en: "Two hardened, monitored production servers: no exposed application ports, tag-based rollback and three-tier backups.",
   },
+  metaDescription: {
+    fr: "Deux serveurs de production durcis et supervisés : aucun port applicatif exposé, rollback par tag et sauvegardes sur 3 niveaux.",
+    en: "Two hardened, monitored production servers with CI/CD and observability: no exposed application ports, tag-based rollback and three-tier backups.",
+  },
   context: {
     fr: "Le système d'information d'une PME de distribution et de services repose sur plusieurs applications critiques : API, boutique en ligne, ERP et fournisseur d'identité. Elles doivent tourner en continu, se déployer sans risque et rester restaurables après un incident.",
     en: "The information system of a distribution and services SME relies on several critical applications: an API, an online store, an ERP and an identity provider. They must run continuously, deploy safely and stay recoverable after an incident.",

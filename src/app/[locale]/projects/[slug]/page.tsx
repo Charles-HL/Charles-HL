@@ -56,8 +56,8 @@ export async function generateMetadata({ params }: Props) {
   return buildPageMetadata({
     locale,
     href: { pathname: "/projects/[slug]", params: { slug } },
-    title: project.title[locale],
-    description: project.summary[locale],
+    title: (project.metaTitle ?? project.title)[locale],
+    description: (project.metaDescription ?? project.summary)[locale],
     keywords: project.stack.flatMap((group) => group.items).slice(0, 10),
     type: "article",
   });
@@ -160,7 +160,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* Context, role and solution */}
       <Section tone="muted">
-        <div className="mx-auto max-w-4xl space-y-14">
+        <div className="mx-auto max-w-4xl space-y-12 md:space-y-14">
           <DetailBlock title={t("context")}>
             <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
               {project.context[locale]}
@@ -185,7 +185,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
       {/* Highlights and engineering */}
       <Section>
-        <div className="space-y-16">
+        <div className="space-y-12 md:space-y-14">
           <DetailBlock title={t("highlights")}>
             <ul className="grid gap-4 sm:grid-cols-2">
               {project.highlights[locale].map((highlight) => (
@@ -264,8 +264,12 @@ export default async function ProjectDetailPage({ params }: Props) {
         </Section>
       )}
 
-
       <CtaBanner
+        tone={
+          project.slug === ECOSYSTEM_PROJECT_SLUG || project.slug === AGENTIC_PROJECT_SLUG
+            ? "plain"
+            : "muted"
+        }
         title={t("cta.title")}
         description={t("cta.description")}
         primary={{ label: t("cta.contact"), href: "/contact" }}

@@ -146,3 +146,22 @@ locale layout passes only those to `NextIntlClientProvider`.
 twice, for about 30 KB of HTML that no client component ever read. Adding a
 `useTranslations` namespace to a client component now means adding it to that
 list.
+
+## 2026-10-06 — Harden the mail routes and cap meta lengths per project
+
+**Decision:** `/api/contact` and `/api/quote` share `src/lib/mail-api.ts`
+(transporter, locale, single-address email check, header-safe single line,
+best-effort rate limit of 5 requests per 10 minutes per IP, honeypot field
+`website`). The routes answer no `OPTIONS` (no CORS), return 400 on malformed
+JSON and never log the visitor's email or SMTP internals. Projects may set
+`metaTitle` / `metaDescription` when `title` exceeds 60 characters or
+`summary` falls outside 120–165.
+
+**Rationale:** An `OPTIONS` answer with `Access-Control-Allow-Origin: *` let
+any website post to the routes and burn the Gmail quota. The app password
+stays server-only (`SMTP_PASSWORD` has no `NEXT_PUBLIC_` prefix, never in
+git history); checked by building with a canary value and grepping
+`.next/static` and `.next/server/app`. The rate limit is per server instance
+(no shared store), which is enough against a naive script. The consulting and
+recruiters landings now carry `Service` and `ProfilePage` JSON-LD like the
+freelance one carries `ProfessionalService`.

@@ -23,8 +23,8 @@ const project = {
     en: "The showcase website is where most customers first arrive: it has to rank well locally and make requesting a quote easy. The original version, built with CRA and MUI, rendered client-side and was poorly suited to search engines.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "Le site a été migré de CRA et MUI vers Next.js, puis vers Tailwind. Le SEO local s'appuie sur la Metadata API, des données structurées et un sitemap.\n\nLe devis en ligne est relié au stock réel et envoyé par une Server Action, qui garde le jeton côté serveur. Le catalogue est alimenté par l'API métier, avec cache et revalidation déclenchée depuis le back-office. Deux simulateurs, coût d'entretien et retour sur investissement, aident le visiteur à se projeter.",

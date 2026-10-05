@@ -33,7 +33,7 @@
     "audiencesTitle": "Pour qui ?",
     "audiences": {
       "freelance": "Développeur freelance pour TPE et PME",
-      "consulting": "Consultant full stack pour ESN et grands comptes",
+      "consulting": "Consultant full stack senior : missions en entreprise",
       "recruiters": "Lead developer et architecte : espace recruteurs"
     },
     "linksTitle": "Navigation",
@@ -72,7 +72,7 @@
       "expertise": {
         "eyebrow": "Expertise",
         "title": "Du modèle de données à la supervision en production",
-        "intro": "Toute la chaîne logicielle, appuyée sur des systèmes réellement livrés."
+        "intro": "Toute la chaîne logicielle, sur des systèmes réellement livrés."
       },
       "agentic": {
         "intro": "L'IA est le second pilier de mon travail — jamais à la place de l'ingénierie."
@@ -80,17 +80,17 @@
       "projects": {
         "eyebrow": "Réalisations",
         "title": "Projets phares",
-        "intro": "Le contexte, les choix techniques et les résultats, projet par projet."
+        "intro": "Contexte, choix techniques, résultats."
       },
       "process": {
         "eyebrow": "Méthode",
-        "title": "Une démarche claire, de l'idée à l'exploitation",
+        "title": "De l'idée à l'exploitation",
         "intro": "Comprendre, cadrer, livrer par étapes, prouver, maintenir."
       },
       "audiences": {
-        "eyebrow": "Vous êtes…",
-        "title": "Trouvez la page qui vous parle",
-        "intro": "Chaque page présente le même profil sous l'angle qui compte pour vous."
+        "eyebrow": "Vous cherchez…",
+        "title": "Choisissez la page adaptée à votre besoin",
+        "intro": "Le même profil, trois angles."
       },
       "cta": {
         "title": "Un projet, une mission, une opportunité ?",
@@ -115,7 +115,7 @@
       "hero": {
         "eyebrow": "TPE, PME et porteurs de projet",
         "title": "Développeur freelance full stack à Toulouse",
-        "pitch": "Un seul interlocuteur, de l'idée à la mise en ligne. Je viens de l'ingénierie en grands groupes : vous obtenez un logiciel construit pour durer, pas une maquette.",
+        "pitch": "Des outils sur mesure, conçus avec l'exigence des grands groupes : un logiciel fait pour durer, pas une maquette.",
         "primaryCta": "Demander un devis",
         "secondaryCta": "Voir des réalisations",
         "proofs": [
@@ -131,8 +131,8 @@
       },
       "projects": {
         "eyebrow": "Réalisations",
-        "title": "Des résultats concrets pour une PME",
-        "intro": "Des outils utilisés au quotidien, avec leurs résultats."
+        "title": "Des outils utilisés chaque jour",
+        "intro": "Le contexte, ce que j'ai construit, les résultats."
       },
       "process": {
         "eyebrow": "Comment ça se passe",
@@ -145,35 +145,35 @@
       "faq": {
         "eyebrow": "FAQ",
         "title": "Questions fréquentes",
-        "intro": "Les réponses aux questions que l'on me pose le plus souvent avant de démarrer.",
+        "intro": "Ce que l'on me demande le plus souvent avant de démarrer.",
         "items": [
           {
-            "question": "Pourquoi ne pas créer l'application moi-même avec un outil d'IA ou de no-code ?",
-            "answer": "Ils sont parfaits pour maquetter. La difficulté arrive après : connecter vos logiciels, gérer les droits et les cas limites, reprendre vos données, corriger sans rien casser. Si un tel outil suffit à votre besoin, je vous le dirai."
+            "question": "Pourquoi pas un outil d'IA ou de no-code ?",
+            "answer": "Parfaits pour maquetter. Le plus dur vient après : connecter vos logiciels, gérer droits et cas limites, reprendre vos données, corriger sans rien casser. Si l'un d'eux suffit, je vous le dirai."
           },
           {
-            "question": "Combien de temps faut-il pour développer mon projet ?",
-            "answer": "Quelques jours pour un prototype utilisable, plusieurs semaines par incréments pour une application métier. Le devis précise un calendrier par étape."
+            "question": "Combien de temps pour développer mon projet ?",
+            "answer": "Quelques jours pour un prototype, plusieurs semaines pour une application métier, livrée par étapes."
           },
           {
             "question": "Comment établissez-vous un devis ?",
-            "answer": "Après un premier échange, je rédige une spécification courte et un devis par lot : périmètre, livrables, calendrier et prix."
+            "answer": "Après un premier échange : une spécification courte et un devis par lot (périmètre, calendrier, prix)."
           },
           {
             "question": "À qui appartiennent le code et les accès ?",
-            "answer": "À vous : code, dépôts, hébergement, noms de domaine et comptes de services sont à votre nom, documentation comprise."
+            "answer": "À vous : code, dépôts, hébergement, domaines et comptes de services, documentation comprise."
           },
           {
             "question": "Vous occupez-vous de l'hébergement et de la maintenance ?",
-            "answer": "Oui si vous le souhaitez : mise en ligne, supervision, alertes et sauvegardes, ou déploiement sur votre propre infrastructure."
+            "answer": "Si vous le souhaitez : mise en ligne, supervision, sauvegardes, ou déploiement sur votre infrastructure."
           },
           {
             "question": "Travaillez-vous à distance ou sur site ?",
-            "answer": "Les deux : à distance partout en France, et sur site autour de Toulouse quand c'est utile."
+            "answer": "Les deux : à distance partout en France, sur site autour de Toulouse."
           },
           {
             "question": "Pouvez-vous reprendre une application existante ?",
-            "answer": "Oui. J'établis un état des lieux du code et des données, puis je propose une évolution progressive plutôt qu'une réécriture risquée."
+            "answer": "Oui : état des lieux du code et des données, puis évolution progressive plutôt que réécriture risquée."
           },
           {
             "question": "Quelle place a l'IA, et mon code reste-t-il confidentiel ?",
@@ -190,7 +190,7 @@
     "consulting": {
       "meta": {
         "title": "Consultant full stack senior & tech lead",
-        "description": "Consultant full stack senior et tech lead TypeScript, React, Node.js : architecture, delivery industrialisé et ingénierie agentique pour ESN et grands comptes.",
+        "description": "Consultant full stack senior et tech lead TypeScript, React, Node.js : architecture, delivery industrialisé, ingénierie agentique. Missions en entreprise ou ESN.",
         "keywords": [
           "consultant full stack senior",
           "tech lead freelance TypeScript",
@@ -201,9 +201,9 @@
         "breadcrumb": "Consultant full stack"
       },
       "hero": {
-        "eyebrow": "ESN et grands comptes",
+        "eyebrow": "Missions de conseil et de tech lead",
         "title": "Consultant full stack senior & tech lead",
-        "pitch": "Ingénieur passé par la défense, l'énergie et le spatial. J'ai conçu un système d'information complet, de l'architecture à l'exploitation.",
+        "pitch": "Ingénieur ayant travaillé dans la défense, l'énergie et le spatial. J'ai conçu un système d'information complet, de l'architecture à l'exploitation.",
         "primaryCta": "Proposer une mission",
         "secondaryCta": "Voir les réalisations",
         "proofs": [
@@ -215,7 +215,7 @@
       "expertise": {
         "eyebrow": "Compétences",
         "title": "Architecture, sécurité et industrialisation",
-        "intro": "Le socle attendu d'un consultant senior, avec l'accent sur la sécurité, la qualité et l'exploitation."
+        "intro": "Sécurité, qualité, exploitation : le socle d'un consultant senior."
       },
       "agentic": {
         "intro": "L'enjeu n'est pas d'utiliser l'IA, mais de l'industrialiser sans perdre la maîtrise."
@@ -232,27 +232,27 @@
       },
       "terms": {
         "eyebrow": "Modalités",
-        "title": "Un cadre d'intervention flexible",
-        "intro": "Les modalités s'adaptent à la mission et à votre organisation.",
+        "title": "Un cadre d'intervention souple",
+        "intro": "S'adapte à la mission et à votre organisation.",
         "items": [
           {
             "title": "Régie ou forfait",
-            "description": "Intégration à vos équipes en régie, ou engagement au forfait sur un périmètre défini."
+            "description": "En régie dans vos équipes, ou au forfait sur un périmètre défini."
           },
           {
             "title": "Remote ou hybride",
-            "description": "À distance, ou en hybride autour de Toulouse selon les besoins de la mission."
+            "description": "À distance, ou hybride autour de Toulouse selon la mission."
           },
           {
             "title": "Disponibilité",
-            "description": "Date de démarrage et durée d'engagement à convenir ensemble selon le calendrier de la mission."
+            "description": "Démarrage et durée à convenir selon le calendrier de la mission."
           }
         ]
       },
       "audiences": {
-        "eyebrow": "Autres profils",
-        "title": "Vous êtes plutôt…",
-        "intro": "Le même parcours, présenté pour d'autres besoins."
+        "eyebrow": "Autres besoins",
+        "title": "Vous cherchez plutôt…",
+        "intro": "Le même parcours, selon votre besoin."
       },
       "cta": {
         "title": "Une mission à pourvoir ?",
@@ -274,9 +274,9 @@
         "breadcrumb": "Recruteurs"
       },
       "hero": {
-        "eyebrow": "Recruteurs et entreprises qui recrutent",
+        "eyebrow": "Recrutement : lead developer et architecte",
         "title": "Lead developer & architecte logiciel full stack",
-        "pitch": "Ingénieur formé à l'IA et à la robotique, passé par de grands groupes. J'ai conçu, livré et exploité seul un système d'information entier.",
+        "pitch": "Ingénieur formé à l'IA et à la robotique, avec plusieurs années en grands groupes. J'ai conçu, livré et exploité seul un système d'information entier.",
         "primaryCta": "Échanger sur une opportunité",
         "secondaryCta": "Voir les réalisations",
         "proofs": [
@@ -292,7 +292,7 @@
         "items": [
           {
             "title": "Formation",
-            "description": "Grande école d'ingénieurs en intelligence artificielle et en robotique, puis plusieurs années de développement en grands groupes."
+            "description": "Grande école d'ingénieurs en IA et robotique, puis plusieurs années de développement en grands groupes."
           },
           {
             "title": "Philosophie d'ingénierie",
@@ -320,7 +320,7 @@
       "seeking": {
         "eyebrow": "Ce que je recherche",
         "title": "Des postes à responsabilité technique",
-        "intro": "Je suis ouvert à des postes où l'architecture, la qualité et l'IA agentique ont un vrai poids.",
+        "intro": "Des postes où l'architecture, la qualité et l'IA agentique pèsent vraiment.",
         "items": [
           {
             "title": "Lead developer",
@@ -337,9 +337,9 @@
         ]
       },
       "audiences": {
-        "eyebrow": "Autres profils",
-        "title": "Vous êtes plutôt…",
-        "intro": "Le même parcours, présenté pour d'autres besoins."
+        "eyebrow": "Autres besoins",
+        "title": "Vous cherchez plutôt…",
+        "intro": "Le même parcours, selon votre besoin."
       },
       "cta": {
         "title": "Échangeons sur votre opportunité",
@@ -353,11 +353,11 @@
       "labels": {
         "home": "Expérience en grands groupes",
         "freelance": "Un parcours en grands groupes",
-        "consulting": "Environnements grands comptes",
+        "consulting": "Expérience en grands groupes",
         "recruiters": "Parcours professionnel"
       },
       "title": "Des projets livrés pour de grands groupes",
-      "intro": "Défense, énergie, spatial, aéronautique, recherche en IA : les contextes où j'ai conçu et livré des logiciels.",
+      "intro": "Défense, énergie, spatial, aéronautique, recherche en IA.",
       "notice": "Organisations citées comme références d'expérience. Logos propriété de leurs détenteurs.",
       "sectors": {
         "energy": "Énergie",
@@ -386,19 +386,19 @@
           "title": "Architecture & backend",
           "skills": "Idempotence, verrous de concurrence, workers, tâches planifiées, workflows et machines à états.",
           "businessTitle": "Des applications de gestion fiables",
-          "businessDescription": "Un outil central qui regroupe vos données, automatise les tâches répétitives et reste fiable quand l'activité s'intensifie : pas de doublon, pas de commande perdue."
+          "businessDescription": "Un outil central qui regroupe vos données et automatise les tâches répétitives, sans doublon ni commande perdue."
         },
         "frontend": {
           "title": "Frontend & produit",
           "skills": "Génération de PDF, signature électronique, capture photo terrain, SEO technique.",
           "businessTitle": "Des écrans que vos équipes adoptent",
-          "businessDescription": "Des interfaces claires pour le bureau, l'atelier ou le terrain : devis et contrats signés en ligne, photos, PDF, sur ordinateur, tablette ou mobile."
+          "businessDescription": "Des écrans clairs pour le bureau, l'atelier ou le terrain : devis signés en ligne, photos, PDF, sur tous supports."
         },
         "security": {
           "title": "Sécurité & identité",
           "skills": "Sessions HttpOnly et CSRF, chiffrement AES-256-GCM, rate limiting, durcissement serveur.",
           "businessTitle": "Des accès et des données protégés",
-          "businessDescription": "Un compte sécurisé par collaborateur, une double authentification, des accès révocables en un clic et des données sensibles chiffrées.",
+          "businessDescription": "Un compte par collaborateur, double authentification, accès révocables en un clic, données sensibles chiffrées.",
           "details": [
             "Fournisseur d'identité auto-hébergé, configuré uniquement par CI",
             "Jetons conservés côté serveur (pattern BFF), sessions opaques HttpOnly",
@@ -409,7 +409,7 @@
           "title": "DevOps & exploitation",
           "skills": "Déploiements reproductibles, rollback par tag, supervision, alertes et sauvegardes dédupliquées en mode pull.",
           "businessTitle": "En ligne, surveillé et sauvegardé",
-          "businessDescription": "Des mises en ligne maîtrisées avec retour arrière rapide, une supervision qui alerte avant vous et des sauvegardes vérifiées.",
+          "businessDescription": "Mises en ligne maîtrisées avec retour arrière rapide, supervision qui alerte avant vous, sauvegardes vérifiées.",
           "details": [
             "Images Docker taguées par commit et rollback par tag",
             "Métriques, logs et alertes : Prometheus, Grafana, Loki, Alertmanager",
@@ -420,13 +420,13 @@
           "title": "Intégrations métier",
           "skills": "Paiement en ligne, ERP, facturation électronique, agendas, e-mails transactionnels, et matériel de caisse.",
           "businessTitle": "E-commerce, ERP et caisse connectés",
-          "businessDescription": "Boutique en ligne, paiement, ERP, facturation électronique, agenda et matériel de caisse travaillent ensemble : fini la double saisie."
+          "businessDescription": "Boutique, paiement, ERP, facturation électronique, agenda et caisse travaillent ensemble : fini la double saisie."
         },
         "ai": {
           "title": "IA & data",
           "skills": "Formation d'ingénieur en IA et robotique : ML, deep learning, apprentissage par renforcement, NLP, explicabilité.",
           "businessTitle": "Automatisation et IA maîtrisée",
-          "businessDescription": "Import de catalogues, rapprochement bancaire, tâches planifiées : je supprime les saisies manuelles, et l'IA accélère le développement sous mon contrôle."
+          "businessDescription": "Import de catalogues, rapprochement bancaire, tâches planifiées : les saisies manuelles disparaissent."
         }
       }
     },
@@ -434,7 +434,7 @@
       "eyebrow": "Intelligence artificielle",
       "title": "Ingénierie agentique : l'IA sous contrôle d'un ingénieur",
       "motto": "Ingénieur d'abord. L'IA exécute ; je conçois, je décide, je relis et je prouve.",
-      "intro": "Je ne délègue pas ma compréhension : je cadre, j'orchestre, je relis chaque changement et je garde le dernier mot.",
+      "intro": "Je ne délègue pas ma compréhension : chaque changement est relu, et je garde le dernier mot.",
       "moreLink": "Voir la méthode en détail",
       "comparison": {
         "title": "Pas du vibe coding",
@@ -464,22 +464,22 @@
       "pillars": {
         "frame": {
           "title": "Cadrer avant de générer",
-          "description": "Le besoin devient des specs versionnées, découpées en livrables avec critères d'acceptation. Un contrat par dépôt fixe les règles.",
+          "description": "Des specs versionnées, découpées en livrables avec critères d'acceptation ; un contrat d'instructions par dépôt.",
           "proof": "Une roadmap de 28 livrables a mené le déploiement du SSO sur 9 applications."
         },
         "orchestrate": {
           "title": "Orchestrer",
-          "description": "Plan validé avant tout code, sous-agents spécialisés, effort calibré selon le risque, worktrees pour paralléliser sans conflit.",
-          "proof": "Une session vierge exécute ce qu'une autre a planifié, pour éliminer le biais de confirmation."
+          "description": "Plan validé avant tout code, sous-agents spécialisés, worktrees pour paralléliser sans conflit.",
+          "proof": "Une session vierge exécute le plan d'une autre : pas de biais de confirmation."
         },
         "guard": {
           "title": "Encadrer",
-          "description": "Hooks déterministes, permissions restreintes, aucun secret confié à l'IA. L'autonomie est bornée, l'escalade humaine explicite.",
+          "description": "Hooks déterministes, permissions restreintes, aucun secret confié à l'IA, escalade humaine explicite.",
           "proof": "Les garde-fous sont techniques, pas seulement des consignes."
         },
         "prove": {
           "title": "Prouver",
-          "description": "Tests qui échouent d'abord, puis recette multi-agents dans un vrai navigateur. Chaque verdict est re-mesuré, les preuves conservées.",
+          "description": "Tests écrits d'abord, puis recette multi-agents dans un vrai navigateur ; chaque verdict est re-mesuré.",
           "proof": "5 campagnes, plus de 800 cas, jusqu'à 11 agents en parallèle."
         },
         "decide": {
@@ -489,8 +489,8 @@
         },
         "capitalize": {
           "title": "Capitaliser et rester à la pointe",
-          "description": "Skills réutilisables, registre des pièges, wiki mis à jour dans le même patch, mémoire long terme partagée entre agents.",
-          "proof": "Veille active : agentic engineering, spec-driven development, MCP, évolutions de Claude Code et Codex."
+          "description": "Skills réutilisables, wiki mis à jour dans le même patch, mémoire partagée entre agents.",
+          "proof": "Veille active : spec-driven development, MCP, Claude Code, Codex."
         }
       },
       "workflow": {
@@ -527,7 +527,7 @@
         "items": [
           {
             "title": "Des délais réduits",
-            "description": "L'IA prend en charge l'exécution répétitive : vous disposez plus vite d'une version utilisable."
+            "description": "L'IA prend en charge l'exécution répétitive : une version utilisable plus tôt."
           },
           {
             "title": "Une qualité contrôlée",
@@ -541,7 +541,7 @@
       },
       "team": {
         "title": "Industrialiser l'IA dans une équipe",
-        "intro": "Ce que j'applique seul se transpose à une équipe, avec des règles partagées plutôt que des usages individuels.",
+        "intro": "Des règles partagées plutôt que des usages individuels.",
         "items": [
           {
             "title": "Conventions partagées",
@@ -553,7 +553,7 @@
           },
           {
             "title": "Garde-fous",
-            "description": "Hooks, permissions et revues obligatoires : l'IA reste dans un cadre technique, pas seulement déclaratif."
+            "description": "Hooks, permissions et revues obligatoires : un cadre technique, pas seulement déclaratif."
           },
           {
             "title": "Montée en compétence",
@@ -566,19 +566,19 @@
       "client": [
         {
           "title": "Comprendre votre métier",
-          "description": "J'écoute vos contraintes, vos habitudes et vos irritants avant de parler technique."
+          "description": "J'écoute vos contraintes et vos irritants avant de parler technique."
         },
         {
           "title": "Cadrer et chiffrer",
-          "description": "Une spécification claire et un devis détaillé : vous savez ce qui sera livré, quand et pour combien."
+          "description": "Spécification claire et devis détaillé : quoi, quand, combien."
         },
         {
-          "title": "Construire par incréments démontrables",
-          "description": "Des versions régulières que vous testez vous-même, pour ajuster tôt plutôt que tard."
+          "title": "Construire par étapes",
+          "description": "Des versions régulières que vous testez, pour ajuster tôt."
         },
         {
           "title": "Recette et mise en production",
-          "description": "Tests, recette et mise en ligne encadrée, avec reprise des données si nécessaire."
+          "description": "Tests, recette, mise en ligne encadrée, reprise des données si besoin."
         },
         {
           "title": "Maintenir et faire évoluer",
@@ -587,8 +587,8 @@
       ],
       "mission": [
         {
-          "title": "Immersion dans le SI et les contraintes",
-          "description": "Comprendre l'existant, les enjeux métier, la sécurité et l'organisation avant de proposer."
+          "title": "Immersion",
+          "description": "Comprendre l'existant, le métier et les contraintes avant de proposer."
         },
         {
           "title": "Architecture et découpage",
@@ -611,18 +611,18 @@
     "audiences": {
       "items": {
         "freelance": {
-          "title": "Une entreprise / un porteur de projet",
-          "description": "Vous avez besoin d'un outil de gestion, d'une boutique en ligne ou d'un site qui travaille pour vous.",
+          "title": "Un projet à réaliser",
+          "description": "Un outil de gestion, une boutique en ligne ou un site qui travaille pour vous.",
           "cta": "Voir l'offre freelance"
         },
         "consulting": {
-          "title": "Une ESN / un grand compte",
-          "description": "Vous cherchez un consultant full stack senior ou un tech lead pour une mission exigeante.",
+          "title": "Une mission à confier",
+          "description": "Un consultant full stack senior ou un tech lead, en régie ou au forfait.",
           "cta": "Voir le profil consultant"
         },
         "recruiters": {
-          "title": "Un recruteur",
-          "description": "Vous recrutez un lead developer, un architecte logiciel ou un tech lead IA.",
+          "title": "Un poste à pourvoir",
+          "description": "Un lead developer, un architecte logiciel ou un tech lead IA.",
           "cta": "Voir le profil recruteurs"
         }
       }
@@ -689,7 +689,7 @@
     },
     "cta": {
       "title": "Un projet en tête ?",
-      "description": "Parlons de votre contexte : je vous dis franchement ce qui est faisable, comment et dans quels délais.",
+      "description": "Parlons de votre contexte : je vous dis franchement ce qui est faisable, et en combien de temps.",
       "contact": "Discutons de votre projet",
       "quote": "Demander un devis"
     }
@@ -717,7 +717,7 @@
     },
     "cta": {
       "title": "Un projet de cette envergure ?",
-      "description": "Parlons de votre contexte : je vous dis franchement ce qui est faisable, comment et dans quels délais.",
+      "description": "Parlons de votre contexte : je vous dis franchement ce qui est faisable, et en combien de temps.",
       "contact": "Discutons de votre projet",
       "quote": "Demander un devis"
     }
@@ -741,7 +741,7 @@
     "noCode": {
       "eyebrow": "Question fréquente",
       "title": "Pourquoi ne pas utiliser simplement un outil d'IA ou de no-code ?",
-      "intro": "Ces outils sont excellents pour maquetter. Voici ce qui change quand le logiciel doit tourner tous les jours.",
+      "intro": "Excellents pour maquetter. Voici ce qui change quand le logiciel doit tourner tous les jours.",
       "items": [
         {
           "title": "Une maquette n'est pas un système",
@@ -749,7 +749,7 @@
         },
         {
           "title": "La production a ses exigences",
-          "description": "Authentification, sauvegardes, données personnelles, supervision, montée en charge, tests : ce qui sépare une démo d'un outil fiable."
+          "description": "Authentification, sauvegardes, RGPD, supervision, tests : ce qui sépare une démo d'un outil fiable."
         },
         {
           "title": "Vous restez propriétaire et libre",
@@ -841,12 +841,12 @@
     "sendMessage": "Envoyer un message",
     "form": {
       "profile": {
-        "label": "Vous êtes",
+        "label": "Vous cherchez",
         "placeholder": "Sélectionnez votre profil",
         "options": {
-          "freelance": "Une entreprise / un porteur de projet",
-          "consulting": "Une ESN / un grand compte",
-          "recruiters": "Un recruteur",
+          "freelance": "Un développeur pour un projet",
+          "consulting": "Un consultant pour une mission",
+          "recruiters": "Un profil à recruter",
           "other": "Autre"
         }
       },

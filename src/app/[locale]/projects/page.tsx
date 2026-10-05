@@ -71,6 +71,7 @@ export default async function ProjectsPage({ params }: Props) {
       </Section>
 
       <CtaBanner
+        tone="muted"
         title={t("cta.title")}
         description={t("cta.description")}
         primary={{ label: t("cta.contact"), href: "/contact" }}

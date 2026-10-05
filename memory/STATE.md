@@ -31,6 +31,14 @@ and the whole site was cut down editorially. See
   no client, no business vocabulary, no data volume.
 - Editorial pass: site copy and the 15 existing case studies cut by roughly a
   third, without changing a single figure that was kept.
+- Copy pass of 2026-10-06: audience labels say the need, not the jargon
+  ("Une mission à confier", no "ESN / grands comptes"; ESN only appears in
+  the consulting meta description; recruiters eyebrow "Recrutement : lead
+  developer et architecte"); the repeated project `role` sentence is shortened;
+  FAQ, process, agentic and expertise copy
+  tightened in FR and EN. Section rhythm: every section is `py-16 md:py-24`
+  (hero included), blocks inside a section are spaced `10/14`, and the CTA
+  band always takes the tone opposite to the section before it.
 - `Reveal` is a pure CSS entrance animation (server component, no
   IntersectionObserver): content on screen can no longer stay hidden. The
   desktop navigation has a home link.
@@ -46,6 +54,12 @@ and the whole site was cut down editorially. See
   nothing hidden on first paint, both anonymization greps empty, and
   Lighthouse mobile 100 in accessibility, SEO, best practices and agentic
   browsing on `/`, `/projets` and a project page.
+
+- Security and SEO pass of 2026-10-06: mail routes hardened (see
+  [decisions](DECISIONS.md)), new profile photo in `public/charles-hl-profile.jpg`
+  (1024 px square JPEG, same path so the JSON-LD `image` is unchanged), and a
+  rendered-HTML audit of the 50 sitemap URLs: title ≤ 60, description
+  120–165, self canonical, 3 hreflang, one `h1` each.
 
 ## To validate with Charles
 
@@ -64,7 +78,7 @@ and the whole site was cut down editorially. See
 ## Next Resumption
 
 Get Charles's validation on the points above, then add real project covers
-(`cover` field) when screenshots exist. Changes are not committed yet.
+(`cover` field) when screenshots exist. Changes are committed and pushed to `master`.
 
 ## Blockers
 

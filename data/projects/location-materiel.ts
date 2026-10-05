@@ -18,13 +18,17 @@ const project = {
     fr: "Deux applications de location : flotte, réservations sans conflit, prix et paiements suivis, puis remise au client avec contrat signé sur tablette.",
     en: "Two rental apps: fleet, conflict-free bookings, pricing and payment tracking, then customer handover with a PDF contract signed on a tablet.",
   },
+  metaTitle: {
+    fr: "Location de matériel : flotte, réservations et contrat signé",
+    en: "Equipment rental: fleet, bookings and signed contract",
+  },
   context: {
     fr: "Une PME de distribution et de services loue du matériel à ses clients. Il faut connaître l'état de la flotte, empêcher qu'une machine soit louée deux fois sur la même période, calculer les prix et suivre les paiements jusqu'au contrat signé.",
     en: "A distribution and services SME rents out equipment to its customers. It needs to know the state of its fleet, prevent a machine from being rented twice over the same period, calculate prices and track payments through to a signed contract.",
   },
   role: {
-    fr: "Conception, architecture, développement et mise en production des deux applications, en autonomie complète.",
-    en: "Design, architecture, development and deployment of both applications, fully autonomously.",
+    fr: "De la conception à la mise en production des deux applications, en autonomie complète.",
+    en: "From design to deployment of both applications, fully autonomously.",
   },
   solution: {
     fr: "L'application de gestion de flotte couvre les machines, leurs variantes, les accessoires, les entretiens, la caution et les heures moteur. Les réservations bloquent les périodes déjà louées et calculent le prix : livraison, acompte, accessoires au jour ou au forfait. Les réservations en ligne arrivent depuis la boutique.\n\nL'application de remise guide la location sur tablette en 5 étapes : identité, photos, contrat, signature, finalisation. Le contrat PDF est généré dans le navigateur, prévisualisé puis envoyé par e-mail. Côté API, les demandes de paiement partent avec un QR code de virement.",

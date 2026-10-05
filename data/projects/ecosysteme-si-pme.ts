@@ -18,13 +18,17 @@ const project = {
     fr: "Un SI complet pour une PME : API centrale, e-commerce, ERP et caisse, SSO et 6 applications métier.",
     en: "A complete information system for an SME: central API, e-commerce, ERP and point of sale, SSO and 6 business apps.",
   },
+  metaDescription: {
+    fr: "Un SI complet pour une PME : API centrale, e-commerce, ERP et caisse, SSO et 6 applications métier, conçu et mis en production par un seul ingénieur.",
+    en: "A complete information system for an SME: central API, e-commerce, ERP and point of sale, SSO and 6 business apps, designed and shipped by one engineer.",
+  },
   context: {
     fr: "Une PME de distribution et de services fonctionnait avec des tableurs, des e-mails et des outils disparates. Il fallait unifier les ventes, l'atelier, la location, la facturation, le stock et la vente en ligne.",
     en: "A distribution and services SME was running on spreadsheets, e-mails and disconnected tools. Sales, workshop, rentals, invoicing, stock and online sales had to be unified.",
   },
   role: {
-    fr: "Conception, architecture, développement, mise en production et exploitation, en autonomie complète.",
-    en: "Design, architecture, development, deployment and operations, fully autonomously.",
+    fr: "De la conception à l'exploitation, en autonomie complète.",
+    en: "From design to operations, fully autonomously.",
   },
   solution: {
     fr: "J'ai conçu et construit 13 applications et services interconnectés. Au centre, une API métier unique et une plateforme e-commerce reliée à un ERP sur mesure avec caisse connectée.\n\nAutour, six applications métier couvrent l'atelier, le terrain, l'installation, la location, le rapprochement bancaire et la vente de robots. Un SSO commun et un design system partagé unifient les accès et les interfaces. Le tout tourne sur 2 serveurs de production supervisés.",
