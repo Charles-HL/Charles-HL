@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useLocale } from "next-intl";
 
 interface ApiResponse {
@@ -11,6 +11,17 @@ interface ApiResponse {
 }
 
 export type SubmitStatus = "idle" | "success" | "error";
+
+/** Cloudflare Turnstile state shared with `TurnstileField`. */
+export interface CaptchaState {
+  /** Public site key; without it the captcha is off. */
+  siteKey?: string;
+  onToken: (token: string) => void;
+  /** Incremented after each submission so the widget issues a fresh token. */
+  resetSignal: number;
+}
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || undefined;
 
 interface Options {
   endpoint: "/api/contact" | "/api/quote";
@@ -26,6 +37,9 @@ export function useFormSubmission({ endpoint, successMessage, errorMessage }: Op
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [message, setMessage] = useState("");
   const [details, setDetails] = useState<string[]>([]);
+  const [captchaToken, setCaptchaToken] = useState("");
+  const [captchaResets, setCaptchaResets] = useState(0);
+  const onCaptchaToken = useCallback((token: string) => setCaptchaToken(token), []);
 
   // Scroll automatique vers le message de statut
   useEffect(() => {
@@ -42,7 +56,7 @@ export function useFormSubmission({ endpoint, successMessage, errorMessage }: Op
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, locale }),
+        body: JSON.stringify({ ...payload, locale, turnstileToken: captchaToken }),
       });
       const result: ApiResponse = await response.json();
 
@@ -65,8 +79,19 @@ export function useFormSubmission({ endpoint, successMessage, errorMessage }: Op
       return false;
     } finally {
       setIsSubmitting(false);
+      if (TURNSTILE_SITE_KEY) {
+        setCaptchaToken("");
+        setCaptchaResets((count) => count + 1);
+      }
     }
   };
 
-  return { isSubmitting, status, message, details, statusRef, submit };
+  const captcha: CaptchaState = {
+    siteKey: TURNSTILE_SITE_KEY,
+    onToken: onCaptchaToken,
+    resetSignal: captchaResets,
+  };
+  const captchaReady = !TURNSTILE_SITE_KEY || captchaToken.length > 0;
+
+  return { isSubmitting, status, message, details, statusRef, submit, captcha, captchaReady };
 }

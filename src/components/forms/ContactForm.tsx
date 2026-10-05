@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { CONTACT_PROFILES, type ContactProfile } from "@/content/audiences";
 import FormStatus from "./FormStatus";
 import HoneypotField from "./HoneypotField";
+import TurnstileField from "./TurnstileField";
 import { fieldClass, labelClass } from "./form-styles";
 import { useFormSubmission } from "./useFormSubmission";
 
@@ -25,7 +26,7 @@ const emptyForm = (profile: ContactProfile | "" = "") => ({
 export default function ContactForm({ initialProfile }: ContactFormProps) {
   const t = useTranslations("contact");
   const [formData, setFormData] = useState(emptyForm(initialProfile));
-  const { isSubmitting, status, message, details, statusRef, submit } =
+  const { isSubmitting, status, message, details, statusRef, submit, captcha, captchaReady } =
     useFormSubmission({
       endpoint: "/api/contact",
       successMessage: t("form.success"),
@@ -111,9 +112,11 @@ export default function ContactForm({ initialProfile }: ContactFormProps) {
           />
         </div>
 
+        <TurnstileField captcha={captcha} />
+
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !captchaReady}
           className="w-full cursor-pointer rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:from-blue-700 hover:to-purple-700 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
         >
           {isSubmitting ? t("form.sending") : t("form.send")}

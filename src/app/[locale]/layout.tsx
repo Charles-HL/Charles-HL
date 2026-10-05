@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { Locale, hasLocale, NextIntlClientProvider } from "next-intl";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import { Inter } from "next/font/google";
@@ -15,7 +15,8 @@ import "../globals.css";
 
 type Props = {
   children: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  /** Validated with `hasLocale` below: Next types route params as plain strings. */
+  params: Promise<{ locale: string }>;
 };
 
 const inter = Inter({ subsets: ["latin"] });
@@ -26,7 +27,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata(props: Omit<Props, "children">) {
   const { locale } = await props.params;
-  return buildBaseMetadata(locale);
+  return buildBaseMetadata(
+    hasLocale(routing.locales, locale) ? locale : routing.defaultLocale
+  );
 }
 
 export default async function LocaleLayout({ children, params }: Props) {

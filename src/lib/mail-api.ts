@@ -1,5 +1,6 @@
 import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
+import { verifyTurnstileToken } from "@/lib/turnstile";
 import type { Locale } from "@/lib/validation-messages";
 
 /** Shared plumbing of the `/api/contact` and `/api/quote` mail routes. */
@@ -53,11 +54,13 @@ const hits = new Map<string, number[]>();
  * Best-effort limit per client IP (memory of the running instance): it stops a
  * script from emptying the Gmail quota, without needing external storage.
  */
+export const getClientIp = (request: NextRequest) =>
+  request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+  request.headers.get("x-real-ip") ||
+  "unknown";
+
 export const isRateLimited = (request: NextRequest, now = Date.now()) => {
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-    request.headers.get("x-real-ip") ||
-    "unknown";
+  const ip = getClientIp(request);
   const recent = (hits.get(ip) ?? []).filter((time) => now - time < RATE_LIMIT_WINDOW_MS);
 
   if (recent.length >= RATE_LIMIT_MAX) {
@@ -76,3 +79,12 @@ export const isRateLimited = (request: NextRequest, now = Date.now()) => {
   }
   return false;
 };
+
+/** Turnstile token sent by the form next to its fields (`turnstileToken`). */
+export const hasValidCaptcha = (request: NextRequest, body: unknown) =>
+  verifyTurnstileToken(
+    typeof body === "object" && body !== null
+      ? (body as Record<string, unknown>).turnstileToken
+      : undefined,
+    getClientIp(request)
+  );

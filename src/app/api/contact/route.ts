@@ -4,6 +4,7 @@ import { escapeHtml } from "@/lib/escape-html";
 import {
   createTransporter,
   getLocaleFromRequest,
+  hasValidCaptcha,
   isHoneypotFilled,
   isRateLimited,
   isSmtpConfigured,
@@ -116,6 +117,14 @@ export async function POST(request: NextRequest) {
 
     // Récupération de la locale
     const locale = getLocaleFromRequest(request, body);
+
+    // Vérification Cloudflare Turnstile (active dès que TURNSTILE_SECRET_KEY est définie)
+    if (!(await hasValidCaptcha(request, body))) {
+      return NextResponse.json(
+        { success: false, error: getValidationMessage("captchaFailed", locale) },
+        { status: 400 }
+      );
+    }
 
     // Validation des données
     const validation = validateContactData(body, locale);

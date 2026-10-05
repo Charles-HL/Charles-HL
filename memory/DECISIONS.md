@@ -165,3 +165,21 @@ git history); checked by building with a canary value and grepping
 (no shared store), which is enough against a naive script. The consulting and
 recruiters landings now carry `Service` and `ProfilePage` JSON-LD like the
 freelance one carries `ProfessionalService`.
+
+## 2026-10-06 — Cloudflare Turnstile on the contact and quote forms
+
+**Decision:** Both forms show a Cloudflare Turnstile widget (managed mode).
+`useFormSubmission` owns the token and sends it as `turnstileToken`;
+`src/lib/turnstile.ts` verifies it server-side before any mail work, answering
+400 on failure. The check is enforced as soon as `TURNSTILE_SECRET_KEY` is set
+and the widget appears when `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set: define
+both or none (see `.env.example`). Widget created in the Cloudflare account of
+`charleshl.com` for `charleshl.com`, `www.charleshl.com` and `localhost`.
+
+**Rationale:** The honeypot and rate limit stop naive scripts only; Turnstile
+stops real bots without a visible puzzle in most cases. Both variables are set
+in Vercel **Production only** on purpose: preview URLs (`*.vercel.app`) are not
+in the widget's domain list, so previews and local builds without the keys run
+without the captcha. A token is single-use, so the widget is reset after every
+attempt. Tested with Cloudflare's dummy keys (always pass / always fail) and a
+real token (accepted once, rejected on replay and when empty).

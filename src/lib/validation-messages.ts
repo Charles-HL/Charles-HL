@@ -4,6 +4,7 @@ export const validationMessages = {
     // Messages généraux
     invalidDataFormat: "Format de données invalide",
     validationErrorsDetected: "Erreurs de validation détectées",
+    captchaFailed: "La vérification anti-robot a échoué. Rechargez la page et réessayez.",
 
     // Validation des noms
     firstNameRequired:
@@ -91,6 +92,7 @@ export const validationMessages = {
     // General messages
     invalidDataFormat: "Invalid data format",
     validationErrorsDetected: "Validation errors detected",
+    captchaFailed: "The anti-bot check failed. Reload the page and try again.",
 
     // Name validation
     firstNameRequired: "First name is required and must be a string",

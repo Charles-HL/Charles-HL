@@ -60,6 +60,14 @@ and the whole site was cut down editorially. See
   (1024 px square JPEG, same path so the JSON-LD `image` is unchanged), and a
   rendered-HTML audit of the 50 sitemap URLs: title ≤ 60, description
   120–165, self canonical, 3 hreflang, one `h1` each.
+- Deployment blocker fixed on 2026-10-06: Vercel refused Next.js 15.4.1
+  ("Vulnerable version"). Now `next` 15.5.27, `next-intl` 4.14, `nodemailer` 10;
+  `@types/nodemailer` moved to devDependencies. Remaining `npm audit` items are
+  transitive (postcss, sharp, nanoid inside Next).
+- Cloudflare Turnstile on both forms (see [decisions](DECISIONS.md)).
+- Vercel: the portfolio lives in scope `charles-hl`, project `charles-hl`. The
+  Vercel MCP is signed in to another account (Forestar), so use the CLI
+  (`npx vercel inspect <dpl> --logs --scope charles-hl`) to read deployments.
 
 ## To validate with Charles
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import FormStatus from "./FormStatus";
 import HoneypotField from "./HoneypotField";
+import TurnstileField from "./TurnstileField";
 import { fieldClass, labelClass } from "./form-styles";
 import { useFormSubmission } from "./useFormSubmission";
 
@@ -27,7 +28,7 @@ const emptyForm = {
 export default function QuoteForm() {
   const t = useTranslations("quote.form");
   const [formData, setFormData] = useState(emptyForm);
-  const { isSubmitting, status, message, details, statusRef, submit } =
+  const { isSubmitting, status, message, details, statusRef, submit, captcha, captchaReady } =
     useFormSubmission({
       endpoint: "/api/quote",
       successMessage: t("success"),
@@ -218,10 +219,12 @@ export default function QuoteForm() {
           </div>
         ))}
 
+        <TurnstileField captcha={captcha} />
+
         <div className="text-center">
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !captchaReady}
             className="cursor-pointer rounded-full bg-gradient-to-r from-blue-600 to-purple-600 px-12 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-700 hover:to-purple-700 disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100"
           >
             {isSubmitting ? t("submitting") : t("submit")}
