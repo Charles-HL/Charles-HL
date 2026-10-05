@@ -116,16 +116,25 @@ finishes a wall of text, so the pages that convert are the ones that get to
 the point. Cutting is editing, never inventing: no figure was changed, only
 removed with its sentence.
 
-## 2026-10-04 — Reveal animations must not hide what is on screen
+## 2026-10-06 — Reveal is a CSS animation on load, not a scroll trigger
 
-**Decision:** `Reveal` uses `viewport={{ once: true, amount: 0, margin: "0px
-0px 15% 0px" }}`. The margin is positive, so the animation starts slightly
-before the element is reached.
+**Decision:** `Reveal` is a server component that renders a `[data-reveal]`
+div; `globals.css` plays `fadeInUp` on it at load, and disables it under
+`prefers-reduced-motion`. No IntersectionObserver, no framer-motion, no client
+JavaScript.
 
-**Rationale:** The previous negative bottom margin (`-10%`) shrank the
-observed area, so an element sitting in the lower tenth of the screen stayed
-invisible until the first scroll. Content already on screen must be readable
-without interacting.
+**Rationale:** Two successive viewport-margin fixes failed to make the
+scroll-triggered version reliable. An IntersectionObserver reports the state
+it sees when it starts observing and then only reacts to changes, and it
+cannot run before hydration, so content already on screen could stay at
+`opacity: 0` until the visitor scrolled — the bug Charles reported twice. A
+CSS animation always runs to completion, with or without JavaScript, and the
+component left the client bundle. The scroll-in effect is lost; reliability is
+worth more than the effect.
+
+Checked with CDP over 17 pages x 5 viewport sizes (390 to 2560 px wide), on a
+direct load, through in-page navigation, back and reload, and with JavaScript
+execution disabled: nothing on screen stays hidden.
 
 ## 2026-10-04 — Ship only the translations client components need
 

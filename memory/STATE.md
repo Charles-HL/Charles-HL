@@ -31,8 +31,9 @@ and the whole site was cut down editorially. See
   no client, no business vocabulary, no data volume.
 - Editorial pass: site copy and the 15 existing case studies cut by roughly a
   third, without changing a single figure that was kept.
-- `Reveal` no longer hides content that is already on screen; the desktop
-  navigation has a home link.
+- `Reveal` is a pure CSS entrance animation (server component, no
+  IntersectionObserver): content on screen can no longer stay hidden. The
+  desktop navigation has a home link.
 - Contact form with a validated "profile" field prefilled by `?profil=`; HTML
   escaping of emails (`src/lib/escape-html.ts`).
 - Only the namespaces used by client components are sent to the browser
